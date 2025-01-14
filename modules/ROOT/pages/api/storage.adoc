@@ -1,0 +1,61 @@
+= storage
+:page-toclevels: 1
+
+Neutralinojs 内置了一个共享的键值存储。它就像一个适用于所有 Neutralinojs 模式的全局 `link:https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage[LocalStorage]`。`Neutralino.storage` 提供了用于与这一存储功能交互的方法。
+
+TIP: 存储 API 会将所有数据记录持久化到应用程序根目录下的 `.storage` 目录中。如果你想清除所有数据记录，只需删除 `.storage` 目录。
+
+[[storagesetdatakey-data]]
+== storage.setData(key, data)
+
+将数据写入 Neutralinojs 共享存储中。
+
+[[parameters]]
+=== 参数
+
+* `key` String：一个唯一的标识符。
+* `data` Object（可选）：数据，以字符串形式。如果此值为 `null` 或 `undefined`，则会从磁盘上删除特定的数据记录。
+
+[source,javascript]
+----
+await Neutralino.storage.setData('userDetails',
+                        JSON.stringify({ username: 'TestValue'})
+);
+----
+
+[[storagegetdatakey]]
+== storage.getData(key)
+
+读取并返回给定 Neutralinojs 共享存储键的数据。
+
+[[parameters-1]]
+=== 参数
+
+* `key` String：存储数据记录的标识符。
+
+[[return-string-awaited]]
+=== 返回 String（异步等待）：
+
+存储记录的数据字符串。
+
+[source,javascript]
+----
+let data = await Neutralino.storage.getData('userDetails');
+console.log(`Data: ${data}`);
+----
+
+[[storagegetkeys]]
+== storage.getKeys()
+
+返回所有存储键。
+
+[[return-array-awaited]]
+=== 返回 Array（异步等待）：
+
+一个包含现有存储键的字符串数组。
+
+[source,javascript]
+----
+let keys = await Neutralino.storage.getKeys();
+console.log('Keys: ', keys);
+----
