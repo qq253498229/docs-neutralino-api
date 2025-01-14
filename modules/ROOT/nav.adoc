@@ -14,3 +14,4 @@
 ** xref::api/updater.adoc[]
 ** xref::api/window.adoc[]
 ** xref::api/resources.adoc[]
+** xref::api/error-codes.adoc[]
