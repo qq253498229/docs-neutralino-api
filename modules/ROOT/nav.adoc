@@ -2,3 +2,4 @@
 ** xref::api/overview.adoc[]
 ** xref::api/app.adoc[]
 ** xref::api/clipboard.adoc[]
+** xref::api/computer.adoc[]
