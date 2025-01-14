@@ -8,3 +8,4 @@
 ** xref::api/events.adoc[]
 ** xref::api/extensions.adoc[]
 ** xref::api/filesystem.adoc[]
+** xref::api/init.adoc[]

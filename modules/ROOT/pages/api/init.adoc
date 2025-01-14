@@ -1,0 +1,43 @@
+= init
+
+`init` 不是一个命名空间，而是一个用于初始化 Neutralinojs 应用程序的函数。
+
+[[init]]
+== init()
+
+应用程序开发者需要在使用任何原生 API 函数之前，通过 JavaScript 源文件显式调用此方法。当调用 `init` 函数时，它会执行以下任务：
+
+* 异步启动与 Neutralinojs 服务器的 WebSocket 连接。
+* 如果提供了 `--neu-dev-auto-reload` 标志（`neu run` 命令会设置此标志），则注册自动重载事件处理器。
+* 在窗口作用域中定义 `NL_CVERSION`，其值为客户端库版本。
+
+你可以在调用 `init` 函数后立即进行原生 API 调用，如下所示：
+
+[source,javascript]
+----
+Neutralino.init();
+
+Neutralino.os.showMessageBox('Welcome', 'Hello Neutralinojs');
+----
+
+另外，如果你愿意，也可以将立即执行的原生调用包装在 `ready` 事件回调中。
+
+[source,javascript]
+----
+Neutralino.init();
+
+Neutralino.events.on('ready', () => {
+    Neutralino.os.showMessageBox('Welcome', 'Hello Neutralinojs');
+});
+----
+
+[source,javascript]
+----
+Neutralino.init();
+
+Neutralino.events.on('ready', () => {
+    Neutralino.os.showMessageBox('Welcome', 'Hello Neutralinojs');
+});
+----
+
+NOTE: Neutralinojs 客户端库通常会在 WebSocket 连接建立后，将原生 API 调用排队并发送到服务器。因此，你并不总是需要使用 `ready` 事件回调。
