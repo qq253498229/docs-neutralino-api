@@ -4,7 +4,9 @@
 `Neutralino.debug` 命名空间包含应用调试工具。
 
 [[debuglogmessage-type]]
-== debug.log(message, type)
+== 写入日志
+
+`debug.log(message, type)`
 
 将消息写入 `neutralinojs.log` 文件或/和标准输出流。
 

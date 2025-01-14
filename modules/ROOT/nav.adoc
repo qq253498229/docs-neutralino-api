@@ -5,3 +5,4 @@
 ** xref::api/computer.adoc[]
 ** xref::api/custom.adoc[]
 ** xref::api/debug.adoc[]
+** xref::api/events.adoc[]
