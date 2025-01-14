@@ -10,7 +10,9 @@ Neutralinojs 提供了扩展 API，允许使用任何编程语言编写自定义
 作为替代，开发者可以下载框架的 C++ 代码，对其进行修改并重新编译。但是，开发者在同步上游代码修改时可能会遇到问题。因此，Neutralinojs 提供了一个单独的命名空间、一个通用的 JavaScript 函数模板、预先开发的用于处理 JavaScript 到 C++ 参数映射的辅助函数（例如，`helpers::hasField(json, '<fieldname>')`），以及开发者指南，以在不更新框架核心的情况下向 Neutralinojs 框架添加自定义 API。
 
 [[customgetmethods]]
-== custom.getMethods()
+== 获取自定义方法
+
+`custom.getMethods()`
 
 返回应用开发者添加的所有自定义方法。
 
@@ -26,7 +28,9 @@ console.log(methods);
 ----
 
 [[customaddnum1-num2-options]]
-== custom.add(num1, num2, options)
+== 调用自定义方法
+
+`custom.add(num1, num2, options)`
 
 NOTE: 这是一个示例方法，官方的 Neutralinojs 框架构建默认不包含此方法。因此，你需要下载 Neutralinojs 框架源代码，并在 `link:https://github.com/neutralinojs/neutralinojs/tree/main/api/custom[custom]` 命名空间和 `link:https://github.com/neutralinojs/neutralinojs/blob/db457c717d789a040e70f0b8de9ddd412c8ec103/server/router.cpp#L122[router.cpp]` 中取消注释 `add` 方法。
 

@@ -4,7 +4,9 @@
 `Neutralino.clipboard` 命名空间提供了访问系统剪贴板的函数。
 
 [[clipboardgetformat]]
-== clipboard.getFormat()
+== 获取格式
+
+`clipboard.getFormat()`
 
 返回系统剪贴板当前的数据格式。
 
@@ -20,7 +22,9 @@ console.log(`Format: ${format}`);
 ----
 
 [[clipboardwritetexttext]]
-== clipboard.writeText(text)
+== 写入文本
+
+`clipboard.writeText(text)`
 
 将文本写入系统剪贴板。
 
@@ -35,7 +39,9 @@ await Neutralino.clipboard.writeText('测试值');
 ----
 
 [[clipboardwriteimageimage]]
-== clipboard.writeImage(image)
+== 写入图片
+
+`clipboard.writeImage(image)`
 
 将图像写入系统剪贴板。
 
@@ -61,7 +67,9 @@ await Neutralino.clipboard.writeImage(image);
 ----
 
 [[clipboardreadtext]]
-== clipboard.readText()
+== 读取文本
+
+`clipboard.readText()`
 
 从系统剪贴板读取并返回文本。
 
@@ -77,7 +85,9 @@ console.log(`Text: ${clipboardText}`);
 ----
 
 [[clipboardreadimage]]
-== clipboard.readImage()
+== 读取图片
+
+`clipboard.readImage()`
 
 从系统剪贴板读取并返回图像。
 
