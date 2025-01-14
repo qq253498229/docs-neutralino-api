@@ -1,1 +1,65 @@
-[[prefined-global-variables]]
+= 全局变量
+:page-toclevels: 1
+
+这些 JavaScript 变量可以在任何地方使用，因为这些变量是在窗口作用域中定义的。
+
+[[predefined-global-variables]]
+== 预定义全局变量
+
+[%autowidth]
+|===
+|变量|    描述
+|`NL_OS`|    操作系统名称：`Linux`、`Windows` 或 `Darwin`
+|`NL_ARCH`|    CPU 架构：`x64`、`arm`、`itanium`、`ia32` 或 `unknown`
+|`NL_APPID`|    应用标识符
+|`NL_APPVERSION`|    应用版本
+|`NL_PORT`|    应用端口
+|`NL_MODE`|    应用模式：`window`、`browser`、`cloud` 或 `chrome`
+|`NL_VERSION`|    Neutralinojs 框架版本
+|`NL_CVERSION`|    Neutralinojs 客户端版本
+|`NL_CWD`|    当前工作目录
+|`NL_PATH`|    应用路径
+|`NL_DATAPATH`|    应用数据路径
+|`NL_ARGS`|    命令行参数
+|`NL_PID`|    当前进程的标识符
+|`NL_RESMODE`|    应用资源来源：`bundle` 或 `directory`
+|`NL_EXTENABLED`|    如果扩展已启用则返回 `true`
+|`NL_COMMIT`|    框架二进制文件的发布提交哈希
+|`NL_CCOMMIT`|    客户端库的发布提交哈希
+|`NL_CMETHODS`|    自定义方法标识符（返回与 `xref:api/custom.adoc#customgetmethods[custom.getMethods]` 返回相同的输出）。
+|`NL_WSAVSTLOADED`|    如果初始窗口状态是从保存的配置中加载的则返回 `true`
+|`NL_GINJECTED`|    如果全局变量已注入则返回 `true`
+|`NL_CINJECTED`|    如果客户端库源已注入则返回 `true`
+|===
+
+TIP: 如果你使用夜间版本，可以使用 `NL_COMMIT` 和 `NL_CCOMMIT` 值来识别代码库快照。
+
+[[custom-global-variables]]
+== 自定义全局变量
+
+你也可以通过 `neutralino.config.json` 创建自定义全局变量，如下所示。
+
+[source,javascript]
+----
+"globalVariables": {
+    "TEST": "Test Value"
+}
+----
+
+上述自定义全局变量的值可以通过 `NL_TEST` 访问。你可以为自定义全局变量设置任何数据类型。看看以下示例。
+
+[source,javascript]
+----
+"globalVariables": {
+    "TEST_1": 1,
+    "TEST_2": null,
+    "TEST_3": 3.5,
+    "TEST_4": [3, 5, 4, 5],
+    "TEST_5": {
+        "key": "value",
+        "anotherKey": 100
+    }
+}
+----
+
+避免覆盖预定义的全局变量。
