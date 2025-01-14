@@ -9,3 +9,4 @@
 ** xref::api/extensions.adoc[]
 ** xref::api/filesystem.adoc[]
 ** xref::api/init.adoc[]
+** xref::api/os.adoc[]

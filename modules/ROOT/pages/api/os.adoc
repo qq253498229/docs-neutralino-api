@@ -1,2 +1,405 @@
+= os
+:page-toclevels: 1
+
+`Neutralino.os` 命名空间包含与用户操作系统相关的方法。
+
+[[osexeccommandcommand-options]]
+== os.execCommand(command, options)
+
+执行一个命令并返回输出结果。
+
+[[parameters]]
+=== 参数
+
+* `command` String：要执行的命令。
+
+[[options]]
+=== 选项
+
+* `background` Boolean：如果设置为 `true`，则在后台执行命令，并立即解析 Promise。此选项会使进程与 API 函数调用分离，因此如果你需要稍后与新创建的进程连接，请考虑使用 `os.spawnProcess`。
+* `stdIn` String：标准输入，以字符串形式。
+* `cwd` String：当前工作目录。
+
+[[return-object-awaited]]
+=== 返回 Object（异步等待）：
+
+* `pid` Number：进程标识符。
+* `stdOut` String：标准输出。
+* `stdErr` String：标准错误。
+* `exitCode` Number：进程的退出代码。
+
+[source,javascript]
+----
+let info = await Neutralino.os.execCommand('python --version');
+console.log(`Your Python version: ${info.stdOut}`);
+
+await Neutralino.os.execCommand('npm start', { background: true });
+----
+
+[[osspawnprocesscommand-cwd]]
+== os.spawnProcess(command, cwd)
+
+根据命令在后台启动一个进程，并让开发者能够控制它。
+
+[[parameters-1]]
+=== 参数
+
+* `command` String：要在新进程中执行的命令。
+* `cwd` String（可选）：当前工作目录。
+
+[[return-object-awaited-1]]
+=== 返回 Object（异步等待）：
+
+* `id` Number：Neutralino 范围内的进程标识符。此值用于通过原生 API 控制进程。
+* `pid` Number：操作系统提供的进程标识符。
+
+[source,javascript]
+----
+let pingProc = await Neutralino.os.spawnProcess('ping neutralino.js.org');
+
+Neutralino.events.on('spawnedProcess', (evt) => {
+    if(pingProc.id == evt.detail.id) {
+        switch(evt.detail.action) {
+            case 'stdOut':
+                console.log(evt.detail.data);
+                break;
+            case 'stdErr':
+                console.error(evt.detail.data);
+                break;
+            case 'exit':
+                console.log(`Ping process terminated with exit code: ${evt.detail.data}`);
+                break;
+        }
+    }
+});
+----
+
+[[osupdatespawnedprocessid-action-data]]
+== os.updateSpawnedProcess(id, action, data)
+
+根据提供的操作和数据更新一个已启动的进程。如果无法更新进程，则抛出 `NE_OS_UNLTOUP` 异常。
+
+[[parameters-2]]
+=== 参数
+
+* `id` Number：Neutralino 范围内的进程标识符。
+* `action` String：要执行的操作。仅接受以下值：
+** `stdIn`：通过标准输入流将数据发送到进程。
+** `stdInEnd`：关闭标准输入流文件描述符。
+** `exit`：终止进程。
+* `data` Object（可选）：``action``的额外数据。如果``action``是 `stdIn`，则发送标准输入字符串。
+
+[source,javascript]
+----
+let nodeProc = await Neutralino.os.spawnProcess('node');
+
+Neutralino.events.on('spawnedProcess', (evt) => {
+    if(nodeProc.id == evt.detail.id) {
+        switch(evt.detail.action) {
+            case 'stdOut':
+                console.log(evt.detail.data); // 10
+                break;
+            case 'stdErr':
+                console.error(evt.detail.data);
+                break;
+            case 'exit':
+                console.log(`Node.js process terminated with exit code: ${evt.detail.data}`);
+                break;
+        }
+    }
+});
+
+await Neutralino.os.updateSpawnedProcess(nodeProc.id, 'stdIn', 'console.log(5 + 5);');
+await Neutralino.os.updateSpawnedProcess(nodeProc.id, 'stdInEnd');
+----
+
+[[osgetspawnedprocesses]]
+== os.getSpawnedProcesses()
+
+返回所有已启动的进程。
+
+[[return-object-awaited-2]]
+=== 返回 Object（异步等待）：
+
+一个 `SpawnedProcess` 对象数组。
+
+[[spawnedprocess]]
+==== SpawnedProcess
+
+* `id` Number：Neutralino 范围内的进程标识符。
+* `pid` Number：操作系统提供的进程标识符。
+
+[source,javascript]
+----
+await Neutralino.os.spawnProcess('ping neutralino.js.org');
+await Neutralino.os.spawnProcess('ping codezri.org');
+
+let processes = await Neutralino.os.getSpawnedProcesses();
+console.log(processes);
+----
 
 [[osgetenvkey]]
+== os.getEnv(key)
+
+提供给定环境变量的值。
+
+[[parameters-3]]
+=== 参数
+
+* `key` String：环境变量的名称。
+
+[[return-string-awaited]]
+=== 返回 String（异步等待）：
+
+给定环境变量的值。如果环境变量未定义，则返回空字符串。
+
+[source,javascript]
+----
+let value = await Neutralino.os.getEnv('USER');
+console.log(`USER = ${value}`);
+----
+
+[[osgetenvs]]
+== os.getEnvs()
+
+返回所有环境变量及其值。
+
+[[return-object-awaited-3]]
+=== 返回 Object（异步等待）：
+
+环境变量的详细信息，以键值对形式表示。
+
+[source,javascript]
+----
+let envs = await Neutralino.os.getEnvs();
+console.log(envs);
+----
+
+[[osshowopendialogtitle-options]]
+== os.showOpenDialog(title, options)
+
+显示文件打开对话框。你可以使用此函数获取现有文件的路径。
+
+[[parameters-4]]
+=== 参数
+
+* `title` String（可选）：对话框的标题。
+
+[[options-1]]
+=== 选项
+
+* `filters` Filter[]（可选）：一个 Filter 对象数组，用于过滤文件列表。
+* `multiSelections`（可选）：启用多选。
+* `defaultPath` String（可选）：对话框显示的初始路径/文件名。
+
+[[filter]]
+==== Filter
+
+* `name` String：过滤器名称。
+* `extensions` String：文件扩展名数组。例如：`['jpg', 'png']`
+
+[[return-object-awaited-4]]
+=== 返回 Object（异步等待）：
+
+一个选定条目的数组。
+
+[source,javascript]
+----
+let entries = await Neutralino.os.showOpenDialog('Open a diagram', {
+  defaultPath: '/home/my/directory/',
+  filters: [
+    {name: 'Images', extensions: ['jpg', 'png']},
+    {name: 'All files', extensions: ['*']}
+  ]
+});
+console.log('You have selected:', entries);
+----
+
+[[osshowsavedialogtitle-options]]
+== os.showSaveDialog(title, options)
+
+显示文件保存对话框。你可以使用此函数获取创建新文件的路径。
+
+[[parameters-5]]
+=== 参数
+
+* `title` String（可选）：对话框的标题。
+
+[[options-2]]
+=== 选项
+
+* `filters` Filter[]（可选）：一个 Filter 对象数组，用于过滤文件列表。
+* `forceOverwrite` Boolean（可选）：跳过文件覆盖警告消息。
+* `defaultPath` String（可选）：对话框显示的初始路径/文件名。
+
+[[filter-1]]
+==== Filter
+
+* `name` String：过滤器名称。
+* `extensions` String[]：文件扩展名数组。例如：`['jpg', 'png']`
+
+[[return-string-awaited-1]]
+=== 返回 String（异步等待）：
+
+选定的文件名。
+
+[source,javascript]
+----
+let entry = await Neutralino.os.showSaveDialog('Save to file', {
+  defaultPath: 'untitled.jpg',
+  filters: [
+    {name: 'Images', extensions: ['jpg', 'png']},
+    {name: 'All files', extensions: ['*']}
+  ]
+});
+console.log('You have selected:', entry);
+----
+
+[[osshowfolderdialogtitle]]
+== os.showFolderDialog(title)
+
+显示文件夹打开对话框。
+
+[[parameters-6]]
+=== 参数
+
+* `title` String（可选）：对话框的标题。
+
+[[options-3]]
+=== 选项
+
+* `defaultPath` String（可选）：对话框显示的初始路径。
+
+[[return-string-awaited-2]]
+=== 返回 String（异步等待）：
+
+选定的文件夹。
+
+[source,javascript]
+----
+let entry = await Neutralino.os.showFolderDialog('Select installation directory', {
+  defaultPath: '/home/my/directory/'
+});
+console.log('You have selected:', entry);
+----
+
+[[osshownotificationtitle-content-icon]]
+== os.showNotification(title, content, icon)
+
+显示通知消息。
+
+[[parameters-7]]
+=== 参数
+
+* `title` String：通知标题。
+* `content` String：通知内容。
+* `icon` String（可选）：图标名称。接受的值有：`INFO`、`WARNING`、`ERROR` 和 `QUESTION`。默认值为 `INFO`。
+
+[source,javascript]
+----
+await Neutralino.os.showNotification('Hello world', 'It works! Have a nice day');
+
+await Neutralino.os.showNotification('Oops :/', 'Something went wrong', 'ERROR');
+----
+
+[[osshowmessageboxtitle-content-choice-icon]]
+== os.showMessageBox(title, content, choice, icon)
+
+显示消息框。
+
+[[parameters-8]]
+=== 参数
+
+* `title` String：消息框的标题。
+* `content` String：消息框的内容。
+* `choice` String（可选）：消息框按钮。接受的值有：`OK`、`OK_CANCEL`、`YES_NO`、`YES_NO_CANCEL`、`RETRY_CANCEL` 和 `ABORT_RETRY_IGNORE`。默认值为 `OK`。
+* `icon` String（可选）：图标名称。接受的值有：`INFO`、`WARNING`、`ERROR` 和 `QUESTION`。默认值为 `INFO`。
+
+[[return-string-awaited-3]]
+=== 返回 String（异步等待）：
+
+用户的 `choice`。
+
+[source,javascript]
+----
+await Neutralino.os.showMessageBox('Hello', 'Welcome');
+
+let button = await Neutralino.os
+            .showMessageBox('Confirm',
+                            'Are you sure you want to quit?',
+                            'YES_NO', 'QUESTION');
+if(button == 'YES') {
+    Neutralino.app.exit();
+}
+----
+
+[[ossettrayoptions]]
+== os.setTray(options)
+
+创建/更新托盘图标和菜单。
+
+[[options-4]]
+=== 选项
+
+* `icon` String：托盘图标路径。例如：`/resources/icons/trayIcon.png`。一个 `20x20` 大小的 PNG 图像文件在所有支持的操作系统上都能很好地工作。
+* `menuItems` TrayMenuItem[]：一个 `TrayMenuItem` 对象数组。
+
+[[traymenuitem]]
+==== TrayMenuItem
+
+* `id` String（可选）：每个菜单项的唯一标识符。
+* `text` String：菜单项的标签。这是一个必填字段。使用 `-`（连字符）字符作为菜单分隔符。
+* `isDisabled` Boolean（可选）：一个布尔标志，用于启用/禁用特定菜单项。
+* `isChecked` Boolean（可选）：一个布尔标志，用于标记特定菜单项为已选中。
+
+[source,javascript]
+----
+let tray = {
+  icon: '/resources/icons/trayIcon.png',
+  menuItems: [
+    {id: "about", text: "About"},
+    {text: "-"},
+    {id: "quit", text: "Quit"}
+  ]
+};
+
+await Neutralino.os.setTray(tray);
+----
+
+[[osgetpathname]]
+== os.getPath(name)
+
+返回已知的特定于平台的文件夹，如下载、音乐、视频等。
+
+[[parameters-9]]
+=== 参数
+
+* `title` String：文件夹名称。接受的值有：`config`、`data`、`cache`、`documents`、`pictures`、`music`、`video`、`downloads`、`saveGames1`、`saveGames2` 和 `temp`。对于无效的文件夹名称，会抛出 `NE_OS_INVKNPT` 异常。
+
+[[return-string-awaited-4]]
+=== 返回 String（异步等待）：
+
+路径。
+
+[source,javascript]
+----
+let downloadsPath = await Neutralino.os.getPath('downloads');
+console.log(`Downloads folder: ${downloadsPath}`);
+----
+
+[[osopenurl]]
+== os.open(url)
+
+使用默认的网络浏览器打开一个 URL。
+
+TIP: 如果您的应用程序在默认的网络浏览器中运行，此方法将打开一个新标签页。
+
+[[parameters-10]]
+=== 参数
+
+* `url` String：要打开的 URL。
+
+[source,javascript]
+----
+Neutralino.os.open('https://neutralino.js.org');
+----
