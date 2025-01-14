@@ -13,3 +13,4 @@
 ** xref::api/storage.adoc[]
 ** xref::api/updater.adoc[]
 ** xref::api/window.adoc[]
+** xref::api/resources.adoc[]

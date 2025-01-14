@@ -1,0 +1,80 @@
+= resources
+:page-toclevels: 1
+
+`Neutralino.resources` 命名空间实现了几种方法，用于解析、读取和提取已加载的资源包（`resources.neu`）。如果应用程序不从资源包加载资源，而是使用资源目录，那么所有这些方法都将抛出 `NE_RS_APIRQRF` 错误。
+
+[[resourcesgetfiles]]
+== resources.getFiles()
+
+返回嵌入在资源包中的所有文件和目录。
+
+[[return-object-awaited]]
+=== 返回 Object（异步等待）：
+
+一个路径字符串数组。
+
+[source,javascript]
+----
+let files = await Neutralino.resources.getFiles();
+console.log('Files: ', files);
+----
+
+[[resourcesextractfilepath-destination]]
+== resources.extractFile(path, destination)
+
+从资源包中提取文件到指定路径。
+
+[[parameters]]
+=== 参数
+
+* `path` String：资源文件路径，例如 `/resources/icons/appIcon.png`，以 `/` 开头，类似于所有 Neutralinojs 应用资源。
+* `destination` String：提取文件应创建的路径。
+
+[source,javascript]
+----
+await Neutralino.resources.extractFile('/resources/scripts/run.sh', './scripts/run.sh');
+----
+
+[[resourcesreadfilepath]]
+== resources.readFile(path)
+
+从资源中读取文本文件。
+
+[[parameters-1]]
+=== 参数
+
+* `path`：资源路径。
+
+[[return-string-awaited]]
+=== 返回 String（异步等待）：
+
+文件内容。
+
+[source,javascript]
+----
+let data = await Neutralino.resources.readFile();
+console.log(data);
+----
+
+[[resourcesreadbinaryfilepath]]
+== resources.readBinaryFile(path)
+
+从资源中读取二进制文件。
+
+[[parameters-2]]
+=== 参数
+
+* `path`：资源路径。
+
+[[return-object-awaited-1]]
+=== 返回 Object（异步等待）：
+
+二进制文件内容，以 `link:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer[ArrayBuffer]` 形式表示。
+
+[source,javascript]
+----
+let data = await Neutralino.resources.readBinaryFile('/resources/images/myImage.png');
+let view = new Uint8Array(data);
+
+console.log('Binary content: ', view);
+----
