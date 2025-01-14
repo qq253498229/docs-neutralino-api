@@ -1,0 +1,26 @@
+= Neutralino.debug
+:page-toclevels: 1
+
+`Neutralino.debug` 命名空间包含应用调试工具。
+
+[[debuglogmessage-type]]
+== debug.log(message, type)
+
+将消息写入 `neutralinojs.log` 文件或/和标准输出流。
+
+TIP: 如果应用通过 `neu run` 运行，你可以在终端看到日志消息。
+
+[[parameters]]
+=== 参数
+
+* `message` 字符串：要记录的内容。
+* `type` 字符串（可选）：消息类型。接受的值为 `INFO`、`WARNING` 和 `ERROR`。默认值为 `INFO`。
+
+[source,javascript]
+----
+await Neutralino.debug.log('Hello Neutralinojs');
+
+await Neutralino.debug.log('An error occured', 'ERROR');
+
+await Neutralino.debug.log('A warning message', 'WARNING');
+----

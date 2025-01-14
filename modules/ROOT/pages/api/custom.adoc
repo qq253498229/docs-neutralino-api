@@ -1,0 +1,59 @@
+= Neutralino.custom
+:page-toclevels: 1
+
+Neutralinojs 提供了扩展 API，允许使用任何编程语言编写自定义后端代码，但扩展存在以下缺点，这些缺点在多种场景下会影响应用：
+
+* 扩展使用共享的 WebSocket 进行通信，因此在扩展中不可能使用直接的 C++ 引用（例如，窗口处理器）。
+* 开发者负责打包他们的扩展二进制文件。
+* 基于 C++ 的扩展不如原生 C++ 代码快，因为它是基于 WebSocket 的 IPC。
+
+作为替代，开发者可以下载框架的 C++ 代码，对其进行修改并重新编译。但是，开发者在同步上游代码修改时可能会遇到问题。因此，Neutralinojs 提供了一个单独的命名空间、一个通用的 JavaScript 函数模板、预先开发的用于处理 JavaScript 到 C++ 参数映射的辅助函数（例如，`helpers::hasField(json, '<fieldname>')`），以及开发者指南，以在不更新框架核心的情况下向 Neutralinojs 框架添加自定义 API。
+
+[[customgetmethods]]
+== custom.getMethods()
+
+返回应用开发者添加的所有自定义方法。
+
+[[return-array-awaited]]
+=== 返回数组（异步）：
+
+所有自定义方法标识符的字符串数组。
+
+[source,javascript]
+----
+let methods = await Neutralino.custom.getMethods();
+console.log(methods);
+----
+
+[[customaddnum1-num2-options]]
+== custom.add(num1, num2, options)
+
+NOTE: 这是一个示例方法，官方的 Neutralinojs 框架构建默认不包含此方法。因此，你需要下载 Neutralinojs 框架源代码，并在 `link:https://github.com/neutralinojs/neutralinojs/tree/main/api/custom[custom]` 命名空间和 `link:https://github.com/neutralinojs/neutralinojs/blob/db457c717d789a040e70f0b8de9ddd412c8ec103/server/router.cpp#L122[router.cpp]` 中取消注释 `add` 方法。
+
+此方法返回两个数字的和，用于演示自定义方法。
+
+[[parameters]]
+=== 参数
+
+* `num1` 数字：求和过程中的第一个数字。
+* `num2` 数字：求和过程中的第二个数字。
+
+[[options]]
+=== 选项
+
+* `addExtraFive` 布尔值：向数值结果添加额外的五。
+* `addExtraTen` 布尔值：向数值结果添加额外的十。
+
+[[return-number-awaited]]
+=== 返回数字（异步）：
+
+根据选项添加额外值后的输入数值参数的和。
+
+[source,javascript]
+----
+let sum;
+sum = await Neutralino.custom.add(10, 10); // 20
+sum = await Neutralino.custom.add(1, 1, { addExtraFive: true, addExtraTen: true }); // 17
+----
+
+检查 `add` 方法的实现，并学习如何在 C++ 中捕获、验证和处理参数。为了编译你的 Neutralinojs 分支，你可以使用现有的 https://github.com/neutralinojs/neutralinojs/tree/main/.github/workflows[GitHub Actions 工作流]。

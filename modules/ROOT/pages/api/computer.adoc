@@ -1,4 +1,5 @@
 = Neutralino.computer
+:page-toclevels: 1
 
 `Neutralino.computer` 命名空间包含与用户硬件相关的方法。
 
