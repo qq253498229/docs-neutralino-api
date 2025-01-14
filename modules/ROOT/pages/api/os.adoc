@@ -4,7 +4,9 @@
 `Neutralino.os` 命名空间包含与用户操作系统相关的方法。
 
 [[osexeccommandcommand-options]]
-== os.execCommand(command, options)
+== 执行命令
+
+`os.execCommand(command, options)`
 
 执行一个命令并返回输出结果。
 
@@ -37,7 +39,9 @@ await Neutralino.os.execCommand('npm start', { background: true });
 ----
 
 [[osspawnprocesscommand-cwd]]
-== os.spawnProcess(command, cwd)
+== 启动后台进程
+
+`os.spawnProcess(command, cwd)`
 
 根据命令在后台启动一个进程，并让开发者能够控制它。
 
@@ -75,7 +79,9 @@ Neutralino.events.on('spawnedProcess', (evt) => {
 ----
 
 [[osupdatespawnedprocessid-action-data]]
-== os.updateSpawnedProcess(id, action, data)
+== 更新后台进程
+
+`os.updateSpawnedProcess(id, action, data)`
 
 根据提供的操作和数据更新一个已启动的进程。如果无法更新进程，则抛出 `NE_OS_UNLTOUP` 异常。
 
@@ -114,7 +120,9 @@ await Neutralino.os.updateSpawnedProcess(nodeProc.id, 'stdInEnd');
 ----
 
 [[osgetspawnedprocesses]]
-== os.getSpawnedProcesses()
+== 获取后台进程
+
+`os.getSpawnedProcesses()`
 
 返回所有已启动的进程。
 
@@ -139,7 +147,9 @@ console.log(processes);
 ----
 
 [[osgetenvkey]]
-== os.getEnv(key)
+== 获取指定环境变量
+
+`os.getEnv(key)`
 
 提供给定环境变量的值。
 
@@ -160,7 +170,9 @@ console.log(`USER = ${value}`);
 ----
 
 [[osgetenvs]]
-== os.getEnvs()
+== 获取全部环境变量
+
+`os.getEnvs()`
 
 返回所有环境变量及其值。
 
@@ -176,7 +188,9 @@ console.log(envs);
 ----
 
 [[osshowopendialogtitle-options]]
-== os.showOpenDialog(title, options)
+== 弹出打开文件对话框
+
+`os.showOpenDialog(title, options)`
 
 显示文件打开对话框。你可以使用此函数获取现有文件的路径。
 
@@ -216,7 +230,9 @@ console.log('You have selected:', entries);
 ----
 
 [[osshowsavedialogtitle-options]]
-== os.showSaveDialog(title, options)
+== 弹出保存文件对话框
+
+`os.showSaveDialog(title, options)`
 
 显示文件保存对话框。你可以使用此函数获取创建新文件的路径。
 
@@ -256,7 +272,9 @@ console.log('You have selected:', entry);
 ----
 
 [[osshowfolderdialogtitle]]
-== os.showFolderDialog(title)
+== 弹出打开目录对话框
+
+`os.showFolderDialog(title)`
 
 显示文件夹打开对话框。
 
@@ -284,7 +302,9 @@ console.log('You have selected:', entry);
 ----
 
 [[osshownotificationtitle-content-icon]]
-== os.showNotification(title, content, icon)
+== 弹出通知消息
+
+`os.showNotification(title, content, icon)`
 
 显示通知消息。
 
@@ -303,7 +323,9 @@ await Neutralino.os.showNotification('Oops :/', 'Something went wrong', 'ERROR')
 ----
 
 [[osshowmessageboxtitle-content-choice-icon]]
-== os.showMessageBox(title, content, choice, icon)
+== 弹出消息框
+
+`os.showMessageBox(title, content, choice, icon)`
 
 显示消息框。
 
@@ -334,7 +356,9 @@ if(button == 'YES') {
 ----
 
 [[ossettrayoptions]]
-== os.setTray(options)
+== 设置系统托盘
+
+`os.setTray(options)`
 
 创建/更新托盘图标和菜单。
 
@@ -367,7 +391,9 @@ await Neutralino.os.setTray(tray);
 ----
 
 [[osgetpathname]]
-== os.getPath(name)
+== 根据类别获取特殊路径
+
+`os.getPath(name)`
 
 返回已知的特定于平台的文件夹，如下载、音乐、视频等。
 
@@ -388,7 +414,9 @@ console.log(`Downloads folder: ${downloadsPath}`);
 ----
 
 [[osopenurl]]
-== os.open(url)
+== 打开链接
+
+`os.open(url)`
 
 使用默认的网络浏览器打开一个 URL。
 

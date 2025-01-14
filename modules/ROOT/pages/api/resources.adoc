@@ -4,7 +4,9 @@
 `Neutralino.resources` 命名空间实现了几种方法，用于解析、读取和提取已加载的资源包（`resources.neu`）。如果应用程序不从资源包加载资源，而是使用资源目录，那么所有这些方法都将抛出 `NE_RS_APIRQRF` 错误。
 
 [[resourcesgetfiles]]
-== resources.getFiles()
+== 获取全部文件
+
+`resources.getFiles()`
 
 返回嵌入在资源包中的所有文件和目录。
 
@@ -20,7 +22,9 @@ console.log('Files: ', files);
 ----
 
 [[resourcesextractfilepath-destination]]
-== resources.extractFile(path, destination)
+== 提取文件
+
+`resources.extractFile(path, destination)`
 
 从资源包中提取文件到指定路径。
 
@@ -36,7 +40,9 @@ await Neutralino.resources.extractFile('/resources/scripts/run.sh', './scripts/r
 ----
 
 [[resourcesreadfilepath]]
-== resources.readFile(path)
+== 读取文件内容
+
+`resources.readFile(path)`
 
 从资源中读取文本文件。
 
@@ -57,7 +63,9 @@ console.log(data);
 ----
 
 [[resourcesreadbinaryfilepath]]
-== resources.readBinaryFile(path)
+== 读取二进制文件内容
+
+`resources.readBinaryFile(path)`
 
 从资源中读取二进制文件。
 

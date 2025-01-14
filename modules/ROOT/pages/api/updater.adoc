@@ -8,7 +8,9 @@
 NOTE: 为了让此 API 正常工作，你应该将 `"filesystem.writeBinaryFile"` 添加到你的 `neutralino.config.json` 文件的 `nativeAllowList` 字段中。
 
 [[updatercheckforupdatesurl]]
-== updater.checkForUpdates(url)
+== 检查更新
+
+`updater.checkForUpdates(url)`
 
 从给定的 URL 检查最新更新。该 URL 应返回一个有效的 Neutralinojs 更新清单，并带有 `Content-Type: application/json` 头。如果清单无效，则抛出 `NE_UP_CUPDMER` 异常；如果网络连接出现问题，则抛出 `NE_UP_CUPDERR` 异常。
 
@@ -29,7 +31,9 @@ let manifest = await Neutralino.updater.checkForUpdates(url);
 ----
 
 [[updaterinstall]]
-== updater.install()
+== 安装更新
+
+`updater.install()`
 
 从下载的更新清单中安装更新。如果清单未加载，则抛出 `NE_UP_UPDNOUF` 异常。如果更新安装过程失败，此函数将抛出 `NE_UP_UPDINER` 异常。
 

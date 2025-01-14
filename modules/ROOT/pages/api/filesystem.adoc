@@ -4,7 +4,9 @@
 `Neutralino.filesystem` 命名空间包含用于处理文件的方法。
 
 [[filesystemcreatedirectorypath]]
-== filesystem.createDirectory(path)
+== 创建目录
+
+`filesystem.createDirectory(path)`
 
 递归创建一个目录或多个目录。如果目录创建不可能，则抛出 `NE_FS_DIRCRER` 异常。
 
@@ -21,7 +23,9 @@ await Neutralino.filesystem.createDirectory(NL_PATH + '/myFolder/api/fs');
 ----
 
 [[filesystemremovepath]]
-== filesystem.remove(path)
+== 删除对象
+
+`filesystem.remove(path)`
 
 移除一个目录或文件。如果给定路径是目录，此函数会递归移除该特定目录的所有内容。如果移除不可能，则抛出 `NE_FS_REMVERR` 异常。
 
@@ -37,7 +41,9 @@ await Neutralino.filesystem.remove('./tmpFile.txt');
 ----
 
 [[filesystemwritefilefilename-data]]
-== filesystem.writeFile(filename, data)
+== 写入文件
+
+`filesystem.writeFile(filename, data)`
 
 写入一个文本文件。如果文件写入出错，则抛出 `NE_FS_FILWRER` 异常。
 
@@ -53,7 +59,9 @@ await Neutralino.filesystem.writeFile('./myFile.txt', 'Sample content');
 ----
 
 [[filesystemappendfilefilename-data]]
-== filesystem.appendFile(filename, data)
+== 追加文件内容
+
+`filesystem.appendFile(filename, data)`
 
 将文本内容追加到文件。如果文件写入出错，则抛出 `NE_FS_FILWRER` 异常。如果提供的文件不存在，此函数会创建一个新文件并写入 `data`。
 
@@ -70,7 +78,9 @@ await Neutralino.filesystem.appendFile('./myFile.txt', 'content');
 ----
 
 [[filesystemwritebinaryfilefilename-data]]
-== filesystem.writeBinaryFile(filename, data)
+== 写入二进制文件
+
+`filesystem.writeBinaryFile(filename, data)`
 
 写入一个二进制文件。如果文件写入出错，则抛出 `NE_FS_FILWRER` 异常。
 
@@ -90,7 +100,9 @@ await Neutralino.filesystem.writeBinaryFile('./myFile.bin', rawBin);
 ----
 
 [[filesystemappendbinaryfilefilename-data]]
-== filesystem.appendBinaryFile(filename, data)
+== 追加二进制文件
+
+`filesystem.appendBinaryFile(filename, data)`
 
 将二进制数据追加到文件。如果文件写入出错，则抛出 NE_FS_FILWRER 异常。如果提供的文件不存在，此函数会创建一个新文件并写入数据。
 
@@ -111,7 +123,9 @@ await Neutralino.filesystem.appendBinaryFile('./myFile.bin', rawBin);
 ----
 
 [[filesystemreadfilefilename]]
-== filesystem.readFile(filename)
+== 读取文件
+
+`filesystem.readFile(filename)`
 
 读取一个文本文件。如果文件读取出错，则抛出 `NE_FS_FILRDER` 异常。
 
@@ -140,7 +154,9 @@ console.log(`Content: ${data}`);
 ----
 
 [[filesystemreadbinaryfilefilename-options]]
-== filesystem.readBinaryFile(filename, options)
+== 读取二进制文件
+
+`filesystem.readBinaryFile(filename, options)`
 
 读取二进制文件。如果文件读取出错，则抛出 `NE_FS_FILRDER` 异常。
 
@@ -169,7 +185,9 @@ console.log('Binary content: ', view);
 ----
 
 [[filesystemopenfilefilename]]
-== filesystem.openFile(filename)
+== 打开文件流
+
+`filesystem.openFile(filename)`
 
 创建一个可读文件流。如果文件打开出错，则抛出 `NE_FS_FILOPER` 异常。
 
@@ -190,7 +208,9 @@ console.log(`ID: ${fileId}`);
 ----
 
 [[filesystemupdateopenedfileid-action-data]]
-== filesystem.updateOpenedFile(id, action, data)
+== 更新文件流
+
+`filesystem.updateOpenedFile(id, action, data)`
 
 调用文件流操作。如果框架无法更新流，则抛出 `NE_FS_UNLTOUP` 异常。调用此方法来读取和定位打开的文件（即一个可读流）。
 
@@ -234,7 +254,9 @@ await Neutralino.filesystem.updateOpenedFile(fileId, 'readAll', 2);
 ----
 
 [[filesystemgetopenedfileinfoid]]
-== filesystem.getOpenedFileInfo(id)
+== 获取文件流信息
+
+`filesystem.getOpenedFileInfo(id)`
 
 返回文件流详细信息。如果文件流标识符无效，则抛出 `NE_FS_UNLTFOP` 异常。
 
@@ -258,7 +280,9 @@ console.log(info);
 ----
 
 [[filesystemcreatewatcherpath]]
-== filesystem.createWatcher(path)
+== 创建文件监听
+
+`filesystem.createWatcher(path)`
 
 创建一个文件系统监视器。如果监视器创建失败，则抛出 `NE_FS_UNLCWAT` 异常。如果给定路径已存在一个活动的监视器，此函数会返回现有的监视器标识符。
 
@@ -284,7 +308,9 @@ console.log(`ID: ${watcherId}`);
 ----
 
 [[filesystemremovewatcherwatcherid]]
-== filesystem.removeWatcher(watcherId)
+== 移除文件监听
+
+`filesystem.removeWatcher(watcherId)`
 
 移除一个文件系统监视器。如果监视器移除失败，则抛出 `NE_FS_NOWATID` 异常。
 
@@ -306,7 +332,9 @@ await Neutralino.filesystem.removeWatcher(watcherId);
 ----
 
 [[filesystemgetwatchers]]
-== filesystem.getWatchers()
+== 获取监听信息
+
+`filesystem.getWatchers()`
 
 返回创建的文件监视器的信息。
 
@@ -330,7 +358,9 @@ for(let watcher of watchers) {
 ----
 
 [[filesystemreaddirectorypath-options]]
-== filesystem.readDirectory(path, options)
+== 读取目录内容
+
+`filesystem.readDirectory(path, options)`
 
 读取目录内容。如果路径不存在，则抛出 `NE_FS_NOPATHE` 异常。
 
@@ -362,7 +392,9 @@ console.log('Content: ', entries);
 ----
 
 [[filesystemcopysource-destination]]
-== filesystem.copy(source, destination)
+== 复制对象
+
+`filesystem.copy(source, destination)`
 
 将文件或目录复制到新位置。如果系统无法复制路径，则抛出 `NE_FS_COPYERR` 异常。
 
@@ -386,7 +418,9 @@ await Neutralino.filesystem.copy('./myDir', './myDirCopy');
 ----
 
 [[filesystemmovesource-destination]]
-== filesystem.move(source, destination)
+== 移动对象
+
+`filesystem.move(source, destination)`
 
 将文件或目录移动到新位置。如果系统无法重命名路径，则抛出 `NE_FS_MOVEERR` 异常。
 
@@ -403,7 +437,9 @@ await Neutralino.filesystem.move('./myDir', './myFolder');
 ----
 
 [[filesystemgetstatspath]]
-== filesystem.getStats(path)
+== 获取文件信息
+
+`filesystem.getStats(path)`
 
 返回给定路径的文件统计信息。如果给定路径不存在或无法访问，则抛出 `NE_FS_NOPATHE` 异常。因此，你可以使用此方法检查文件或目录是否存在。
 
@@ -428,7 +464,9 @@ console.log('Stats:', stats);
 ----
 
 [[filesystemgetabsolutepathpath]]
-== filesystem.getAbsolutePath(path)
+== 获取绝对路径
+
+`filesystem.getAbsolutePath(path)`
 
 返回给定路径的绝对路径。此函数适用于系统中不存在的路径。
 
@@ -449,7 +487,9 @@ console.log(path);
 ----
 
 [[filesystemgetrelativepathpath-base]]
-== filesystem.getRelativePath(path, base)
+== 获取相对路径
+
+`filesystem.getRelativePath(path, base)`
 
 返回给定路径和基准路径的相对路径。此函数适用于系统中不存在的路径。
 
@@ -457,7 +497,7 @@ console.log(path);
 === 参数
 
 * `path` String：路径。
-* `base` String（可选）：用于与 `path` 参数一起计算相对路径的基准路径。如果未提供此参数，则默认使用 `xref:api/global-variables.adoc#prefined-global-variables[NL_CWD]`。
+* `base` String（可选）：用于与 `path` 参数一起计算相对路径的基准路径。如果未提供此参数，则默认使用 `xref:api/global-variables.adoc#predefined-global-variables[NL_CWD]`。
 
 [[return-string-awaited-2]]
 === 返回 String（异步等待）：
@@ -474,7 +514,9 @@ console.log(path);
 ----
 
 [[filesystemgetpathpartspath]]
-== filesystem.getPathParts(path)
+== 解析路径
+
+`filesystem.getPathParts(path)`
 
 解析给定路径并返回其组成部分。
 

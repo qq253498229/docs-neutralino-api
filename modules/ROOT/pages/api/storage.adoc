@@ -6,7 +6,9 @@ Neutralinojs 内置了一个共享的键值存储。它就像一个适用于所�
 TIP: 存储 API 会将所有数据记录持久化到应用程序根目录下的 `.storage` 目录中。如果你想清除所有数据记录，只需删除 `.storage` 目录。
 
 [[storagesetdatakey-data]]
-== storage.setData(key, data)
+== 写入数据
+
+`storage.setData(key, data)`
 
 将数据写入 Neutralinojs 共享存储中。
 
@@ -24,7 +26,9 @@ await Neutralino.storage.setData('userDetails',
 ----
 
 [[storagegetdatakey]]
-== storage.getData(key)
+== 获取数据
+
+`storage.getData(key)`
 
 读取并返回给定 Neutralinojs 共享存储键的数据。
 
@@ -45,7 +49,9 @@ console.log(`Data: ${data}`);
 ----
 
 [[storagegetkeys]]
-== storage.getKeys()
+== 获取所有key
+
+`storage.getKeys()`
 
 返回所有存储键。
 

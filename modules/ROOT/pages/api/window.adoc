@@ -4,7 +4,9 @@
 `Neutralino.window` 命名空间包含与当前原生窗口实例相关的方法。此命名空间的方法仅适用于 link:https://neutralino.js.org/docs/configuration/modes#window[窗口] 模式。
 
 [[windowsettitletitle]]
-== window.setTitle(title)
+== 设置标题
+
+`window.setTitle(title)`
 
 设置原生窗口的标题。
 
@@ -19,7 +21,9 @@ await Neutralino.window.setTitle('New title');
 ----
 
 [[windowgettitle]]
-== window.getTitle()
+== 获取标题
+
+`window.getTitle()`
 
 返回原生窗口的标题。
 
@@ -35,7 +39,9 @@ console.log(`title = ${title}`);
 ----
 
 [[windowminimize]]
-== window.minimize()
+== 最小化窗口
+
+`window.minimize()`
 
 最小化原生窗口。
 
@@ -45,7 +51,9 @@ await Neutralino.window.minimize();
 ----
 
 [[windowunminimize]]
-== window.unminimize()
+== 取消最小化
+
+`window.unminimize()`
 
 从最小化状态恢复原生窗口。
 
@@ -55,7 +63,9 @@ await Neutralino.window.unminimize();
 ----
 
 [[windowisminimized]]
-== window.isMinimized()
+== 判断是否最小化
+
+`window.isMinimized()`
 
 如果原生窗口已最小化，则返回 `true`。
 
@@ -70,7 +80,9 @@ let status = await Neutralino.window.isMinimized();
 ----
 
 [[windowmaximize]]
-== window.maximize()
+== 最大化窗口
+
+`window.maximize()`
 
 最大化原生窗口。
 
@@ -80,7 +92,9 @@ await Neutralino.window.maximize();
 ----
 
 [[windowunmaximize]]
-== window.unmaximize()
+== 取消最大化
+
+`window.unmaximize()`
 
 恢复原生窗口。
 
@@ -90,7 +104,9 @@ await Neutralino.window.unmaximize();
 ----
 
 [[windowismaximized]]
-== window.isMaximized()
+== 判断是否最大化
+
+`window.isMaximized()`
 
 如果原生窗口已最大化，则返回 `true`。
 
@@ -105,7 +121,9 @@ let status = await Neutralino.window.isMaximized();
 ----
 
 [[windowsetfullscreen]]
-== window.setFullScreen()
+== 设置全屏窗口
+
+`window.setFullScreen()`
 
 启用全屏模式。
 
@@ -115,7 +133,9 @@ await Neutralino.window.setFullScreen();
 ----
 
 [[windowexitfullscreen]]
-== window.exitFullScreen()
+== 退出全屏窗口
+
+`window.exitFullScreen()`
 
 退出全屏模式。
 
@@ -125,7 +145,9 @@ await Neutralino.window.exitFullScreen();
 ----
 
 [[windowisfullscreen]]
-== window.isFullScreen()
+== 判断是否全屏
+
+`window.isFullScreen()`
 
 如果原生窗口处于全屏模式，则返回 `true`。
 
@@ -140,7 +162,9 @@ let status = await Neutralino.window.isFullScreen();
 ----
 
 [[windowshow]]
-== window.show()
+== 显示窗口
+
+`window.show()`
 
 显示原生窗口。
 
@@ -150,7 +174,9 @@ await Neutralino.window.show();
 ----
 
 [[windowhide]]
-== window.hide()
+== 隐藏窗口
+
+`window.hide()`
 
 隐藏原生窗口。
 
@@ -160,7 +186,9 @@ await Neutralino.window.hide();
 ----
 
 [[windowisvisible]]
-== window.isVisible()
+== 判断窗口是否可见
+
+`window.isVisible()`
 
 如果原生窗口可见，则返回 `true`。
 
@@ -175,7 +203,9 @@ let status = await Neutralino.window.isVisible();
 ----
 
 [[windowfocus]]
-== window.focus()
+== 聚焦窗口
+
+`window.focus()`
 
 聚焦原生窗口。
 
@@ -185,7 +215,9 @@ await Neutralino.window.focus();
 ----
 
 [[windowsetalwaysontopontop]]
-== window.setAlwaysOnTop(onTop)
+== 设置置顶模式
+
+`window.setAlwaysOnTop(onTop)`
 
 激活或停用始终置顶模式。
 
@@ -201,7 +233,9 @@ await Neutralino.window.setAlwaysOnTop(false);
 ----
 
 [[windowmovex-y]]
-== window.move(x, y)
+== 移动窗口
+
+`window.move(x, y)`
 
 将原生窗口移动到给定坐标。Neutralinojs 的跨平台坐标系统从屏幕的左上角开始。换句话说，`x=0,y=0` 点指的是设备主屏幕的左上角。
 
@@ -217,7 +251,9 @@ await Neutralino.window.move(200, 400);
 ----
 
 [[windowcenter]]
-== window.center()
+== 居中窗口
+
+`window.center()`
 
 将原生应用窗口居中于当前显示区域。
 
@@ -227,7 +263,9 @@ await Neutralino.window.center();
 ----
 
 [[windowseticonicon]]
-== window.setIcon(icon)
+== 设置图标
+
+`window.setIcon(icon)`
 
 为原生窗口或 Dock 设置图标。
 
@@ -243,7 +281,9 @@ await Neutralino.window.setIcon(icon);
 ----
 
 [[windowsetdraggableregiondomid-options]]
-== window.setDraggableRegion(domId, options)
+== 设置可拖动区域
+
+`window.setDraggableRegion(domId, options)`
 
 将给定的 DOM 元素转换为可拖动区域。用户可以通过拖动给定的 DOM 元素来拖动原生窗口。此功能适用于与 link:https://neutralino.js.org/docs/configuration/neutralino.config.json#modeswindowborderless-boolean[无边框模式]一起创建自定义窗口栏。
 
@@ -270,7 +310,9 @@ await Neutralino.window.setDraggableRegion('myCustomTitleBar', {
 ----
 
 [[windowunsetdraggableregiondomid]]
-== window.unsetDraggableRegion(domId)
+== 取消可拖动区域
+
+`window.unsetDraggableRegion(domId)`
 
 通过移除拖动事件处理器，将可拖动区域转换回普通 DOM 元素。
 
@@ -285,7 +327,9 @@ await Neutralino.window.unsetDraggableRegion('myCustomTitleBar');
 ----
 
 [[windowsetsizeoptions]]
-== window.setSize(Options)
+== 设置窗口大小
+
+`window.setSize(Options)`
 
 此方法设置窗口的大小。
 
@@ -317,7 +361,9 @@ await Neutralino.window.setSize({
 ----
 
 [[windowgetsize]]
-== window.getSize()
+== 获取窗口大小
+
+`window.getSize()`
 
 返回窗口大小信息。
 
@@ -340,7 +386,9 @@ console.log(sizeInfo);
 ----
 
 [[windowgetposition]]
-== window.getPosition()
+== 获取窗口位置
+
+`window.getPosition()`
 
 返回窗口位置坐标。
 
@@ -358,7 +406,9 @@ console.log(position);
 ----
 
 [[windowcreateurl-windowoptions]]
-== window.create(url, WindowOptions)
+== 创建窗口
+
+`window.create(url, WindowOptions)`
 
 创建一个原生窗口。你可以使用此方法为你的多窗口 Neutralinojs 应用创建新窗口。Neutralinojs 为每个原生窗口启动一个新进程。因此，一旦窗口创建，新窗口就像一个独立的应用程序一样工作。
 
