@@ -1,4 +1,5 @@
 = init
+:page-toclevels: 1
 
 `init` 不是一个命名空间，而是一个用于初始化 Neutralinojs 应用程序的函数。
 
