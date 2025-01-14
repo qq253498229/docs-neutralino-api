@@ -1,0 +1,35 @@
+= 原生API概述
+
+Neutralinojs为开发者提供了一个JavaScript客户端库（也称为Neutralino.js），用于通过Neutralinojs服务器与原生操作进行交互。JavaScript客户端的实现在neutralino.js JavaScript文件中。因此，你的Neutralinojs项目中需要有客户端库。
+
+客户端库将其JavaScript API暴露给浏览器的窗口作用域，你可以通过 `Neutralino` 或 `window.Neutralino` 从纯JavaScript中访问它们。如果你使用前端库来构建你的应用前端，你可以从 `https://www.npmjs.com/package/@neutralinojs/lib[@neutralinojs/lib]` NPM模块导入Neutralinojs命名空间：
+
+[source,javascript]
+----
+import { app } from '@neutralinojs/lib';
+
+const conf = await app.getConfig();  // Vanilla Js: await Neutralino.app.getConfig()
+----
+
+让我们学习一下原生API调用的内部工作原理。假设你需要从操作系统获取一个环境变量的值。 你可以调用 xref:api/os.adoc#osgetenvkey[Neutralino.os.getEnv] JavaScript方法。 当你调用 `getEnv` 方法时，客户端库会通过WebSocket消息调用Neutralinojs服务器。之后，Neutralinojs服务器将执行原生操作以获取给定的环境变量。一旦Neutralinojs服务器完成任务，它会发送一个带有环境变量值的WebSocket消息。最后，客户端库用从服务器收到的结果解析一个承诺。
+
+客户端库维护一个任务池，通过UUID字符串将服务器消息映射到匹配的请求。
+
+Neutralinojs通过这种通信机制为你提供许多原生操作，适用于所有 xref:configuration/modes.adoc[模式]。
+
+== 原生API命名空间
+
+* xref:api/app.adoc[Neutralino.app]
+* xref:api/clipboard.adoc[Neutralino.clipboard]
+* xref:api/computer.adoc[Neutralino.computer]
+* xref:api/custom.adoc[Neutralino.custom]
+* xref:api/debug.adoc[Neutralino.debug]
+* xref:api/events.adoc[Neutralino.events]
+* xref:api/extensions.adoc[Neutralino.extensions]
+* xref:api/filesystem.adoc[Neutralino.filesystem]
+* xref:api/init.adoc[Neutralino.init]
+* xref:api/os.adoc[Neutralino.os]
+* xref:api/storage.adoc[Neutralino.storage]
+* xref:api/updater.adoc[Neutralino.updater]
+* xref:api/window.adoc[Neutralino.window]
+* xref:api/resources.adoc[Neutralino.resources]

@@ -1,5 +1,5 @@
 site:
-  title: docs-neutralino-api
+  title: 我的文档
   start_page: docs-neutralino-api::index.adoc
 content:
   sources:

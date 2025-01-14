@@ -1,5 +1,5 @@
 name: docs-neutralino-api
-title: docs-neutralino-api
+title: NeutralinoJS 文档
 version: '0.0.1'
 start_page: ROOT:index.adoc
 nav:
