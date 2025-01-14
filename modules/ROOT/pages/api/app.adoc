@@ -1,0 +1,154 @@
+= Neutralino.app
+:page-toclevels: 1
+
+`Neutralino.app` 命名空间包含与当前应用实例相关的方法。
+
+[[appexitexitcode]]
+== 终止应用
+
+`app.exit(exitCode)`
+
+终止正在运行的应用程序。
+
+[[parameters]]
+=== 参数
+
+* `exitCode` 数字：进程的退出代码。默认值始终为 `0`（成功）。
+
+[source,javascript]
+----
+await Neutralino.app.exit(130);
+
+await Neutralino.app.exit();
+----
+
+[[appkillprocess]]
+== 杀死应用进程
+
+`app.killProcess()`
+
+杀死应用进程。如果应用变得无响应，你可以使用此方法立即终止进程。建议使用 `exit()` 方法正确关闭你的应用。
+
+[source,javascript]
+----
+await Neutralino.app.killProcess();
+----
+
+[[apprestartprocessoptions]]
+== 重启实例
+
+`app.restartProcess(options)`
+
+重启当前应用实例。
+
+[[options]]
+=== 选项
+
+* `args` 字符串：需要传递给新应用实例进程的额外命令行参数。
+
+[source,javascript]
+----
+await Neutralino.app.restartProcess();
+
+await Neutralino.app.restartProcess({ args: '--restarted' });
+----
+
+[[appgetconfig]]
+== 获取应用配置
+
+`app.getConfig()`
+
+返回当前应用配置作为JSON对象。
+
+[[return-object-awaited]]
+=== 返回对象（异步）：
+
+当前应用配置。有时，此配置对象与你的配置文件不完全相同，因为框架在多种情况下会更新配置，例如通过CLI参数覆盖配置以及使用 `0` 作为端口。
+
+[source,javascript]
+----
+let config = await Neutralino.app.getConfig();
+console.log('URL = ', config.url);
+----
+
+[[appbroadcasteventname-data]]
+== 发送事件
+
+`app.broadcast(eventName, data)`
+
+向所有应用实例分发新事件。
+
+[[parameters-1]]
+=== 参数
+
+* `eventName` 字符串：事件名称。
+* `data` 对象（可选）：事件的额外数据。
+
+[source,javascript]
+----
+await Neutralino.app.broadcast('myTestEvent', 'Hello');
+
+await Neutralino.app.broadcast('myTestEvent', {myData: 'Test data'});
+
+await Neutralino.app.broadcast('myTestEvent');
+----
+
+[[appreadprocessinputreadall]]
+== 读取输入流
+
+`app.readProcessInput(readAll)`
+
+从应用进程的标准输入流读取字符串数据。
+
+[[parameters-2]]
+=== 参数
+
+* `readAll` 布尔值（可选）：如果设置为 `true`，框架将读取整个标准流。否则，只返回一行。此选项的默认值为 `false`。
+
+[source,javascript]
+----
+let name = await Neutralino.app.readProcessInput();
+console.log(`Hello ${name}`);
+----
+
+[[return-string-awaited]]
+=== 返回字符串（异步）：
+
+标准输入流数据。
+
+[[appwriteprocessoutputdata]]
+== 写入输出流
+
+`app.writeProcessOutput(data)`
+
+向应用进程的标准输出流写入字符串数据。
+
+[[parameters-3]]
+=== 参数
+
+* `data` 字符串：要写入的数据。
+
+[source,javascript]
+----
+await Neutralino.app.writeProcessOutput('Enter your name: ');
+let name = await Neutralino.app.readProcessInput();
+await Neutralino.app.writeProcessOutput(`Hello ${name}\n`);
+----
+
+[[appwriteprocesserrordata]]
+== 写入错误流
+
+`app.writeProcessError(data)`
+
+向应用进程的标准错误流写入字符串数据。
+
+[[parameters-4]]
+=== 参数
+
+* `data` 字符串：要写入的数据。
+
+[source,javascript]
+----
+await Neutralino.app.writeProcessError('This message goes to stderr');
+----
+
