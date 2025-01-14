@@ -1,0 +1,502 @@
+= filesystem
+:page-toclevels: 1
+
+`Neutralino.filesystem` 命名空间包含用于处理文件的方法。
+
+[[filesystemcreatedirectorypath]]
+== filesystem.createDirectory(path)
+
+递归创建一个目录或多个目录。如果目录创建不可能，则抛出 `NE_FS_DIRCRER` 异常。
+
+[[parameters]]
+=== 参数
+
+* `path` String：新目录路径。
+
+[source,javascript]
+----
+await Neutralino.filesystem.createDirectory('./newDirectory');
+
+await Neutralino.filesystem.createDirectory(NL_PATH + '/myFolder/api/fs');
+----
+
+[[filesystemremovepath]]
+== filesystem.remove(path)
+
+移除一个目录或文件。如果给定路径是目录，此函数会递归移除该特定目录的所有内容。如果移除不可能，则抛出 `NE_FS_REMVERR` 异常。
+
+[[parameters-1]]
+=== 参数
+
+* `path` String：目录或文件路径。
+
+[source,javascript]
+----
+await Neutralino.filesystem.remove('./tmpDirectory');
+await Neutralino.filesystem.remove('./tmpFile.txt');
+----
+
+[[filesystemwritefilefilename-data]]
+== filesystem.writeFile(filename, data)
+
+写入一个文本文件。如果文件写入出错，则抛出 `NE_FS_FILWRER` 异常。
+
+[[parameters-2]]
+=== 参数
+
+* `filename` String：文件名。
+* `data` String：文件内容。
+
+[source,javascript]
+----
+await Neutralino.filesystem.writeFile('./myFile.txt', 'Sample content');
+----
+
+[[filesystemappendfilefilename-data]]
+== filesystem.appendFile(filename, data)
+
+将文本内容追加到文件。如果文件写入出错，则抛出 `NE_FS_FILWRER` 异常。如果提供的文件不存在，此函数会创建一个新文件并写入 `data`。
+
+[[parameters-3]]
+=== 参数
+
+* `filename` String：文件名。
+* `data` String：要追加的内容。
+
+[source,javascript]
+----
+await Neutralino.filesystem.appendFile('./myFile.txt', 'Sample ');
+await Neutralino.filesystem.appendFile('./myFile.txt', 'content');
+----
+
+[[filesystemwritebinaryfilefilename-data]]
+== filesystem.writeBinaryFile(filename, data)
+
+写入一个二进制文件。如果文件写入出错，则抛出 `NE_FS_FILWRER` 异常。
+
+[[parameters-4]]
+=== 参数
+
+* `filename` String：文件名。
+* `data` ArrayBuffer：二进制文件内容，以 link:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer[ArrayBuffer] 形式表示。
+
+[source,javascript]
+----
+let rawBin = new ArrayBuffer(1);
+let view = new Uint8Array(rawBin);
+view[0] = 64; // Saves ASCII '@' to the binary file
+
+await Neutralino.filesystem.writeBinaryFile('./myFile.bin', rawBin);
+----
+
+[[filesystemappendbinaryfilefilename-data]]
+== filesystem.appendBinaryFile(filename, data)
+
+将二进制数据追加到文件。如果文件写入出错，则抛出 NE_FS_FILWRER 异常。如果提供的文件不存在，此函数会创建一个新文件并写入数据。
+
+[[parameters-5]]
+=== 参数
+
+* `filename` String：文件名。
+* `data` ArrayBuffer：要追加的二进制内容，以 `link:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer[ArrayBuffer]` 形式表示。
+
+[source,javascript]
+----
+let rawBin = new ArrayBuffer(1);
+let view = new Uint8Array(rawBin);
+view[0] = 64; // Saves ASCII '@' to the binary file
+
+await Neutralino.filesystem.appendBinaryFile('./myFile.bin', rawBin);
+await Neutralino.filesystem.appendBinaryFile('./myFile.bin', rawBin);
+----
+
+[[filesystemreadfilefilename]]
+== filesystem.readFile(filename)
+
+读取一个文本文件。如果文件读取出错，则抛出 `NE_FS_FILRDER` 异常。
+
+[[parameters-6]]
+=== 参数
+
+* `filename` String：文件名。
+* `pos` Number（可选）：文件光标位置，以字节为单位。
+* `size` Number（可选）：文件读取缓冲区大小，以字节为单位。
+
+[[return-string-awaited]]
+=== 返回 String（异步等待）：
+
+文件内容。
+
+[source,javascript]
+----
+let data = await Neutralino.filesystem.readFile('./myFile.txt');
+console.log(`Content: ${data}`);
+
+let data = await Neutralino.filesystem.readFile('./myFile.txt', {
+    pos: 2,
+    size: 10
+});
+console.log(`Content: ${data}`);
+----
+
+[[filesystemreadbinaryfilefilename-options]]
+== filesystem.readBinaryFile(filename, options)
+
+读取二进制文件。如果文件读取出错，则抛出 `NE_FS_FILRDER` 异常。
+
+[[parameters-7]]
+=== 参数
+
+* `filename` String：文件名。
+
+[[options]]
+=== 选项
+
+* `pos` Number（可选）：文件光标位置，以字节为单位。
+* `size` Number（可选）：文件读取缓冲区大小，以字节为单位。
+
+[[return-object-awaited]]
+=== 返回 Object（异步等待）：
+
+二进制文件内容，以 `link:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer[ArrayBuffer]` 形式表示。
+
+[source,javascript]
+----
+let data = await Neutralino.filesystem.readBinaryFile('./myFile.bin');
+let view = new Uint8Array(data);
+
+console.log('Binary content: ', view);
+----
+
+[[filesystemopenfilefilename]]
+== filesystem.openFile(filename)
+
+创建一个可读文件流。如果文件打开出错，则抛出 `NE_FS_FILOPER` 异常。
+
+[[parameters-8]]
+=== 参数
+
+* `filename` String：文件名。
+
+[[return-number-awaited]]
+=== 返回 Number（异步等待）：
+
+文件流标识符。
+
+[source,javascript]
+----
+let fileId = await Neutralino.filesystem.openFile('./myFile.txt');
+console.log(`ID: ${fileId}`);
+----
+
+[[filesystemupdateopenedfileid-action-data]]
+== filesystem.updateOpenedFile(id, action, data)
+
+调用文件流操作。如果框架无法更新流，则抛出 `NE_FS_UNLTOUP` 异常。调用此方法来读取和定位打开的文件（即一个可读流）。
+
+[[parameters-9]]
+=== 参数
+
+* `id` Number：文件流标识符。
+* `action` String：要执行的操作。仅接受以下值：
+** `read`：从文件流中读取一段字节。
+** `readBinary`：与 `read` 行为相同，但使用二进制读取模式。
+** `readAll`：触发 `read` 操作，直到文件流光标位置到达 `link:https://en.wikipedia.org/wiki/End-of-file[EOF]`。
+** `readAllBinary`：与 `readAll` 行为相同，但使用二进制读取模式。
+** `seek`：设置文件光标位置。
+** `close`：关闭并释放文件处理器资源。
+* `data` Object（可选）：``action``的额外数据。如果``action``是 `read`、`readBinary`、`readAll` 或 `readAllBinary`，则发送缓冲区大小，以字节为单位（默认：256 字节）。如果操作是 `seek`，则发送文件流光标位置。
+
+[source,javascript]
+----
+let fileId = await Neutralino.filesystem.openFile('./myFile.txt');
+
+let content = '';
+Neutralino.events.on('openedFile', (evt) => {
+  if(evt.detail.id == fileId) {
+    switch(evt.detail.action) {
+      case 'data':
+        content += evt.detail.data;
+        break;
+      case 'end':
+        console.log(content);
+        break;
+    }
+  }
+});
+
+// Sets the file stream cursor to 10th byte
+await Neutralino.filesystem.updateOpenedFile(fileId, 'seek', 10);
+// Reads 2 bytes from the cursor position
+await Neutralino.filesystem.updateOpenedFile(fileId, 'read', 2);
+// Reads the next bytes until the cursor reaches EOF (buffer size: 2)
+await Neutralino.filesystem.updateOpenedFile(fileId, 'readAll', 2);
+----
+
+[[filesystemgetopenedfileinfoid]]
+== filesystem.getOpenedFileInfo(id)
+
+返回文件流详细信息。如果文件流标识符无效，则抛出 `NE_FS_UNLTFOP` 异常。
+
+[[parameters-10]]
+=== 参数
+
+* `id` Number：文件流标识符。
+
+[[return-object-awaited-1]]
+=== 返回 Object（异步等待）：
+
+* `id` Number：文件流标识符。
+* `eof` Boolean：如果流到达 EOF，则为 true。
+* `pos` Number：文件流光标位置。
+* `lastRead` Number：上次读取的字节数。
+
+[source,javascript]
+----
+let info = await Neutralino.filesystem.getOpenedFileInfo(0);
+console.log(info);
+----
+
+[[filesystemcreatewatcherpath]]
+== filesystem.createWatcher(path)
+
+创建一个文件系统监视器。如果监视器创建失败，则抛出 `NE_FS_UNLCWAT` 异常。如果给定路径已存在一个活动的监视器，此函数会返回现有的监视器标识符。
+
+[[parameters-11]]
+=== 参数
+
+* `path` String：目录路径。
+
+[[return-number-awaited-1]]
+=== 返回 Number（异步等待）：
+
+文件监视器标识符。
+
+[source,javascript]
+----
+let watcherId = await Neutralino.filesystem.createWatcher(NL_PATH);
+Neutralino.events.on('watchFile', (evt) => {
+    if(watcherId == evt.detail.id) {
+        console.log(evt.detail);
+    }
+});
+console.log(`ID: ${watcherId}`);
+----
+
+[[filesystemremovewatcherwatcherid]]
+== filesystem.removeWatcher(watcherId)
+
+移除一个文件系统监视器。如果监视器移除失败，则抛出 `NE_FS_NOWATID` 异常。
+
+[[parameters-12]]
+=== 参数
+
+* `watcherId` Number：文件监视器标识符。
+
+[[return-number-awaited-2]]
+=== 返回 Number（异步等待）：
+
+文件监视器标识符。
+
+[source,javascript]
+----
+let watcherId = await Neutralino.filesystem.createWatcher(NL_PATH);
+console.log(`ID: ${watcherId}`);
+await Neutralino.filesystem.removeWatcher(watcherId);
+----
+
+[[filesystemgetwatchers]]
+== filesystem.getWatchers()
+
+返回创建的文件监视器的信息。
+
+[[return-object-awaited-2]]
+=== 返回 Object（异步等待）：
+
+一个 `FileWatcher` 对象数组。
+
+[[filewatcher]]
+=== FileWatcher
+
+* `id` Number：监视器标识符。
+* `path` String：文件监视器路径。
+
+[source,javascript]
+----
+let watchers = await Neutralino.filesystem.getWatchers();
+for(let watcher of watchers) {
+    console.log(watcher);
+}
+----
+
+[[filesystemreaddirectorypath-options]]
+== filesystem.readDirectory(path, options)
+
+读取目录内容。如果路径不存在，则抛出 `NE_FS_NOPATHE` 异常。
+
+[[parameters-13]]
+=== 参数
+
+* `path` String：文件/目录路径。
+
+[[options-1]]
+=== 选项
+
+* `recursive` Boolean：递归读取子目录。默认值为 false。
+
+[[return-object-awaited-3]]
+=== 返回 Object（异步等待）：
+
+一个 `DirectoryEntry` 对象数组。
+
+[[directoryentry]]
+=== DirectoryEntry
+
+* `entry` String：文件名。
+* `type` String：条目类型（`FILE` 或 `DIRECTORY`）。
+
+[source,javascript]
+----
+let entries = await Neutralino.filesystem.readDirectory(NL_PATH);
+console.log('Content: ', entries);
+----
+
+[[filesystemcopysource-destination]]
+== filesystem.copy(source, destination)
+
+将文件或目录复制到新位置。如果系统无法复制路径，则抛出 `NE_FS_COPYERR` 异常。
+
+[[parameters-14]]
+=== 参数
+
+* `source` String：源路径。
+* `destination` String：目标路径。
+
+[[options-2]]
+=== 选项
+
+* `recursive` Boolean：递归复制子目录。默认值为 `true`。
+* `overwrite` Boolean：用同名现有文件覆盖。默认值为 `true`。
+* `skip` Boolean：跳过同名现有文件。默认值为 `false`。
+
+[source,javascript]
+----
+await Neutralino.filesystem.copy('./source.txt', './destination.txt');
+await Neutralino.filesystem.copy('./myDir', './myDirCopy');
+----
+
+[[filesystemmovesource-destination]]
+== filesystem.move(source, destination)
+
+将文件或目录移动到新位置。如果系统无法重命名路径，则抛出 `NE_FS_MOVEERR` 异常。
+
+[[parameters-15]]
+=== 参数
+
+* `source` String：源路径。
+* `destination` String：目标路径。
+
+[source,javascript]
+----
+await Neutralino.filesystem.move('./source.txt', './destination.txt');
+await Neutralino.filesystem.move('./myDir', './myFolder');
+----
+
+[[filesystemgetstatspath]]
+== filesystem.getStats(path)
+
+返回给定路径的文件统计信息。如果给定路径不存在或无法访问，则抛出 `NE_FS_NOPATHE` 异常。因此，你可以使用此方法检查文件或目录是否存在。
+
+[[parameters-16]]
+=== 参数
+
+* `path` String：文件或目录路径。
+
+[[return-object-awaited-4]]
+=== 返回 Object（异步等待）：
+
+* `size` Number：大小，以字节为单位。
+* `isFile` Boolean：如果路径表示普通文件，则为 `true`。
+* `isDirectory` Boolean：如果路径表示目录，则为 `true`。
+* `createdAt` Number：在 Windows 上，返回文件创建时间的 Unix 毫秒数 — 在 Unix 或类 Unix 平台上，返回最后一次 `link:https://en.wikipedia.org/wiki/Inode[inode]` 修改时间的 Unix 毫秒数。
+* `modifiedAt` Number：最后一次文件修改时间的 Unix 毫秒数。
+
+[source,javascript]
+----
+let stats = await Neutralino.filesystem.getStats('./sampleVideo.mp4');
+console.log('Stats:', stats);
+----
+
+[[filesystemgetabsolutepathpath]]
+== filesystem.getAbsolutePath(path)
+
+返回给定路径的绝对路径。此函数适用于系统中不存在的路径。
+
+[[parameters-17]]
+=== 参数
+
+* `path` String：路径。
+
+[[return-string-awaited-1]]
+=== 返回 String（异步等待）：
+
+绝对路径。
+
+[source,javascript]
+----
+let path = await Neutralino.filesystem.getAbsolutePath('./myFolder');
+console.log(path);
+----
+
+[[filesystemgetrelativepathpath-base]]
+== filesystem.getRelativePath(path, base)
+
+返回给定路径和基准路径的相对路径。此函数适用于系统中不存在的路径。
+
+[[parameters-18]]
+=== 参数
+
+* `path` String：路径。
+* `base` String（可选）：用于与 `path` 参数一起计算相对路径的基准路径。如果未提供此参数，则默认使用 `xref:api/global-variables.adoc#prefined-global-variables[NL_CWD]`。
+
+[[return-string-awaited-2]]
+=== 返回 String（异步等待）：
+
+相对路径。
+
+[source,javascript]
+----
+let path = await Neutralino.filesystem.getRelativePath('./myFolder');
+console.log(path);
+
+path = await Neutralino.filesystem.getRelativePath('./myFolder', '/home/user');
+console.log(path);
+----
+
+[[filesystemgetpathpartspath]]
+== filesystem.getPathParts(path)
+
+解析给定路径并返回其组成部分。
+
+[[parameters-19]]
+=== 参数
+
+* `path` String：路径。
+
+[[return-object-awaited-5]]
+=== 返回 Object（异步等待）：
+
+* `rootName` String：根路径名称。
+* `rootDirectory` String：根路径目录。
+* `rootPath` String：根路径。
+* `relativePath` String：相对于根路径的路径。
+* `parentPath` String：父路径或不含文件名的目录路径。
+* `filename` String：文件名。
+* `extension` String：文件扩展名。
+* `stem` String：不含扩展名的文件名部分。
+
+[source,javascript]
+----
+let pathParts = await Neutralino.filesystem.getPathParts('./myFolder/myFile.txt');
+console.log('Parts:', pathParts);
+----

@@ -7,3 +7,4 @@
 ** xref::api/debug.adoc[]
 ** xref::api/events.adoc[]
 ** xref::api/extensions.adoc[]
+** xref::api/filesystem.adoc[]

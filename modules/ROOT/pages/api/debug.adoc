@@ -1,4 +1,4 @@
-= Neutralino.debug
+= debug
 :page-toclevels: 1
 
 `Neutralino.debug` 命名空间包含应用调试工具。

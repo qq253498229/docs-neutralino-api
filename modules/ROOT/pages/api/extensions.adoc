@@ -1,4 +1,4 @@
-= Neutralino.extensions
+= extensions
 :page-toclevels: 1
 
 `Neutralino.extensions` 命名空间包含与 Neutralino 扩展相关的方法。扩展允许开发人员为 Neutralinojs 应用程序编写自定义后端 API。
