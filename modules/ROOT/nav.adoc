@@ -6,3 +6,4 @@
 ** xref::api/custom.adoc[]
 ** xref::api/debug.adoc[]
 ** xref::api/events.adoc[]
+** xref::api/extensions.adoc[]
