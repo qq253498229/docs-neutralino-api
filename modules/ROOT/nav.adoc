@@ -1,3 +1,4 @@
 * 原生API
 ** xref::api/overview.adoc[]
 ** xref::api/app.adoc[]
+** xref::api/clipboard.adoc[]

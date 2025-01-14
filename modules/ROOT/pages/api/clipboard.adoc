@@ -1,0 +1,94 @@
+= Neutralino.clipboard
+:page-toclevels: 1
+
+`Neutralino.clipboard` 命名空间提供了访问系统剪贴板的函数。
+
+[[clipboardgetformat]]
+== clipboard.getFormat()
+
+返回系统剪贴板当前的数据格式。
+
+[[return-string-awaited]]
+=== 返回字符串（异步）：
+
+剪贴板格式：`text`、``image``或``unknown``。
+
+[source,javascript]
+----
+let format = await Neutralino.clipboard.getFormat();
+console.log(`Format: ${format}`);
+----
+
+[[clipboardwritetexttext]]
+== clipboard.writeText(text)
+
+将文本写入系统剪贴板。
+
+[[parameters]]
+=== 参数
+
+* `text` 字符串：要存储到系统剪贴板的文本。
+
+[source,javascript]
+----
+await Neutralino.clipboard.writeText('测试值');
+----
+
+[[clipboardwriteimageimage]]
+== clipboard.writeImage(image)
+
+将图像写入系统剪贴板。
+
+[[input-object-clipboardimage]]
+=== 输入对象：`ClipboardImage`
+
+* `width`：数字：图像宽度。
+* `height`：数字：图像高度。
+* `bpp`：数字：每像素位数（BPP）。
+* `bpr`：数字：每行字节数（BPR）。
+* `redMask`：数字：红色掩码。
+* `greenMask`：数字：绿色掩码。
+* `blueMask`：数字：蓝色掩码。
+* `redShift`：数字：红色位移。
+* `greenShift`：数字：绿色位移。
+* `blueShift`：数字：蓝色位移。
+* `data`：ArrayBuffer：图像的原始RGBA二进制数据，存储在数组缓冲区中。
+
+[source,javascript]
+----
+let image = prepareClipboardImage();
+await Neutralino.clipboard.writeImage(image);
+----
+
+[[clipboardreadtext]]
+== clipboard.readText()
+
+从系统剪贴板读取并返回文本。
+
+[[return-string-awaited-1]]
+=== 返回字符串（异步）：
+
+从系统剪贴板中存储的文本。
+
+[source,javascript]
+----
+let clipboardText = await Neutralino.clipboard.readText();
+console.log(`Text: ${clipboardText}`);
+----
+
+[[clipboardreadimage]]
+== clipboard.readImage()
+
+从系统剪贴板读取并返回图像。
+
+[[return-object-awaited]]
+=== 返回对象（异步）：
+
+返回一个 `<<input-object-clipboardimage,ClipboardImage>>` 对象，该对象具有与 `<<clipboardwriteimageimage,writeImage()>>` 函数中相同的属性。
+
+[source,javascript]
+----
+let clipboardImage = await Neutralino.clipboard.readImage();
+console.log(`Image: ${clipboardImage}`);
+----
+
