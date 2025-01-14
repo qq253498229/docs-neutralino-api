@@ -1,0 +1,419 @@
+= window
+:page-toclevels: 1
+
+`Neutralino.window` 命名空间包含与当前原生窗口实例相关的方法。此命名空间的方法仅适用于 link:https://neutralino.js.org/docs/configuration/modes#window[窗口] 模式。
+
+[[windowsettitletitle]]
+== window.setTitle(title)
+
+设置原生窗口的标题。
+
+[[parameters]]
+=== 参数
+
+* `title` String（可选）：窗口的标题。如果未提供此参数，则清除标题。
+
+[source,javascript]
+----
+await Neutralino.window.setTitle('New title');
+----
+
+[[windowgettitle]]
+== window.getTitle()
+
+返回原生窗口的标题。
+
+[[return-string-awaited]]
+=== 返回 String（异步等待）：
+
+原生窗口实例的当前标题。
+
+[source,javascript]
+----
+let title = await Neutralino.window.getTitle();
+console.log(`title = ${title}`);
+----
+
+[[windowminimize]]
+== window.minimize()
+
+最小化原生窗口。
+
+[source,javascript]
+----
+await Neutralino.window.minimize();
+----
+
+[[windowunminimize]]
+== window.unminimize()
+
+从最小化状态恢复原生窗口。
+
+[source,javascript]
+----
+await Neutralino.window.unminimize();
+----
+
+[[windowisminimized]]
+== window.isMinimized()
+
+如果原生窗口已最小化，则返回 `true`。
+
+[[return-boolean-awaited]]
+=== 返回 Boolean（异步等待）：
+
+基于当前最小化状态的 `true` 或 `false`。
+
+[source,javascript]
+----
+let status = await Neutralino.window.isMinimized();
+----
+
+[[windowmaximize]]
+== window.maximize()
+
+最大化原生窗口。
+
+[source,javascript]
+----
+await Neutralino.window.maximize();
+----
+
+[[windowunmaximize]]
+== window.unmaximize()
+
+恢复原生窗口。
+
+[source,javascript]
+----
+await Neutralino.window.unmaximize();
+----
+
+[[windowismaximized]]
+== window.isMaximized()
+
+如果原生窗口已最大化，则返回 `true`。
+
+[[return-boolean-awaited-1]]
+=== 返回 Boolean（异步等待）：
+
+基于当前最大化状态的 `true` 或 `false`。
+
+[source,javascript]
+----
+let status = await Neutralino.window.isMaximized();
+----
+
+[[windowsetfullscreen]]
+== window.setFullScreen()
+
+启用全屏模式。
+
+[source,javascript]
+----
+await Neutralino.window.setFullScreen();
+----
+
+[[windowexitfullscreen]]
+== window.exitFullScreen()
+
+退出全屏模式。
+
+[source,javascript]
+----
+await Neutralino.window.exitFullScreen();
+----
+
+[[windowisfullscreen]]
+== window.isFullScreen()
+
+如果原生窗口处于全屏模式，则返回 `true`。
+
+[[return-boolean-awaited-2]]
+=== 返回 Boolean（异步等待）：
+
+基于当前全屏状态的 `true` 或 `false`。
+
+[source,javascript]
+----
+let status = await Neutralino.window.isFullScreen();
+----
+
+[[windowshow]]
+== window.show()
+
+显示原生窗口。
+
+[source,javascript]
+----
+await Neutralino.window.show();
+----
+
+[[windowhide]]
+== window.hide()
+
+隐藏原生窗口。
+
+[source,javascript]
+----
+await Neutralino.window.hide();
+----
+
+[[windowisvisible]]
+== window.isVisible()
+
+如果原生窗口可见，则返回 `true`。
+
+[[return-boolean-awaited-3]]
+=== 返回 Boolean（异步等待）：
+
+基于当前可见性状态的 `true` 或 `false`。
+
+[source,javascript]
+----
+let status = await Neutralino.window.isVisible();
+----
+
+[[windowfocus]]
+== window.focus()
+
+聚焦原生窗口。
+
+[source,javascript]
+----
+await Neutralino.window.focus();
+----
+
+[[windowsetalwaysontopontop]]
+== window.setAlwaysOnTop(onTop)
+
+激活或停用始终置顶模式。
+
+[[parameters-1]]
+=== 参数
+
+* `onTop` Boolean（可选）：指示是否应激活置顶模式。默认值为 `true`。
+
+[source,javascript]
+----
+await Neutralino.window.setAlwaysOnTop(true); // or setAlwaysOnTop();
+await Neutralino.window.setAlwaysOnTop(false);
+----
+
+[[windowmovex-y]]
+== window.move(x, y)
+
+将原生窗口移动到给定坐标。Neutralinojs 的跨平台坐标系统从屏幕的左上角开始。换句话说，`x=0,y=0` 点指的是设备主屏幕的左上角。
+
+[[parameters-2]]
+=== 参数
+
+* `x` Number：水平位置的整数值。
+* `y` Number：垂直位置的整数值。
+
+[source,javascript]
+----
+await Neutralino.window.move(200, 400);
+----
+
+[[windowcenter]]
+== window.center()
+
+将原生应用窗口居中于当前显示区域。
+
+[source,javascript]
+----
+await Neutralino.window.center();
+----
+
+[[windowseticonicon]]
+== window.setIcon(icon)
+
+为原生窗口或 Dock 设置图标。
+
+[[parameters-3]]
+=== 参数
+
+* `icon` String：图标的路径。在所有支持的操作系统上，`200x200` 大小的 PNG 图像文件都能很好地工作。
+
+[source,javascript]
+----
+const icon = '/resources/icons/appIcon.png';
+await Neutralino.window.setIcon(icon);
+----
+
+[[windowsetdraggableregiondomid-options]]
+== window.setDraggableRegion(domId, options)
+
+将给定的 DOM 元素转换为可拖动区域。用户可以通过拖动给定的 DOM 元素来拖动原生窗口。此功能适用于与 link:https://neutralino.js.org/docs/configuration/neutralino.config.json#modeswindowborderless-boolean[无边框模式]一起创建自定义窗口栏。
+
+[[parameters-4]]
+=== 参数
+
+* `domId` String | HTMLElement：DOM 元素标识符。
+* `options` DraggableRegionOptions（可选）：自定义可拖动区域的行为。
+
+[[draggableregionoptions]]
+==== DraggableRegionOptions
+
+* `alwaysCapture` Boolean（可选）：如果设置为 `true`，则该区域将始终捕获指针，确保在快速移动指针时拖动不会中断。注意，这会阻止子元素接收任何指针事件。默认值为 `false`。
+* `dragMinDistance` Number（可选）：在开始拖动后，光标起始位置与当前位置之间的最小距离。这有助于防止在与子元素交互时意外拖动。默认值为 `10`，以 CSS 像素为单位测量。
+
+[source,javascript]
+----
+await Neutralino.window.setDraggableRegion('myCustomTitleBar');
+
+await Neutralino.window.setDraggableRegion('myCustomTitleBar', {
+    alwaysCapture: true,
+    dragMinDistance: 15
+});
+----
+
+[[windowunsetdraggableregiondomid]]
+== window.unsetDraggableRegion(domId)
+
+通过移除拖动事件处理器，将可拖动区域转换回普通 DOM 元素。
+
+[[parameters-5]]
+=== 参数
+
+* `domId` String | HTMLElement：DOM 元素标识符。
+
+[source,javascript]
+----
+await Neutralino.window.unsetDraggableRegion('myCustomTitleBar');
+----
+
+[[windowsetsizeoptions]]
+== window.setSize(Options)
+
+此方法设置窗口的大小。
+
+[[options]]
+=== 选项
+
+* `width` Number（可选）：窗口宽度，以像素为单位。
+* `height` Number（可选）：窗口高度，以像素为单位。
+* `minWidth` Number（可选）：窗口的最小宽度，以像素为单位。
+* `minHeight` Number（可选）：窗口的最小高度，以像素为单位。
+* `maxWidth` Number（可选）：窗口的最大宽度，以像素为单位。
+* `maxHeight` Number（可选）：窗口的最大高度，以像素为单位。
+* `resizable` Boolean（可选）：一个布尔值，用于使窗口可调整大小或固定。
+
+此方法始终期望宽度和高度成对出现。例如，如果你设置了 `minWidth`，则也应该设置 `minHeight`。
+
+[source,javascript]
+----
+await Neutralino.window.setSize({
+    width: 500,
+    height: 200,
+    maxWidth: 600,
+    maxHeight: 400
+});
+
+await Neutralino.window.setSize({
+    resizable: false
+});
+----
+
+[[windowgetsize]]
+== window.getSize()
+
+返回窗口大小信息。
+
+[[return-boolean-awaited-4]]
+=== 返回 Object（异步等待）：
+
+* `width` Number：窗口宽度，以像素为单位。
+* `height` Number：窗口高度，以像素为单位。
+* `minWidth` Number：窗口的最小宽度，以像素为单位。
+* `minHeight` Number：窗口的最小高度，以像素为单位。
+* `maxWidth` Number：窗口的最大宽度，以像素为单位。
+* `maxHeight` Number：窗口的最大高度，以像素为单位。
+* `resizable` Boolean：指示窗口是否可调整大小或固定。
+
+[source,javascript]
+----
+let sizeInfo = await Neutralino.window.getSize();
+
+console.log(sizeInfo);
+----
+
+[[windowgetposition]]
+== window.getPosition()
+
+返回窗口位置坐标。
+
+[[return-boolean-awaited-5]]
+=== 返回 Object（异步等待）：
+
+* `x` Number：窗口左侧边缘的水平坐标。
+* `y` Number：窗口顶部边缘的垂直坐标。
+
+[source,javascript]
+----
+let position = await Neutralino.window.getPosition();
+
+console.log(position);
+----
+
+[[windowcreateurl-windowoptions]]
+== window.create(url, WindowOptions)
+
+创建一个原生窗口。你可以使用此方法为你的多窗口 Neutralinojs 应用创建新窗口。Neutralinojs 为每个原生窗口启动一个新进程。因此，一旦窗口创建，新窗口就像一个独立的应用程序一样工作。
+
+然而，你可以使用 xref:api/storage.adoc[storage] API 在窗口之间建立通信流。
+
+[[parameters-6]]
+=== 参数
+
+* `url` String：要加载的 URL。例如：`/resources/aboutWindow.html`。支持加载本地和远程应用资源。本地资源路径需要以 `/` 开头。
+* `options`（可选）：`WindowOptions` 类型的一个实例。
+
+[[windowoptions]]
+=== WindowOptions
+
+* `title` String：窗口标题。
+* `icon` String：窗口图标路径。
+* `fullScreen` Boolean：设置全屏模式。
+* `alwaysOnTop` Boolean：激活最顶端模式。
+* `enableInspector` Boolean：激活开发者工具并打开网络检查器窗口。
+* `borderless` Boolean：使窗口无边框。
+* `maximize` Boolean：以最大化状态启动窗口。
+* `hidden` Boolean：隐藏窗口。
+* `maximizable` Boolean：使窗口可最大化或不可最大化。
+* `exitProcessOnClose` Boolean：当用户点击窗口的关闭按钮时，退出应用程序进程。
+* `width` Number：窗口宽度。
+* `height` Number：窗口高度。
+* `x` Number：窗口 `x` 位置。
+* `y` Number：窗口 `y` 位置。
+* `minWidth` Number：窗口的最小宽度。
+* `minHeight` Number：窗口的最小高度。
+* `maxWidth` Number：窗口的最大宽度。
+* `maxHeight` Number：窗口的最大高度。
+* `extendUserAgentWith` String：扩展网络视图实例的用户代理字符串。
+* `injectGlobals` Boolean：直接将全局变量注入到网络视图实例中。
+* `injectClientLibrary` Boolean：直接将客户端库源注入到网络视图实例中。
+* `injectScript` Boolean：一个预加载的 JavaScript 源文件，在网络应用资源之前执行。
+* `processArgs` String：新窗口进程的额外命令行参数。从 link:https://neutralino.js.org/docs/cli/internal-cli-arguments[这里] 查看所有支持的内部命令行参数。
+
+[[return-object-awaited]]
+=== 返回 Object（异步等待）：
+
+* `pid` Number：进程标识符。
+* `stdOut` String：标准输出。由于新窗口进程异步启动，此值始终为空。
+* `stdErr` String：标准错误。由于新窗口进程异步启动，此值始终为空。
+* `exitCode` Number：进程的退出代码。
+
+[source,javascript]
+----
+await Neutralino.window.create('/resources/aboutWindow.html', {
+    icon: '/resources/icons/aboutIcon.png',
+    enableInspector: false,
+    width: 500,
+    height: 300,
+    maximizable: false,
+    exitProcessOnClose: true,
+    processArgs: '--window-id=W_ABOUT'
+});
+----
