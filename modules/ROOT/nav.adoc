@@ -11,3 +11,4 @@
 ** xref::api/init.adoc[]
 ** xref::api/os.adoc[]
 ** xref::api/storage.adoc[]
+** xref::api/updater.adoc[]

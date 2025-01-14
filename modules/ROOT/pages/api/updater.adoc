@@ -1,0 +1,47 @@
+= updater
+:page-toclevels: 1
+
+`Neutralino.updater` 命名空间包含与内置自动更新器相关的方法。Neutralinojs 提供了一种内置的基于客户端的更新机制。因此，你可以无需调用第三方更新服务、操作系统级服务或其他二进制文件/脚本，即可更新 Neutralinojs 应用程序。
+
+了解更多关于扩展的信息，请参考此 link:https://neutralino.js.org/docs/how-to/auto-updater[指南]。
+
+NOTE: 为了让此 API 正常工作，你应该将 `"filesystem.writeBinaryFile"` 添加到你的 `neutralino.config.json` 文件的 `nativeAllowList` 字段中。
+
+[[updatercheckforupdatesurl]]
+== updater.checkForUpdates(url)
+
+从给定的 URL 检查最新更新。该 URL 应返回一个有效的 Neutralinojs 更新清单，并带有 `Content-Type: application/json` 头。如果清单无效，则抛出 `NE_UP_CUPDMER` 异常；如果网络连接出现问题，则抛出 `NE_UP_CUPDERR` 异常。
+
+[[parameters]]
+=== 参数
+
+* `url` String：用于获取更新清单的 URL。
+
+[[return-object-awaited]]
+=== 返回 Object（异步等待）：
+
+更新清单。
+
+[source,javascript]
+----
+let url = 'https://example.com/updates/manifest.json';
+let manifest = await Neutralino.updater.checkForUpdates(url);
+----
+
+[[updaterinstall]]
+== updater.install()
+
+从下载的更新清单中安装更新。如果清单未加载，则抛出 `NE_UP_UPDNOUF` 异常。如果更新安装过程失败，此函数将抛出 `NE_UP_UPDINER` 异常。
+
+[source,javascript]
+----
+let url = 'https://example.com/updates/manifest.json';
+let manifest = await Neutralino.updater.checkForUpdates(url);
+
+if(manifest.version != NL_APPVERSION) {
+    await Neutralino.updater.install();
+}
+else {
+    console.log('You are using the latest version!');
+}
+----
