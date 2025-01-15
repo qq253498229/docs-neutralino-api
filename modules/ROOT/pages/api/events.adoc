@@ -1,4 +1,4 @@
-= events
+= 事件
 :page-toclevels: 1
 
 `Neutralino.events` 命名空间包含与原生事件处理相关的方法。这些事件通常是由 Neutralinojs 服务器基于原生状态变化发起的。

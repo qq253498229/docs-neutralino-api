@@ -1,4 +1,4 @@
-= storage
+= 存储
 :page-toclevels: 1
 
 Neutralinojs 内置了一个共享的键值存储。它就像一个适用于所有 Neutralinojs 模式的全局 `link:https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage[LocalStorage]`。`Neutralino.storage` 提供了用于与这一存储功能交互的方法。

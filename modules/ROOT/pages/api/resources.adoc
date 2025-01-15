@@ -1,4 +1,4 @@
-= resources
+= 资源
 :page-toclevels: 1
 
 `Neutralino.resources` 命名空间实现了几种方法，用于解析、读取和提取已加载的资源包（`resources.neu`）。如果应用程序不从资源包加载资源，而是使用资源目录，那么所有这些方法都将抛出 `NE_RS_APIRQRF` 错误。

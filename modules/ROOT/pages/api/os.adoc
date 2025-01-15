@@ -1,4 +1,4 @@
-= os
+= 操作系统
 :page-toclevels: 1
 
 `Neutralino.os` 命名空间包含与用户操作系统相关的方法。

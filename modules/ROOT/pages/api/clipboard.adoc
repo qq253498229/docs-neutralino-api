@@ -1,4 +1,4 @@
-= clipboard
+= 剪贴板
 :page-toclevels: 1
 
 `Neutralino.clipboard` 命名空间提供了访问系统剪贴板的函数。

@@ -1,4 +1,4 @@
-= 原生API概述
+= API概述
 
 Neutralinojs为开发者提供了一个JavaScript客户端库（也称为Neutralino.js），用于通过Neutralinojs服务器与原生操作进行交互。JavaScript客户端的实现在neutralino.js JavaScript文件中。因此，你的Neutralinojs项目中需要有客户端库。
 

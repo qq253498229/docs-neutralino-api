@@ -1,4 +1,4 @@
-= app
+= 应用程序
 :page-toclevels: 1
 
 `Neutralino.app` 命名空间包含与当前应用实例相关的方法。

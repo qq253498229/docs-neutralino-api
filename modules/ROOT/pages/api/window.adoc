@@ -1,4 +1,4 @@
-= window
+= 窗口
 :page-toclevels: 1
 
 `Neutralino.window` 命名空间包含与当前原生窗口实例相关的方法。此命名空间的方法仅适用于 link:https://neutralino.js.org/docs/configuration/modes#window[窗口] 模式。
