@@ -20,3 +20,5 @@
 ** xref::api/resources.adoc[]
 ** xref::api/error-codes.adoc[]
 ** xref::api/global-variables.adoc[]
+* CLI
+** xref::cli/neu-cli.adoc[]

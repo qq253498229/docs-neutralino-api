@@ -1,0 +1,146 @@
+= neu CLI
+:page-toclevels: 2
+
+你可以使用 neu CLI 轻松创建、运行和构建 Neutralinojs 应用程序。
+
+[[installation]]
+== 安装
+
+在你的终端上运行以下命令来全局安装 CLI。
+
+[source,javascript]
+----
+npm i -g @neutralinojs/neu
+----
+
+如果你不想全局安装，也可以通过 npx 使用 neu CLI。
+
+[source,javascript]
+----
+npx @neutralinojs/neu <command>
+----
+
+[[commands]]
+== 命令
+
+[[neu-create-binaryname]]
+=== `neu create <binaryName>`
+
+根据模板创建一个新的 Neutralinojs 应用程序。
+
+[[parameters]]
+==== 参数
+
+* `<binaryName>`：你的应用程序二进制文件的名称。例如，如果你使用 `myapp`，最终的应用程序二进制文件将变为 `myapp-<platform>_<arch>`。
+
+[[options]]
+==== 选项
+
+* `--template`：通过 GitHub 仓库标识符 `<account>/<repo>` 格式设置应用程序模板。默认值为 `link:https://github.com/neutralinojs/neutralinojs-minimal[neutralinojs/neutralinojs-minimal]`。
+
+[[neu-build]]
+=== `neu build`
+
+此命令将创建 `dist` 文件夹。然后，它将从你的应用程序资源生成所有支持平台的二进制文件和 `resources.neu` 资源文件。
+
+[[options-1]]
+==== 选项
+
+* `--release`：创建应用程序包的便携式 ZIP 文件。
+* `--copy-storage`：将当前的 Neutralinojs 存储快照复制到应用程序包中。
+
+[[neu-run]]
+=== neu run
+
+执行当前应用程序（这将根据你的操作系统执行特定的二进制文件）。此命令将在 Linux 和 macOS 上更改二进制文件的执行权限（使用 `chmod` 命令）。此外，它还启用了当前应用程序的自动重载功能。换句话说，当应用程序资源发生修改时，Neutralinojs 应用程序将自动重新加载。
+
+在应用程序运行时，你可以看到 Neutralinojs 进程和扩展的输出流。
+
+如果你在应用程序配置中使用 `xref:configuration/neutralino.config.json.adoc#clifrontendlibrary-object[cli.frontendLibrary]` 键，CLI 将同时启用前端库的开发环境和 Neutralinojs 的开发环境。此选项会用 Neutralinojs 客户端库全局变量修补主 HTML 文件，以将原生 API 暴露给前端库的开发服务器。请从 xref:getting-started/using-frontend-libraries.adoc[此] 指南了解如何设置此功能。
+
+[[options-2]]
+==== 选项
+
+* `--disable-auto-reload`：禁用自动重载功能。
+* `--arch=<arch>`：明确设置 CPU 架构。如果你在 64 位计算机上使用 32 位 Node.js 进程，此选项很有用。
+* `-- <process-args>`：为 Neutralinojs 应用程序进程设置额外的 CLI 参数。例如，你可以通过输入 `neu run -- --mode=browser` 来启用 `browser` 模式。查看所有接受的参数，请点击 xref:cli/internal-cli-arguments.adoc[这里]。
+
+[[neu-update]]
+=== `neu update`
+
+此命令将从互联网更新现有的 Neutralinojs 二进制文件和客户端库。你可以在 `neutralino.config.json` 文件中使用 `nightly` 标签为 `cli.binaryVersion` 和 `cli.clientVersion` 来使用实验性的每日预发布版本。
+
+[[options-3]]
+==== 选项
+
+* `--latest`：通过 GitHub API 获取最新框架版本详细信息，从官方发布中下载，并使用获取的版本详细信息更新应用程序配置。
+
+WARNING: 夜间构建是指自动生成的每日构建，因此这些构建可能包含实验性或不完整的功能。因此，避免在生产应用程序中使用 `nightly` 版本。使用 `nightly` 版本来尝试最新功能，但使用稳定版本用于生产应用程序。
+
+[[neu-version]]
+=== neu version
+
+打印所有版本信息。如果此命令在 Neutralinojs 应用程序目录中执行，你将看到特定于项目的版本详细信息。否则，你将看到全局版本详细信息。
+
+[[neu-plugins-plugin]]
+=== `neu plugins [plugin]`
+
+[[parameters-1]]
+==== 参数
+
+* `plugin`：插件标识符。此值通常是 npm 包标识符。
+
+[[options-4]]
+==== 选项
+
+* `--add`：向 neu CLI 注册一个新插件。neu CLI 将插件下载到 CLI 的 `node_modules` 目录，并在启动过程中加载。插件可以向 CLI 引入新命令。
+* `--remove`：注销一个已存在的插件。
+
+[[plugins]]
+== 插件
+
+Neutralinojs 应用程序开发者可以编写插件来向 neu CLI 添加自己的命令。你可以按照以下步骤开发 CLI 插件。
+
+[[developing-a-plugin]]
+== 开发插件
+
+neu CLI 将使用 `index.js` 作为接口注册插件。创建一个新的 npm 包，包含 `index.js`，并添加以下代码片段。
+
+[source,javascript]
+----
+// index.js
+module.exports = {
+  command: 'commandname <action>',
+  register: (command, modules) => {
+    command.option('--option1 --option2')
+     .action((action, command) => {
+        //your logic goes here..
+     });
+  }
+}
+----
+
+`command` 是带有操作的 CLI 命令字符串。`register` 函数在插件注册时被调用。 它还带有命令对象和 link:https://github.com/neutralinojs/neutralinojs-cli/blob/master/src/modules/index.js[标准模块对象] 作为参数。 请查看 link:https://www.npmjs.com/package/commander[commander] 包文档，以获取有关命令和回调参数的更多信息。
+
+[[publishing-your-plugin]]
+== 发布你的插件
+
+一旦你将插件作为公共包发布到 npm 注册表，任何人都可以使用以下命令安装它：
+
+[source,javascript]
+----
+neu plugins --add <package-name>
+----
+
+并且可以使用以下命令移除它：
+
+[source,javascript]
+----
+neu plugins --remove <package-name>
+----
+
+查看 link:https://github.com/neutralinojs/neutralinojs-cli-appify[Appify 插件源代码]，以获取更多实现细节。
+
+== 更新日志
+
+请从 link:https://github.com/neutralinojs/neutralinojs-cli/blob/master/CHANGELOG.md[GitHub] 查看更新日志。
