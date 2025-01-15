@@ -2,20 +2,15 @@
 :compare-url1: https://github.com/Elanis/web-to-desktop-framework-comparison
 :compare-url2: https://github.com/neutralinojs/evaluation
 
+[[what-is-neutralinojs]]
 == 什么是 Neutralinojs？
 
-Neutralinojs 是一个轻量级且便携的桌面应用程序开发框架。
-它允许你使用 JavaScript、HTML 和 CSS 开发轻量级的跨平台桌面应用程序。
-你可以通过扩展 IPC 用任何编程语言扩展 Neutralinojs，并通过子进程 IPC 将 Neutralinojs 作为任何源文件的一部分。
+Neutralinojs 是一个轻量级且便携的桌面应用程序开发框架。 它允许你使用 JavaScript、HTML 和 CSS 开发轻量级的跨平台桌面应用程序。 你可以通过扩展 IPC 用任何编程语言扩展 Neutralinojs，并通过子进程 IPC 将 Neutralinojs 作为任何源文件的一部分。
 
+[[why-neutralinojs]]
 == 为什么选择 Neutralinojs？
 
-在 Electron 和 NWjs 中，你需要安装 Node.js 和数百个依赖库。
-嵌入的 Chromium 和 Node 使简单的应用程序变得臃肿。
-Neutralinojs 提供了一个轻量级且便携的 SDK，是 Electron 和 NW.js 的替代品。
-Neutralinojs 不捆绑 Chromium，而是使用操作系统中现有的网络浏览器库（例如 Linux 上的 gtk-webkit2）。
-Neutralinojs 实现了 WebSocket 连接以进行原生操作，并嵌入了一个静态 Web 服务器来提供 Web 内容。
-此外，它还为开发人员提供了一个内置的 https://github.com/neutralinojs/neutralino.js[JavaScript 客户端库]。
+在 Electron 和 NWjs 中，你需要安装 Node.js 和数百个依赖库。 嵌入的 Chromium 和 Node 使简单的应用程序变得臃肿。 Neutralinojs 提供了一个轻量级且便携的 SDK，是 Electron 和 NW.js 的替代品。 Neutralinojs 不捆绑 Chromium，而是使用操作系统中现有的网络浏览器库（例如 Linux 上的 gtk-webkit2）。 Neutralinojs 实现了 WebSocket 连接以进行原生操作，并嵌入了一个静态 Web 服务器来提供 Web 内容。 此外，它还为开发人员提供了一个内置的 https://github.com/neutralinojs/neutralino.js[JavaScript 客户端库]。
 
 查看比较：
 
@@ -30,6 +25,7 @@ Neutralinojs 实现了 WebSocket 连接以进行原生操作，并嵌入了一�
 * 作为 IPC 代理连接多个进程。
 * 等等...
 
+[[highlighted-features]]
 == 突出特点
 
 * 便携式开发工具包。
@@ -40,10 +36,9 @@ Neutralinojs 实现了 WebSocket 连接以进行原生操作，并嵌入了一�
 * 跨平台：Neutralinojs 应用程序可在 Linux、Windows、macOS 和 Web 上运行。
 * 简单灵活的开发环境。
 
+[[supported-platforms-and-cpu-architectures]]
 == 支持的平台和 CPU 架构
 
-neu CLI 为你提供了 Linux、macOS 和 Windows 的预构建 x64 二进制文件。
-此外，它还提供了 Neutralinojs 框架 v4.6.0 或更新版本的 ARM（armhf/arm64）Linux 二进制文件，以及 v4.10.0 或更新框架版本的 ARM（arm64）Darwin 二进制文件。
-我们正努力尽快通过 CLI 正式支持所有流行的 CPU 架构！然而，你可以从源代码构建 Neutralinojs 二进制文件，几乎适用于所有桌面操作系统和 CPU 架构。
+neu CLI 为你提供了 Linux、macOS 和 Windows 的预构建 x64 二进制文件。 此外，它还提供了 Neutralinojs 框架 v4.6.0 或更新版本的 ARM（armhf/arm64）Linux 二进制文件，以及 v4.10.0 或更新框架版本的 ARM（arm64）Darwin 二进制文件。 我们正努力尽快通过 CLI 正式支持所有流行的 CPU 架构！然而，你可以从源代码构建 Neutralinojs 二进制文件，几乎适用于所有桌面操作系统和 CPU 架构。
 
 如果你需要非 x64 CPU 的 Neutralinojs 二进制文件，请按照此 link:https://neutralino.js.org/docs/contributing/framework-developer-guide#setup-and-build-the-framework[指南] 从源代码构建 Neutralinojs。

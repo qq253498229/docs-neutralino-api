@@ -1,5 +1,7 @@
 * 开始
 ** xref::index.adoc[]
+** xref::getting-started/your-first-neutralinojs-app.adoc[]
+** xref::getting-started/using-frontend-libraries.adoc[]
 * 原生API
 ** xref::api/overview.adoc[]
 ** xref::api/app.adoc[]

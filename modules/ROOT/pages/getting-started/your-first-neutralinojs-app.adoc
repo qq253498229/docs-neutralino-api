@@ -1,0 +1,184 @@
+= 你的第一个应用
+
+[[introduction]]
+== 介绍
+
+我们将使用 Neutralinojs 创建一个简单的应用程序。这个示例应用程序将显示“Hello”以及你操作系统的当前用户名。例如，如果当前用户名是 John，它将显示“Hello John”。
+
+NOTE: 本教程使用纯 JavaScript 构建应用程序。如果你想要使用前端库，请查看此 xref:getting-started/using-frontend-libraries.adoc[指南]。
+
+[[step-0-installing-neu-cli]]
+== 第 0 步：安装 neu CLI
+
+你需要安装 neu CLI 来创建 Neutralinojs 应用程序。然而，你也可以不使用 CLI 开发应用程序。但是，CLI 会使一些困难的事情变得容易。在你的终端上运行以下命令来全局安装 neu CLI。
+
+[source,javascript]
+----
+npm install -g @neutralinojs/neu
+----
+
+如果你不想全局安装，可以使用 npx 运行 neu CLI。
+
+[source,javascript]
+----
+npx @neutralinojs/neu <command>
+----
+
+[[step-1-creating-a-new-app]]
+== 第 1 步：创建新应用程序
+
+输入以下命令来构建一个新应用程序。
+
+[source,javascript]
+----
+neu create myapp
+----
+
+上述命令将在 myapp 目录中创建一个新应用程序。为了确保一切正常，运行你的应用程序。
+
+[source,javascript]
+----
+cd myapp
+neu run
+----
+
+[NOTE]
+====
+如果你在 Windows 上，你可能会看到一个空白的白色屏幕。原因是，默认情况下，从 UWP 上下文中访问 localhost 是被禁用的。在命令提示符下以管理员权限运行以下命令来解决这个问题。
+
+[source,javascript]
+----
+CheckNetIsolation.exe LoopbackExempt -a -n="Microsoft.Win32WebViewHost_cw5n1h2txyewy"
+----
+
+你可以将此命令包含在你的 Windows 设置文件中（在用户同意的情况下），因为用户在 Windows 上也可能会看到一个空白的白色屏幕。
+
+为了获得更好的开发体验，我们建议你在 Windows 上安装 link:https://developer.microsoft.com/en-us/microsoft-edge/webview2/#download-section[WebView2 运行时]。
+====
+
+[[step-2-writing-javascript-html-and-css]]
+== 第 2 步：编写 JavaScript、HTML 和 CSS
+
+将以下内容插入到你的应用程序资源文件中。
+
+.index.html
+----
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>NeutralinoJs</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="neutralinoapp">
+      <h1 id="name"></h1>
+    </div>
+    <script src="js/neutralino.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
+----
+
+.styles.css
+----
+html, body{
+    margin: 0px;
+    padding: 0px;
+}
+
+#neutralinoapp {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #FFD700;
+}
+
+#neutralinoapp h1 {
+    position: relative;
+    float: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial;
+    font-size: 48px;
+    padding: 0px;
+    margin: 0px;
+}
+----
+
+.main.js
+----
+let getUsername = async () => {
+  const key = NL_OS == 'Windows' ? 'USERNAME' : 'USER';
+  let value = '';
+  try {
+      value = await Neutralino.os.getEnv(key);
+  }
+  catch(err) {
+      console.error(err);
+  }
+  document.getElementById('name').innerText = `Hello ${value}`;
+}
+
+Neutralino.init();
+Neutralino.events.on("windowClose", () => {
+  Neutralino.app.exit();
+});
+getUsername();
+----
+
+Neutralinojs 防止了任意原生 API 函数的执行，与 Node.js 环境不同。 这里我们使用了 `os.getEnv` 原生函数，因此请检查你的应用程序配置是否允许应用程序前端执行它。 默认配置已经允许整个 `os` 命名空间，具有以下 `nativeAllowList` 权限设置：
+
+[source,javascript]
+----
+"nativeAllowList": [
+    "app.*",
+    "os.*",
+    "debug.log"
+],
+----
+
+我们不需要更新权限设置，因为它已经允许 `os.getEnv` 原生函数调用。
+
+[[step-3-running-your-application]]
+== 第 3 步：运行你的应用程序
+
+如上所述，你可以使用 `run` 命令来启动你的应用程序。
+
+[source,javascript]
+----
+neu run
+----
+
+恭喜！你的应用程序运行成功。
+
+image::https://neutralino.js.org/assets/images/myapp-running-linux-6b64836102a03dea98022af84f9b189c.png[]
+
+NOTE: `neu run` 命令会在应用程序资源发生变化时重新加载你的应用程序。尝试在应用程序运行时更改你的 `index.html`。
+
+[[step-4-building-your-application]]
+== 第 4 步：构建你的应用程序
+
+为了为你的应用程序制作便携式二进制文件，我们可以使用 `build` 命令。在你的终端上输入以下命令，为所有支持的平台生成最终的二进制文件。
+
+[source,javascript]
+----
+neu build --release
+----
+
+上述命令将为所有平台生成二进制文件到 `dist` 目录中，并且 `--release` 标志还会将你的二进制文件打包成一个 .zip 文件。这个命令会非常快速地完成工作，因为背后没有编译过程。
+
+[[whats-next]]
+== 接下来呢？
+
+现在你知道如何创建 Neutralinojs 应用程序了。我们建议你接下来查看以下主题。
+
+* xref:configuration/neutralino.config.json.adoc[neutralino.config.json]
+* xref:configuration/project-structure.adoc[项目结构]
+* xref:cli/neu-cli.adoc[neu CLI]
+* xref:api/global-variables.adoc[全局变量]
+* xref:configuration/modes.adoc[应用程序模式]
+* xref:api/overview.adoc[原生 API 概览]
+
+我们使用纯 JavaScript 构建了上述示例应用程序。然而，你可以使用你最喜欢的前端框架来构建 Neutralinojs 应用程序。 查看更多关于前端框架支持的详细信息，请点击 link:https://neutralino.js.org/docs/configuration/project-structure#developing-apps-with-frontend-frameworks[这里]。

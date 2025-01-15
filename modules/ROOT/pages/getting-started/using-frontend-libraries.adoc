@@ -1,0 +1,270 @@
+= 使用前端库
+
+你可以使用纯 JavaScript 或任何现代前端库来构建 Neutralinojs 应用程序。 如果你想要使用前端库构建 Neutralinojs 应用程序，首先尝试通过 neu CLI 使用现有的应用程序模板：
+
+[[react]]
+== React
+
+[source,javascript]
+----
+neu create myapp --template codezri/neutralinojs-react
+cd myapp
+
+# 使用 Neutralinojs 启动 React 开发服务器
+neu run
+
+# 构建 React 和 Neutralinojs 应用程序
+neu build
+----
+
+* 仓库：link:https://github.com/codezri/neutralinojs-react[codezri/neutralinojs-react]
+
+[[using-any-frontend-library]]
+== 使用任何前端库
+
+以下教程将指导你通过解释我们如何构建 Neutralinojs React 模板来设置任何前端库与 Neutralinojs 一起使用：
+
+[[initializing-projects]]
+== 初始化项目
+
+首先，你需要创建一个新的空的 Neutralinojs 项目。使用 link:https://github.com/neutralinojs/neutralinojs-zero[neutralinojs/neutralinojs-zero] 模板来创建一个空项目，如下所示。
+
+[source,javascript]
+----
+neu create myapp --template neutralinojs/neutralinojs-zero
+----
+
+现在，使用你最喜欢的前端框架的命令行工具创建一个新项目。在本教程中，我们将使用 React，但你可以根据需要使用任何前端库。你需要在这个 `myapp` 目录内创建这个项目。
+
+[source,javascript]
+----
+cd myapp
+npx create-react-app react-src
+----
+
+[[configuring-neutralinojs-project]]
+== 配置 Neutralinojs 项目
+
+`neutralinojs-zero` 模板预先包含了一个 HTML 文件和图标，因此删除 `www` 目录，因为我们现在不需要这些文件。
+
+[source,javascript]
+----
+rm -rf www
+----
+
+你需要配置 Neutralinojs 项目以支持前端框架。首先，你可以将文档根目录设置为前端框架的构建目录。React 通常将构建输出生成到 `build` 目录，因此我们可以如下更新 `documentRoot`。
+
+[source,javascript]
+----
+"documentRoot": "/react-src/build/"
+----
+
+现在，我们的 Neutralinojs 应用程序知道了应用程序资源的位置，但缺少图标，因此为应用程序设置一个图标。你可以从前端框架的默认资源目录加载图标。为了演示，让我们使用 `public` 目录中的 React 图标。
+
+[source,javascript]
+----
+  "modes": {
+    "window": {
+      // --- other options
+      "icon": "/react-src/public/logo192.png"
+    }
+  }
+----
+
+[[configuring-neu-cli]]
+== 配置 neu CLI
+
+默认情况下，零模板配置要求 Neutralinojs CLI 从 GitHub 发布中下载 Neutralinojs 客户端（即 `neutralino.js`）。 然后，CLI 通过复制 `neutralino.js` 文件来创建你的应用程序包。 然而，你可以从 NPM 注册表下载客户端库并将其与你的应用程序前端捆绑。 从 Neutralinojs 配置中删除 `clientLibrary` 属性，以避免从 GitHub 发布中获取客户端：
+
+我们可以使用以下选项为 React 配置 CLI。
+
+[source,javascript]
+----
+  "cli": {
+    // --- other options
+    "resourcesPath": "/react-src/build/",
+    // ---
+    "clientLibrary": "/www/neutralino.js", // <--- Remove this option
+    // ---
+  }
+----
+
+现在，你可以将 React 应用程序构建并运行为 Neutralinojs 应用程序 — 可以通过以下步骤实现。
+
+首先，使用以下命令构建 React 应用程序。
+
+[source,javascript]
+----
+cd react-src
+npm run build
+----
+
+最后，运行 Neutralinojs 应用程序。
+
+[source,javascript]
+----
+cd ..
+neu run
+----
+
+[[initializing-native-api-with-neutralinojslib]]
+== 使用 `@neutralinojs/lib` 初始化原生 API
+
+你可以使用 `neu run` 命令运行应用程序，但还不能使用原生 API，因为它尚未初始化。为此，你需要使用以下命令安装 Neutralinojs 客户端：
+
+[source,javascript]
+----
+cd react-src
+npm install @neutralinojs/lib
+----
+
+下一步是从你选择的框架的根 HTML 文件中包含 JavaScript 脚本来加载 Neutralinojs xref:api/global-variables.adoc[全局变量]。
+
+React 通常将主 HTML 文件内容保存在 `./public/index.html` 文件中，因此我们可以在那里放置以下 HTML 片段来加载客户端库。
+
+[source,javascript]
+----
+<script src="%PUBLIC_URL%/__neutralino_globals.js"></script>
+----
+
+现在确保从你的前端应用程序入口点文件初始化客户端库。React 的应用程序入口点通常是 `./src/index.js`。 因此，我们可以通过从 `@neutralinojs/lib` 包调用 `init` 函数来执行初始化过程。
+
+[source,javascript]
+----
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+
+// Import init function from "@neutralinojs/lib"
+import { init } from "@neutralinojs/lib"
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+init(); // Add this function call
+----
+
+让我们验证客户端库是否正确加载。为此，让我们使用 `filesystem` API 来读取 Neutralinojs 应用程序的当前目录。
+
+首先，你需要更新 `neutralino.config.json` 以允许你的应用程序调用哪些 API。你可以启用整个命名空间 `filesystem.*` 或仅启用给定命名空间中的单个函数，如下所示。
+
+[source,javascript]
+----
+  "nativeAllowList": [
+    "app.*",
+    "filesystem.readDirectory"
+  ],
+----
+
+现在让我们在 `./src/App.js` 文件中添加以下片段，该片段将在 `App` 组件挂载时记录当前目录或错误消息。
+
+[source,javascript]
+----
+import { useEffect } from 'react'
+import './App.css';
+
+// Import filesystem namespace
+import { filesystem } from "@neutralinojs/lib"
+
+function App() {
+
+  // Log current directory or error after component is mounted
+  useEffect(() => {
+    filesystem.readDirectory('./').then((data) => {
+      console.log(data)
+    }).catch((err) => {
+      console.log(err)
+    })
+  }, [])
+
+  return (
+    <div className="App">
+      My Neutralinojs App
+    </div>
+  );
+}
+
+export default App;
+----
+
+最后一步是使用 `--window-enable-inspector` 参数运行你的 Neutralinojs 应用程序，这将允许你打开开发者工具。
+
+[source,javascript]
+----
+cd react-src
+npm run build
+
+cd ..
+neu run -- --window-enable-inspector
+----
+
+当前目录应该记录到控制台。要打开开发者工具，右键单击 Neutralinojs 应用程序中的任何位置，然后按 `inspect element`。
+
+[[enabling-hot-reload-and-configuration]]
+== 启用热重载和配置
+
+构建每个代码更改并测试你的应用程序无疑是耗时的。因此，你可以使用前端框架的 HMR（热模块替换）功能来加速你的开发活动。但是，我们这里有一个小问题。现在有两个 HTTP 服务器：Neutralinojs 资源服务器和前端框架的开发服务器。我们如何从前端框架的开发服务器加载 Neutralinojs 客户端库？
+
+不用担心 — neu CLI 提供了一个内置功能，通过修补主 HTML 文件来启用 HMR。 你可以在配置文件中添加以下部分来激活热重载。
+
+[source,javascript]
+----
+  "cli": {
+    // --- other options
+    "frontendLibrary": {
+        "patchFile": "/react-src/public/index.html",
+        "devUrl": "http://localhost:3000"
+    }
+  }
+}
+----
+
+上述选项告诉 neu CLI 主 HTML 文件和开发服务器 URL。
+
+接下来，通过添加特定于前端库的开发命令来配置你的项目，如下所示：
+
+[source,javascript]
+----
+  "cli": {
+    // --- other options
+    "frontendLibrary": {
+        "patchFile": "/react-src/public/index.html",
+        "devUrl": "http://localhost:3000",
+        "projectPath": "/react-src/",
+        "initCommand": "npm install",
+        "devCommand": "BROWSER=none npm start",
+        "buildCommand": "npm run build"
+    }
+  }
+}
+----
+
+最后，使用以下命令运行 Neutralinojs 应用程序。
+
+[source,javascript]
+----
+neu run
+----
+
+上述命令执行 `devCommand`，启动 React 开发服务器，并以开发模式运行 Neutralinojs 应用程序。
+
+image::https://neutralino.js.org/assets/images/hmr-preview-cdce2bdfc292933f7c15696bff07cf89.gif[]
+
+[[packaging]]
+== 打包
+
+要生成应用程序二进制文件，你可以像往常一样使用以下命令：
+
+[source,javascript]
+----
+neu build --release
+----
+
+上述命令首先执行 `buildCommand`，因此应用程序包将使用正确的 React 项目源。
+
+查看本教程的完整源代码，请点击 link:https://github.com/codezri/neutralinojs-react[这里]。
