@@ -71,6 +71,12 @@ let config = await Neutralino.app.getConfig();
 console.log('URL = ', config.url);
 ----
 
+.响应示例
+[source,json]
+----
+include::partial$config.json[]
+----
+
 [[appbroadcasteventname-data]]
 == 发送事件
 

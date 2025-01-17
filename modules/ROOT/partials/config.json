@@ -1,0 +1,82 @@
+{
+  "applicationId": "cn_codeforfun_demo_neu1",
+  "cli": {
+    "binaryName": "demo-neu1",
+    "binaryVersion": "5.5.0",
+    "extensionsPath": "/extensions/",
+    "frontendLibrary": {
+      "buildCommand": "npm run build",
+      "devCommand": "npm run start",
+      "devUrl": "http://localhost:4200",
+      "initCommand": "npm install",
+      "patchFile": "/angular-src/src/index.html",
+      "projectPath": "/angular-src/",
+      "waitTimeout": 20000
+    },
+    "resourcesPath": "/angular-src/dist/ng001/browser/"
+  },
+  "dataLocation": null,
+  "defaultMode": "window",
+  "documentRoot": "/angular-src/dist/ng001/browser/",
+  "enableExtensions": null,
+  "enableNativeAPI": true,
+  "enableServer": true,
+  "exportAuthInfo": true,
+  "globalVariables": null,
+  "logging": null,
+  "modes": {
+    "browser": {
+      "exportAuthInfo": true,
+      "port": 57280,
+      "url": "http://localhost:4200"
+    },
+    "chrome": {
+      "exportAuthInfo": true,
+      "port": 57280,
+      "url": "http://localhost:4200"
+    },
+    "cloud": {
+      "exportAuthInfo": true,
+      "port": 57280,
+      "url": "http://localhost:4200"
+    },
+    "window": {
+      "dataLocation": null,
+      "enableExtensions": null,
+      "enableInspector": true,
+      "enableNativeAPI": null,
+      "enableServer": null,
+      "exportAuthInfo": true,
+      "globalVariables": null,
+      "height": 800,
+      "icon": "/angular-src/public/logo.png",
+      "injectGlobals": true,
+      "logging": null,
+      "minHeight": 200,
+      "minWidth": 400,
+      "nativeAllowList": null,
+      "nativeBlockList": null,
+      "port": 57280,
+      "serverHeaders": null,
+      "storageLocation": null,
+      "title": "demo-neu1",
+      "tokenSecurity": null,
+      "url": "http://localhost:4200",
+      "width": 1300
+    }
+  },
+  "nativeAllowList": [
+    "os.*",
+    "app.*",
+    "updater.*",
+    "resources.*",
+    "clipboard.writeText"
+  ],
+  "nativeBlockList": null,
+  "port": 57280,
+  "serverHeaders": null,
+  "storageLocation": null,
+  "tokenSecurity": null,
+  "url": "http://localhost:4200",
+  "version": "0.0.1"
+}
