@@ -1,0 +1,232 @@
+= 框架开发者指南
+:page-toclevels: 2
+
+伟大的开源软件是热情开发者合作的结果。任何人都可以通过贡献代码和报告错误来帮助Neutralino。本文档解释了如何开始为Neutralinojs做出贡献。
+
+请注意，本指南是为框架开发者编写的。如果你刚开始接触Neutralinojs应用开发，你可以从 xref:getting-started/your-first-neutralinojs-app.adoc[这里]开始。
+
+[[setup-and-build-the-framework]]
+== 设置和构建框架
+
+[[cloning-the-repository]]
+=== 克隆仓库
+
+首先，克隆主仓库。
+
+[source,javascript]
+----
+git clone https://github.com/neutralinojs/neutralinojs.git
+cd neutralinojs
+----
+
+[[installing-compilation-tools-and-dependencies]]
+=== 安装编译工具和依赖项
+
+[[linux]]
+==== Linux
+
+无需单独安装编译器，因为Linux发行版通常已经安装了GNU C/C++编译器。
+
+使用以下命令安装GTK、WebKit和其他库。
+
+[[debian]]
+===== Debian
+
+[source,javascript]
+----
+sudo apt install libgtk-3-dev
+----
+
+[source,javascript]
+----
+sudo apt install libwebkit2gtk-4.0-37 libwebkit2gtk-4.0-dev
+# --- or ---
+sudo apt install libwebkit2gtk-4.1-0 libwebkit2gtk-4.1-dev
+----
+
+[[fedora]]
+===== Fedora
+
+[source,javascript]
+----
+sudo dnf install \
+    @development-tools \
+    gtk3 \
+    webkit2gtk3.x86_64 \
+    webkit2gtk3-devel.x86_64 \
+    libgtk-3-dev \
+    libwebkit2gtk-4.0-37 \
+    libwebkit2gtk-4.0-dev \
+    libglib2.0-dev \
+    libxrandr-dev
+----
+
+[[arch]]
+===== Arch
+
+[source,javascript]
+----
+sudo pacman -S \
+    gtk3 \
+    webkit2gtk
+----
+
+[[windows]]
+==== Windows
+
+安装最新版本的Visual Studio IDE和Windows SDK。Neutralinojs的编译过程将使用MSVC C++编译器（即``cl.exe``）。
+
+NOTE: 如何激活Windows 10 SDK：在Visual Studio安装程序中安装时，转到“工作负载”选项卡，“桌面和移动”部分，选择“使用C++的桌面开发”。在右侧的“安装详细信息”>“使用C++的桌面开发”>“可选”中，确保选中了“Windows 10 SDK”。
+
+[[macos]]
+==== macOS
+
+安装Xcode命令行工具。
+
+[[compile-the-neutralinojs-framework]]
+=== 编译Neutralinojs框架
+
+运行以下脚本来构建框架二进制文件。
+
+[source,javascript]
+----
+python scripts/bz.py
+----
+
+NOTE: 你需要安装 link:https://www.python.org/downloads/[Python] 解释器（3.x版本）来运行此脚本。
+
+Neutralinojs使用BuildZri C++构建自动化工具在本地开发计算机和CI/CD服务器上生成二进制文件。阅读 link:https://codezri.org/docs/buildzri/intro[BuildZri文档]，了解有关CLI选项和配置的更多信息。
+
+[[setup-and-build-the-client]]
+== 设置和构建客户端
+
+Neutralinojs应用通过WebSocket连接与Neutralinojs进程通信。此WebSocket连接由Neutralinojs客户端发起。
+
+将客户端仓库克隆到你下载主仓库的同一目录下。
+
+[source,javascript]
+----
+git clone https://github.com/neutralinojs/neutralino.js.git
+cd neutralino.js
+----
+
+安装开发依赖项。
+
+[source,javascript]
+----
+npm install
+----
+
+[[executing-the-test-app]]
+== 运行测试应用
+
+主仓库中有一个简单的测试应用，你可以在开发相关活动中使用它。你可以从主仓库运行以下命令来构建和更新测试应用的客户端。
+
+[source,javascript]
+----
+bash ./scripts/update_client.sh
+----
+
+现在使用以下命令运行新编译的测试应用。
+
+.Linux
+[source,javascript]
+----
+./bin/neutralino-linux_x64 --load-dir-res
+----
+
+.macOS
+[source,javascript]
+----
+# For Intel processors (x64)
+./bin/neutralino-mac_x64 --load-dir-res
+
+# For new Apple processors (arm64)
+./bin/neutralino-mac_arm64 --load-dir-res
+----
+
+.Windows
+[source,javascript]
+----
+./bin/neutralino-win_x64.exe --load-dir-res
+----
+
+[[testing]]
+== 测试
+
+测试是每个开发活动中至关重要的一部分。主代码库中的每个拉取请求都会触发以下自动化测试。
+
+* 在x64机器上的Linux、macOS和Windows上构建。
+* 集成测试套件。
+
+然而，你也可以从本地计算机运行我们的集成测试套件，只需从主代码库目录运行以下命令。
+
+[source,javascript]
+----
+cd spec
+npm install
+npm run test
+----
+
+最好运行你已更新的模块的测试套件，使用以下命令。
+
+[source,javascript]
+----
+npm run test <module> # Eg: npm run test filesystem
+----
+
+NOTE: 如果你需要运行``extensions``模块的测试，请确保先从``./bin/extensions/sampleextension``目录运行``npm install``。
+
+上述命令将仅运行给定模块的测试。
+
+[[adding-a-new-test-case]]
+=== 添加新的测试用例
+
+要添加测试用例，只需将其添加到``spec/<module>.spec.js``文件中。例如，如果你需要向``debug``模块添加新的测试用例，请将测试用例添加到``spec/debug.spec.js``文件中。
+
+接下来，运行该特定模块的测试套件，如下所示的命令片段：
+
+[source,javascript]
+----
+cd spec
+npm i
+npm run test debug
+----
+
+[[project-directory-structure]]
+== 项目目录结构
+
+[[framework]]
+=== 框架
+
+源码：link:https://github.com/neutralinojs/neutralinojs[github.com/neutralinojs/neutralinojs]
+
+* `api`：原生API实现和控制器。采用REST API风格编写。
+* `auth`：与认证和权限相关的逻辑。
+* `bin`：测试应用源代码。
+* `lib`：第三方库源文件。
+* `server`：WebSocket/HTTP通信端点。
+* `spec`：集成/API测试套件。
+* `scripts`：包含构建框架、生成发行说明、更新客户端库和为测试应用构建``resources.neu``的自动化脚本。
+
+[[client-library]]
+=== 客户端库
+
+源码：link:https://github.com/neutralinojs/neutralino.js[github.com/neutralinojs/neutralino.js]
+
+* `src/api`：JavaScript API前端和实现。
+* `src/browser`：与浏览器相关的API实现。
+* `src/ws`：WebSocket客户端实现。
+* `scripts`：包含生成发行说明的自动化脚本。
+
+[[contribution-guidelines]]
+== 贡献指南
+
+在向代码库贡献代码之前，请检查以下事项。
+
+* 通过GitHub讨论与Neutralinojs团队讨论功能/改进/错误修复。
+* 熟悉代码风格。根据 xref:contributing/code-style-guide.adoc[Neutralinojs代码风格指南] 编写代码。
+* 熟悉代码库中的所有模块。
+* 避免只为一个平台添加新功能。
+
+感谢你帮助我们让Neutralinojs变得更好！

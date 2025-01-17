@@ -32,3 +32,5 @@
 ** xref:how-to/auto-updater.adoc[]
 * 发布
 ** xref:distribution/overview.adoc[]
+* 贡献
+** xref:contributing/framework-developer-guide.adoc[]
