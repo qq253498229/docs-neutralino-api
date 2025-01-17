@@ -25,3 +25,4 @@
 ** xref:cli/internal-cli-arguments.adoc[]
 * Configuration
 ** xref:configuration/neutralino.config.json.adoc[]
+** xref:configuration/project-structure.adoc[]

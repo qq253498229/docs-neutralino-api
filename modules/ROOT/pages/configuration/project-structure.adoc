@@ -1,0 +1,32 @@
+= 项目结构
+
+Neutralinojs 的项目结构非常灵活。可以想象一个普通 Web 应用的结构。我们可以将资源分别放入如 assets、styles、images 等文件夹中。同样，开发者可以按照自己的意愿决定 Neutralinojs 项目的结构。
+
+然而，我们必须始终在所有 HTML 文件中加载 `neutralino.js` JavaScript 文件。neu CLI 会通过下载 link:https://github.com/neutralinojs/neutralinojs-minimal[最小模板] 为你搭建一个简单的结构。 但你确实可以更改它，或者使用 link:https://github.com/neutralinojs/neutralinojs-zero[空模板] 从头开始。
+
+[[developing-apps-with-vanilla-js]]
+== 使用vanilla JS开发app
+
+如果你喜欢用原生 JavaScript 开发 Neutralinojs 应用，可以将所有应用资源放在一个目录中。之后，你可以更新 `neutralino.config.json 文件`，使用以下值：
+
+[source,javascript]
+----
+  ...
+  "cli": {
+    ...
+    "resourcesPath": "/<resourcesDir>/",
+    "clientLibrary": "/<resourcesDir>/neutralino.js"
+  }
+----
+
+你可以为 `<resourceDir>` 选择一个名称。但默认情况下，neu CLI 会使用 `resources`。
+
+[[developing-apps-with-frontend-frameworks]]
+== 使用前端框架开发app
+
+任何前端框架都可以用于制作 Neutralinojs 应用。你可以随意选择模式，将 Neutralinojs 应用和前端应用包含在一个仓库中。你可以从 xref:getting-started/using-frontend-libraries.adoc[本指南] 中查看我们推荐的方法。
+
+[[examples]]
+== 示例
+
+请浏览示例 link:https://neutralino.js.org/apps[应用] 部分。
