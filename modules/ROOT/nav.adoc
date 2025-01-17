@@ -34,3 +34,4 @@
 ** xref:distribution/overview.adoc[]
 * 贡献
 ** xref:contributing/framework-developer-guide.adoc[]
+** xref:contributing/architecture.adoc[]

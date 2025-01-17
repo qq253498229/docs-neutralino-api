@@ -1,0 +1,13 @@
+= 架构
+
+Neutralinojs框架核心遵循单进程、单体式和分层的架构模式，包含两个相互连接的组件：框架核心（C++）和客户端库（JavaScript）。请看下面的高级架构图：
+
+image:https://neutralino.js.org/assets/images/neutralinojs-architecture-c3841bfd37a9910506ec81efffc44980.png[]
+
+框架核心有两个关键组件：路由器和本地API。路由器组件负责处理HTTP和WebSocket消息。Neutralinojs通常像普通的HTTP服务器一样通过HTTP提供所有网络资源。Neutralinojs本地API通信协议使用WebSocket消息协议。
+
+路由器根据来自网络上下文的请求提供网络资源并执行本地API函数。
+
+你的JavaScript应用程序需要使用Neutralinojs客户端库函数来执行本地API操作。平台特定的Web视图组件运行客户端库和你的应用程序的JavaScript代码。Web视图组件不是框架核心组件，因此你可以在任何现代网络浏览器上以浏览器、Chrome和云模式运行Neutralinojs应用程序。
+
+由于这种灵活性，你可以用任何编程语言编写扩展，并通过身份验证信息连接到框架核心。尽管没有扩展的应用程序遵循单体模式，但扩展使Neutralinojs应用程序具有基于进程的微服务架构，不再是单体式的。
