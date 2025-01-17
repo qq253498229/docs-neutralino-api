@@ -1,0 +1,253 @@
+= 内部 CLI 参数
+
+neu CLI 包装了 Neutralinojs 的内部 CLI 参数，为开发者提供了一个简单的接口。
+例如，`neu run` 命令在 Linux 内部调用 `./bin/neutralino-linux_x64 --load-dir-res --path=. --neu-dev-extension --neu-dev-auto-reload`。
+你可以通过构建 neu CLI、Node.js 和 npm 来构建 Neutralinojs 应用程序。但是，neu CLI 为应用程序开发者提供了一个简单、快速且易于使用的工具，用于创建、管理和打包 Neutralinojs 应用程序。
+
+Neutralinojs 支持以下 CLI 参数。许多内部 CLI 参数帮助开发者覆盖 `xref:configuration/neutralino.config.json.adoc[neutralino.config.json]` 文件中定义的默认配置。如果你通过子进程 API 将 Neutralinojs 作为源文件的一部分，你可以使用以下参数来配置应用程序实例。
+
+[[general]]
+== 通用
+
+[[load-dir-res]]
+=== `--load-dir-res`
+
+通知 Neutralinojs 服务器从资源目录获取文件。如果未提供此标志，Neutralinojs 服务器将从 `resources.neu` 文件加载资源。
+
+TIP: 如果 Neutralinojs 无法加载资源 `resources.neu`，此标志将自动在内部启用，以在应用程序目录中查找资源。因此，在开发应用程序时，你可以双击二进制文件，而无需使用 `neu run`。
+
+[[config-filefilename]]
+=== `--config-file=<filename>`
+
+使用自定义配置文件代替默认的 `neutralino.config.json` 文件来加载应用程序配置 JSON。此 CLI 选项有助于设置仅用于开发的配置文件（例如，`--config-file=neutralino-dev.config.json`）。
+
+NOTE: `neu build` 命令通常不会将自定义配置文件包含在最终应用程序包中 — 它只嵌入默认的 `neutralino.config.json` 文件，允许你存储生产应用程序配置。
+
+[[pathpath]]
+=== `--path=<path>`
+
+使用相对路径或绝对路径覆盖资源路径。这将更改 `NL_PATH` 全局变量。
+
+[[modemode]]
+=== `--mode=<mode>`
+
+覆盖默认模式。接受的值有：`window`、`browser` 和 `cloud`。
+
+[[neu-dev-auto-reload]]
+=== `--neu-dev-auto-reload`
+
+监听 `neuDev_reloadApp` 事件。当提供此 CLI 参数时，对资源所做的每次修改都将自动重新加载应用程序。`neu run` 命令默认使用此标志执行 Neutralinojs。
+
+`--neu-dev-` 是 Neutralinojs 进程的保留 CLI 参数前缀。因此，避免添加带有 `--neu-dev-` 前缀的自定义参数。你可以自由使用 `--dev-` 前缀用于与开发相关的 CLI 标志。
+
+[[neu-dev-extension]]
+=== `--neu-dev-extension`
+
+内部加载 `js.neutralino.devtools` 扩展用于开发目的。neu CLI 使用此 CLI 参数与应用程序进程建立 IPC。如果应用程序资源是从目录加载的，此选项才有效（对于最终用户不起作用）。
+
+[[urlurl]]
+=== `--url=<url>`
+
+覆盖应用程序的 URL。
+
+[[document-rooturl]]
+=== `--document-root=<url>`
+
+覆盖静态服务器的文档根目录。
+
+[[portport]]
+=== `--port=<port>`
+
+覆盖应用程序端口并将更改 `NL_PORT` 全局变量。如果给定 `0`，Neutralino 将使用一个随机可用端口。
+
+[[logging-enabledtruefalse]]
+=== `--logging-enabled=<true|false>`
+
+覆盖日志功能状态。
+
+[[logging-write-to-log-filetruefalse]]
+=== `--logging-write-to-log-file=<true|false>`
+
+覆盖日志文件功能状态。
+
+[[export-auth-infotruefalse]]
+=== `--export-auth-info=<true|false>`
+
+覆盖身份验证详细信息导出设置。
+
+[[enable-extensionstruefalse]]
+=== `--enable-extensions=<true|false>`
+
+覆盖扩展功能的可用性。
+
+[[enable-servertruefalse]]
+=== `--enable-server=<true|false>`
+
+启用或禁用后台服务器（禁用静态文件服务器功能和原生 API 消息传递）。如果你将远程 URL 加载到 webview，可以将此选项设置为 `true`。
+
+[[enable-native-apitruefalse]]
+=== `--enable-native-api=<true|false>`
+
+覆盖主要原生 API 执行权限。
+
+[[single-page-servetruefalse]]
+=== `--single-page-serve=<true|false>`
+
+覆盖单页服务选项。
+
+[[window-mode]]
+== 窗口模式
+
+当应用程序以窗口模式运行时，使用以下 CLI 参数。
+
+[[window-titletitle]]
+=== `--window-title=<title>`
+
+覆盖窗口标题。
+
+[[window-iconicon_path]]
+=== `--window-icon=<icon_path>`
+
+覆盖窗口图标。
+
+[[window-full-screentruefalse]]
+=== `--window-full-screen=<true|false>`
+
+覆盖窗口的初始全屏状态。
+
+[[window-always-on-toptruefalse]]
+=== `--window-always-on-top=<true|false>`
+
+覆盖窗口的初始置顶模式。
+
+[[window-borderlesstruefalse]]
+=== `--window-borderless=<true|false>`
+
+覆盖窗口的无边框模式。
+
+[[window-maximizetruefalse]]
+=== `--window-maximize=<true|false>`
+
+覆盖窗口的初始最大化状态。
+
+[[window-hiddentruefalse]]
+=== `--window-hidden=<true|false>`
+
+覆盖窗口的初始可见性状态。
+
+[[window-maximizabletruefalse]]
+=== `--window-maximizable=<true|false>`
+
+覆盖窗口的初始可最大化状态。
+
+[[window-widthnumber]]
+=== `--window-width=<number>`
+
+覆盖窗口宽度。
+
+[[window-heightnumber]]
+=== `--window-height=<number>`
+
+覆盖窗口高度。
+
+[[window-min-widthnumber]]
+=== `--window-min-width=<number>`
+
+覆盖窗口的最小宽度。
+
+[[window-min-heightnumber]]
+=== `--window-min-height=<number>`
+
+覆盖窗口的最小高度。
+
+[[window-max-widthnumber]]
+=== `--window-max-width=<number>`
+
+覆盖窗口的最大宽度。
+
+[[window-max-heightnumber]]
+=== `--window-max-height=<number>`
+
+覆盖窗口的最大高度。
+
+[[window-xnumber]]
+=== `--window-x=<number>`
+
+覆盖窗口左（`x`）位置。
+
+[[window-ynumber]]
+=== `--window-y=<number>`
+
+覆盖窗口顶（`y`）位置。
+
+[[window-centertruefalse]]
+=== `--window-center=<true|false>`
+
+覆盖窗口的初始居中定位设置。
+
+[[window-transparenttruefalse]]
+=== `--window-transparent=<true|false>`
+
+覆盖窗口透明度模式。
+
+[[window-resizabletruefalse]]
+=== `--window-resizable=<true|false>`
+
+覆盖窗口的初始可调整大小状态。
+
+[[window-exit-process-on-closetruefalse]]
+=== `--window-exit-process-on-close=<true|false>`
+
+覆盖关闭按钮的行为。
+
+[[window-enable-inspectortruefalse]]
+=== `--window-enable-inspector=<true|false>`
+
+自动打开开发者工具窗口。
+
+[[window-use-saved-statetruefalse]]
+=== `--window-use-saved-state=<true|false>`
+
+覆盖保存的窗口状态功能设置。
+
+[[window-extend-user-agent-withsuffix]]
+=== `--window-extend-user-agent-with=<suffix>`
+
+覆盖自定义用户代理设置。
+
+[[window-inject-globalstruefalse]]
+=== `--window-inject-globals=<true|false>`
+
+覆盖全局变量注入设置。
+
+[[window-inject-client-librarytruefalse]]
+=== `--window-inject-client-library=<true|false>`
+
+覆盖客户端库源注入设置。
+
+[[window-inject-scriptscript_path]]
+=== `--window-inject-script=<script_path>`
+
+覆盖预加载脚本注入设置。
+
+[[chrome-mode]]
+== Chrome 模式
+
+当应用程序以 Chrome 模式运行时，使用以下 CLI 参数。
+
+[[chrome-widthnumber]]
+=== --chrome-width=<number>
+
+Chrome 窗口的宽度。
+
+[[chrome-heightnumber]]
+=== --chrome-height=<number>
+
+Chrome 窗口的高度。
+
+[[chrome-argsarg_list]]
+=== --chrome-args=<arg_list>
+
+Chrome 进程的附加参数。更多关于 Chrome 模式的信息可以在 xref:configuration/modes.adoc#chrome[这里] 找到。
+
+NOTE: 对于布尔类型的 CLI 参数，右手边的值是可选的。因此，你可以使用 `--window-full-screen` 而不是 `--window-full-screen=true`。然而，如果你将 `window.fullScreen` 定义为 `true` 并且需要将其覆盖为 `false`，你必须使用 `--window-full-screen=false`。

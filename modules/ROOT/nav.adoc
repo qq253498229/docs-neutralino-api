@@ -22,3 +22,4 @@
 ** xref::api/global-variables.adoc[]
 * CLI
 ** xref::cli/neu-cli.adoc[]
+** xref::cli/internal-cli-arguments.adoc[]
