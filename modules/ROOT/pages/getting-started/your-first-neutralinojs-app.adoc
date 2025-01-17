@@ -181,4 +181,4 @@ neu build --release
 * xref:configuration/modes.adoc[应用程序模式]
 * xref:api/overview.adoc[原生 API 概览]
 
-我们使用纯 JavaScript 构建了上述示例应用程序。然而，你可以使用你最喜欢的前端框架来构建 Neutralinojs 应用程序。 查看更多关于前端框架支持的详细信息，请点击 link:https://neutralino.js.org/docs/configuration/project-structure#developing-apps-with-frontend-frameworks[这里]。
+我们使用纯 JavaScript 构建了上述示例应用程序。然而，你可以使用你最喜欢的前端框架来构建 Neutralinojs 应用程序。 查看更多关于前端框架支持的详细信息，请点击 xref:configuration/project-structure.adoc#developing-apps-with-frontend-frameworks[这里]。

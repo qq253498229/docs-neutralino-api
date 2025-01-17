@@ -1,7 +1,7 @@
 = 窗口
 :page-toclevels: 1
 
-`Neutralino.window` 命名空间包含与当前原生窗口实例相关的方法。此命名空间的方法仅适用于 link:https://neutralino.js.org/docs/configuration/modes#window[窗口] 模式。
+`Neutralino.window` 命名空间包含与当前原生窗口实例相关的方法。此命名空间的方法仅适用于 xref:configuration/modes.adoc#window[窗口] 模式。
 
 [[windowsettitletitle]]
 == 设置标题
@@ -285,7 +285,7 @@ await Neutralino.window.setIcon(icon);
 
 `window.setDraggableRegion(domId, options)`
 
-将给定的 DOM 元素转换为可拖动区域。用户可以通过拖动给定的 DOM 元素来拖动原生窗口。此功能适用于与 link:https://neutralino.js.org/docs/configuration/neutralino.config.json#modeswindowborderless-boolean[无边框模式]一起创建自定义窗口栏。
+将给定的 DOM 元素转换为可拖动区域。用户可以通过拖动给定的 DOM 元素来拖动原生窗口。此功能适用于与 xref:configuration/neutralino.config.json.adoc#modeswindowborderless-boolean[无边框模式]一起创建自定义窗口栏。
 
 [[parameters-4]]
 === 参数
@@ -445,7 +445,7 @@ console.log(position);
 * `injectGlobals` Boolean：直接将全局变量注入到网络视图实例中。
 * `injectClientLibrary` Boolean：直接将客户端库源注入到网络视图实例中。
 * `injectScript` Boolean：一个预加载的 JavaScript 源文件，在网络应用资源之前执行。
-* `processArgs` String：新窗口进程的额外命令行参数。从 link:https://neutralino.js.org/docs/cli/internal-cli-arguments[这里] 查看所有支持的内部命令行参数。
+* `processArgs` String：新窗口进程的额外命令行参数。从 xref:cli/internal-cli-arguments.adoc[这里] 查看所有支持的内部命令行参数。
 
 [[return-object-awaited]]
 === 返回 Object（异步等待）：

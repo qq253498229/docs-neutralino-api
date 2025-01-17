@@ -41,4 +41,4 @@ Neutralinojs 是一个轻量级且便携的桌面应用程序开发框架。 它
 
 neu CLI 为你提供了 Linux、macOS 和 Windows 的预构建 x64 二进制文件。 此外，它还提供了 Neutralinojs 框架 v4.6.0 或更新版本的 ARM（armhf/arm64）Linux 二进制文件，以及 v4.10.0 或更新框架版本的 ARM（arm64）Darwin 二进制文件。 我们正努力尽快通过 CLI 正式支持所有流行的 CPU 架构！然而，你可以从源代码构建 Neutralinojs 二进制文件，几乎适用于所有桌面操作系统和 CPU 架构。
 
-如果你需要非 x64 CPU 的 Neutralinojs 二进制文件，请按照此 link:https://neutralino.js.org/docs/contributing/framework-developer-guide#setup-and-build-the-framework[指南] 从源代码构建 Neutralinojs。
+如果你需要非 x64 CPU 的 Neutralinojs 二进制文件，请按照此 xref:contributing/framework-developer-guide.adoc#setup-and-build-the-framework[指南] 从源代码构建 Neutralinojs。
