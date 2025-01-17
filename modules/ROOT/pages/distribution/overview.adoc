@@ -1,0 +1,168 @@
+= 发布概述
+
+Neutralinojs 应用有几种分发方式：创建便携式 zip 文件、独立的安装文件以及基于网络的小型安装文件。你可以根据自己的应用分发偏好选择一种方式。
+
+[[application-build-results]]
+== 应用构建结果
+
+`neu build` 命令会在任何支持的操作系统中将以下文件生成到 `dist` 目录中。
+
+|===
+|文件名|操作系统|CPU 架构|类型
+|`myapp-linux_x64`|Linux|x86_64|应用二进制文件
+|myapp-linux_armhf|Linux|armhf|应用二进制文件
+|myapp-linux_arm64|Linux|arm64|应用二进制文件
+|myapp-mac_x64|macOS|x86_64|应用二进制文件（Intel）
+|myapp-mac_universal|macOS|x86_64 和 arm64|应用二进制文件
+|myapp-mac_arm64|macOS|arm64|应用二进制文件（M1/M2/M3）
+|myapp-win_x64|Windows|x86_64应|用二进制文件
+|resources.neu|所有系统|N/A|应用资源文件
+|===
+
+Neutralinojs 官方仅提供预构建的 `x64` 和 `armhf/arm64` Linux 专用二进制文件。如果你需要其他 CPU 架构的二进制文件，请考虑按照此 xref:contributing/framework-developer-guide.adoc[指南] 从源代码构建二进制文件。我们正努力尽快正式支持所有 CPU 架构！
+
+[[selecting-files-for-packaging]]
+== 选择打包文件
+
+neu CLI 会一次性为所有支持的平台生成应用二进制文件。这些二进制文件是预构建的。因此，在继续分发流程之前，请查看我们的 link:https://github.com/neutralinojs/neutralinojs/security/policy#prebuilt-binaries[安全策略]。
+
+作为打包的第一步，你可以为每个目标操作系统挑选两个文件：应用二进制文件和资源文件。例如，如果你需要为 `x64` Linux 计算机制作应用包，请挑选 `myapp-linux_x64` 和 `resources.neu` 文件。`resources.neu` 包含所有应用资源，因此，双击二进制文件并检查资源文件是否未损坏。
+
+[[creating-portable-application-packages-using-build-scripts]]
+== 使用构建脚本创建便携式应用包
+
+`link:https://github.com/hschneider/neutralino-build-scripts/[hschneider/neutralino-build-scripts]` 社区项目提供了预先开发的构建脚本，用于生成特定平台的应用程序包。例如，它通过生成 `.desktop` 文件和应用图标，以及提供安装应用程序的 shell 脚本，在 GNU/Linux 上生成标准的应用程序结构。
+
+将脚本克隆到你的应用文件夹的根目录，开始使用 Neutralinojs 构建脚本：
+
+[source,javascript]
+----
+git clone https://github.com/hschneider/neutralino-build-scripts.git build-scripts
+----
+
+安装 jq，这是解析 JSON 文件所需的：
+
+[source,javascript]
+----
+# On macOS:
+brew install jq
+# On Linux or Windows/WSL:
+sudo apt-get install jq
+----
+
+更新 `neutralino.config.json` 文件，添加构建脚本配置如下：
+
+[source,javascript]
+----
+  "buildScript": {
+    "mac": {
+      "architecture": ["x64", "arm64", "universal"],
+      "minimumOS": "10.13.0",
+      "appName": "myapp",
+      "appBundleName": "myapp",
+      "appIdentifier": "com.marketmix.ext.bun.demo",
+      "appIcon":  "resources/icons/icon.icns"
+    },
+    "win": {
+      "architecture": ["x64"],
+      "appName": "myapp",
+      "appIcon": "resources/icons/icon.ico"
+    },
+    "linux": {
+      "architecture": ["x64", "arm64", "armhf"],
+      "appName": "myapp",
+      "appIcon": "resources/icons/icon.png",
+      "appPath":  "/usr/share/myapp",
+      "appIconPath": "/usr/share/myapp/icon.png",
+      "appIconLocation": "/usr/share/myapp/icon.png"
+    }
+  }
+----
+
+[[generating-an-application-bundle-for-macos]]
+== 为 macOS 生成应用程序包
+
+你可以通过运行以下命令为 macOS 生成新的应用程序包：
+
+[source,javascript]
+----
+./build-mac.sh
+----
+
+构建文件将创建在 `./dist` 文件夹中。
+
+配置文件中的 `buildScript/mac` JSON 部分包含以下字段：
+
+|===
+|键|描述
+|architecture|这是你想要构建的架构数组。在我们的示例中，我们构建所有 3 种架构。
+|minimumOS|最低 macOS 版本。
+|appName|在 Finder 中显示的应用名称。
+|appBundleName|macOS 应用程序包名称。
+|appIdentifier|macOS 应用标识符。
+|appIcon|*.icns* 格式的应用图标路径。如果仅提交文件名，则预期该文件位于项目根目录。
+|===
+
+访问 link:https://github.com/hschneider/neutralino-build-scripts/#build-for-macos[构建脚本官方文档] 以获取更多详细信息。
+
+[[generating-an-application-bundle-for-windows]]
+== 为 Windows 生成应用程序包
+
+你可以通过运行以下命令为 Windows 生成新的应用程序包：
+
+[source,javascript]
+----
+./build-win.sh
+----
+
+构建文件将创建在 `./dist` 文件夹中。
+
+> 你现在可以运行 `install-icon.cmd` 来设置配置文件中指定的应用图标。这需要你在机器上安装 link:https://www.angusj.com/resourcehacker/[Resource Hacker]。
+
+配置文件中的 `buildScript/win` JSON 部分包含以下字段：
+
+|===
+|键|描述
+|architecture|这是你想要构建的架构数组。由于 Neutralino 目前仅支持 'x64'，你应该保持不变。
+|appName|在文件资源管理器中显示的应用名称，带或不带 .exe 后缀。
+|appIcon|*.ico* 格式的应用图标路径。如果仅提交文件名，则预期该文件位于项目根目录。图标将从该路径复制到应用程序包中。要将图标应用于可执行文件，你需要在 Windows 机器上运行 link:https://www.angusj.com/resourcehacker/[Resource Hacker]。为此，只需双击应用程序包中的 *install-icon.cmd*。
+|===
+
+访问 link:https://github.com/hschneider/neutralino-build-scripts/#build-for-windows[构建脚本官方文档] 以获取更多详细信息。
+
+[[generating-an-application-bundle-for-linux]]
+== 为 Linux 生成应用程序包
+
+你可以通过运行以下命令为 GNU/Linux 生成新的应用程序包：
+
+[source,javascript]
+----
+./build-linux.sh
+----
+
+所有构建目标都将创建在 `./dist` 文件夹中。
+
+> 从构建文件夹中调用 `sudo ./install.sh` 会自动将应用安装到你定义的位置。
+
+配置文件中的 `buildScript/linux JSON` 部分包含以下字段：
+
+|===
+|键|描述
+|architecture|这是你想要构建的架构数组。在我们的示例中，我们构建所有 3 种架构。
+|appName|在文件资源管理器中显示的应用名称。
+|appIcon|*.png* 或 *.svg* 格式的应用图标路径。如果仅提交文件名，则预期该文件位于项目根目录。图标将从该路径复制到应用程序包中。示例：`resources/icons/icon.png`
+|appPath|应用目录在系统中的路径，源文件安装**后**将位于此处，不包含可执行文件名且不以斜杠结尾。示例：`/usr/share/myapp`
+|appIconPath|应用安装在 Linux 系统**后**，应用图标的路径。此路径将写入 .desktop 文件。示例：`/usr/share/myapp/icon.png`
+|appIconLocation|与 appIconPath 相同。
+|===
+
+访问 link:https://github.com/hschneider/neutralino-build-scripts/#build-for-linux[构建脚本官方文档] 以获取更多详细信息。
+
+[[creating-application-installers]]
+== 创建应用安装程序
+
+以下指南尚未编写文档。
+
+* 为 Linux 创建应用安装程序
+* 为 macOS 创建应用安装程序
+* 为 Windows 创建应用安装程序

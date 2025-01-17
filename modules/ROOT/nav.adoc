@@ -20,13 +20,15 @@
 ** xref:api/resources.adoc[]
 ** xref:api/error-codes.adoc[]
 ** xref:api/global-variables.adoc[]
-* CLI
+* 命令行
 ** xref:cli/neu-cli.adoc[]
 ** xref:cli/internal-cli-arguments.adoc[]
-* Configuration
+* 配置
 ** xref:configuration/neutralino.config.json.adoc[]
 ** xref:configuration/project-structure.adoc[]
 ** xref:configuration/modes.adoc[]
-* How To
+* 如何
 ** xref:how-to/extensions-overview.adoc[]
 ** xref:how-to/auto-updater.adoc[]
+* 发布
+** xref:distribution/overview.adoc[]
