@@ -1,1 +1,562 @@
+= neutralino.config.json
+
+`neutralino.config.json` 文件包含了应用程序的配置细节。每个 Neutralinojs 应用程序通常会从配置文件中加载以下键。
+
+* applicationId
+* url
+* defaultMode
+
+然而，拥有配置文件并不是启动 Neutralinojs 应用程序的必要条件，因为 Neutralinojs 框架通常会为所有配置选项加载合理的默认值。
+
+你可以使用结构良好的配置文件来开发 Neutralinojs 应用程序。或者，你可以使用 CLI 参数在没有配置文件的情况下启动框架，如下所示的代码片段所示：
+
+[source,javascript]
+----
+# 加载远程 URL
+./framework-bin --url=https://neutralino.js.org/docs
+
+# 启动本地静态 Web 应用程序
+./framework-bin --url="/" --document-root="/resources/" --window-title="My web app" --enable-server --enable-native-api
+----
+
+[[primary]]
+== 主要配置
+
+以下配置值在不同的 Neutralinojs 模式中不能被覆盖。
+
+[[applicationid-string]]
+=== `applicationId: string`
+
+用于识别你的应用程序的唯一字符串。例如：`js.neutralino.sample`
+
+[[version-string]]
+=== `version: string`
+
+应用程序版本。例如：`2.4.22`
+
+[[defaultmode-string]]
+=== `defaultMode: string`
+
+应用程序的模式。接受的值为 `window`、`browser`、`cloud` 和 `chrome`。
+
+[[general]]
+== 通用配置
+
+你可以从不同的模式中覆盖以下配置值。例如，你可以在根级别使用一个特定的 URL，而在窗口模式级别使用另一个 URL，如下所示。
+
+[source,javascript]
+----
+{
+    "url": "/"
+    "modes": {
+        "window": {
+            "url": "/#window-mode"
+        }
+    }
+}
+----
+
+[[port-number]]
+=== `port: number`
+
+你的应用程序的端口。如果值为 `0`，Neutralinojs 将使用一个随机的可用端口。
+
+[[enableserver-boolean]]
+=== `enableServer: boolean`
+
+启用或禁用后台服务器（禁用静态文件服务器功能和原生 API 消息传递）。如果你加载远程 URL 到 WebView，你可以将此选项设置为 `false`。如果你从本地资源加载资源，请确保将此选项设置为 `true`。默认值为 `false`。
+
+[[enablenativeapi-boolean]]
+=== `enableNativeAPI: boolean`
+
+启用或禁用原生 API。如果你想使用任何原生 API 函数，你可以将此选项设置为 `true`。默认值为 `false`。
+
+[[singlepageserve-boolean]]
+=== `singlePageServe: boolean`
+
+激活单页应用（SPA）服务。当启用此选项时，静态服务器模块仅在特定子目录中不存在另一个 `index.html` 文件时，才为子目录请求提供主要的 `index.html` 文件。此选项的默认值为 `false`。
+
+[[]]
+=== `tokenSecurity: string`
+
+Neutralinojs 使用本地 WebSocket 的客户端-服务器通信模式来处理原生调用。这个本地服务器使用自动生成的令牌进行保护。此选项定义了令牌的安全实现。
+
+接受以下值：
+
+* `one-time` *（推荐）* ：服务器只发送一次访问令牌，客户端将其持久化在 `sessionStorage` 中。如果另一个客户端（例如：浏览器）尝试访问应用程序，将显示 `NE_RT_INVTOKN` 错误消息，而不是应用程序。推荐使用此选项，因为它减少了安全问题。
+* `none` ：服务器始终发送访问令牌，因此任何新客户端都可以看到应用程序。
+
+如果开发者未指定此设置，则默认值为 `one-time`。
+
+IMPORTANT: 如果你使用可以访问计算机内部的原生 API，如 `os`、`filesystem`、模块等，永远不要使用 `none` 选项，因为任何新客户端都可以使用这些 API。
+
+[[url-string]]
+=== `url: string`
+
+应用程序的入口 URL。Neutralinojs 将最初加载此 URL。 此属性接受相对和绝对 URL。请参阅以下示例。
+
+[source,javascript]
+----
+"url": "/"
+----
+
+上述配置最初加载 `http://localhost:<port>/` URL（内部加载 `/index.html`）。 你也可以使用远程 URL。
+
+[source,javascript]
+----
+"url": "http://example.com"
+----
+
+[[documentroot-string]]
+=== `documentRoot: string`
+
+设置静态服务器的文档根目录。例如，如果你需要使用 `resources` 目录作为文档根目录，你可以如下设置 `documentRoot`。
+
+[source,javascript]
+----
+{
+    "documentRoot": "/resources/",
+    "url": "/"
+}
+----
+
+确保正确配置 `url` 与文档根目录。以下配置是 *错误* 的，它指示静态服务器从 `./resources/resources` 获取资源。
+
+[source,javascript]
+----
+{
+    "documentRoot": "/resources/",
+    "url": "/resources/"
+}
+----
+
+然而，你可以在 URL 中使用子目录，如下所示。
+
+[source,javascript]
+----
+{
+    "documentRoot": "/",
+    "url": "/resources/"
+}
+----
+
+[[exportauthinfo-boolean]]
+=== `exportAuthInfo: boolean`
+
+将认证详情导出到 `${NL_PATH}/.tmp/auth_info.json` 文件，具有以下 JSON 结构。
+
+[source,javascript]
+----
+{
+    "port": "<port>",
+    "accessToken": "<access_token>"
+}
+----
+
+你可以使用上述认证详情通过 WebSocket 作为 IPC 机制从外部进程连接到 Neutralinojs。
+
+[[enableextensions-boolean]]
+=== `enableExtensions: boolean`
+
+启用/禁用扩展。了解更多关于 xref:how-to/extensions-overview.adoc#enable-the-extensions-feature[此] 选项的信息
+
+[[extensions-object]]
+=== `extensions: object[]`
+
+扩展定义的数组。 了解更多关于 xref:how-to/extensions-overview.adoc#defining-the-extensions[此] 选项的信息
+
+[[nativeblocklist-string]]
+=== `nativeBlockList: string[]`
+
+需要从应用程序前端阻止的原生方法的数组。条目中允许使用通配符字符 `*`。
+
+[source,javascript]
+----
+{
+    "nativeBlockList": ["os.execCommand"],
+    "nativeBlockList": ["app.*"]
+}
+----
+
+[[nativeallowlist-string]]
+=== `nativeAllowList: string[]`
+
+需要从应用程序前端允许的原生方法的数组。条目中允许使用通配符字符 `*`。
+
+[source,javascript]
+----
+{
+    "nativeAllowList": ["os.getEnv"],
+    "nativeAllowList": ["storage.*"]
+}
+----
+
+[[globalvariables-object]]
+=== `globalVariables: object`
+
+自定义 xref:api/global-variables.adoc#custom-global-variables[全局变量] 的基于键值的 JavaScript 对象。
+
+[[loggingenabled-boolean]]
+=== `logging.enabled: boolean`
+
+启用或禁用日志功能。
+
+[[loggingwritetologfile-boolean]]
+=== `logging.writeToLogFile: boolean`
+
+启用或禁用日志文件。如果此设置为 `false`，框架不会将日志写入 `neutralinojs.log`，而是将日志写入标准流。
+
+[[serverheaders-object]]
+=== `serverHeaders: object`
+
+自定义静态服务器和 WebSocket 握手过程的头部。例如，以下配置将自定义头部与每个传出的 HTTP 响应一起发送。
+
+[source,javascript]
+----
+{
+    "serverHeaders": {
+        "Test-Header-Option": "Value"
+    }
+}
+----
+
+[[datalocation-string]]
+=== `dataLocation: string`
+
+配置内部框架数据文件存储目录。
+
+接受以下值：
+
+* `app`（默认）：在应用程序目录内存储框架数据文件。
+* `system` ：在系统应用程序数据目录内存储框架数据文件（即，在 GNU/Linux 系统上为 `/home/username/.local/share/<applicationId>`）。应用程序开发者可以从 `xref:api/global-variables.adoc[NL_DATAPATH]` 全局变量中获取当前数据目录字符串。
+
+[[storagelocation-string]]
+=== `storageLocation: string`
+
+配置 Neutralinojs 存储位置。
+
+接受以下值：
+
+* `app`（默认）：在应用程序目录的 `.storage` 目录内存储 `.neustorage` 文件。
+* `system` ：在系统应用程序数据目录内存储 `.neustorage` 文件（即，在 GNU/Linux 系统上为 `/home/username/.local/share/<applicationId>/.storage`）。
+
+[[window-mode]]
+== 窗口模式
+
+当应用程序以窗口模式运行时，使用以下配置值。
+
+[[modeswindowtitle-string]]
+=== `modes.window.title: string`
+
+原生窗口的标题。
+
+[[modeswindowwidth-number]]
+=== `modes.window.width: number`
+
+原生窗口的宽度。
+
+[[modeswindowheight-number]]
+=== `modes.window.height: number`
+
+原生窗口的高度。
+
+[[modeswindowminwidth-number]]
+=== `modes.window.minWidth: number`
+
+原生窗口的最小宽度。
+
+[[modeswindowminheight-number]]
+=== `modes.window.minHeight: number`
+
+原生窗口的最小高度。
+
+[[modeswindowmaxwidth-number]]
+=== `modes.window.maxWidth: number`
+
+原生窗口的最大宽度。
+
+[[modeswindowmaxheight-number]]
+=== `modes.window.maxHeight: number`
+
+原生窗口的最大高度。
+
+[[modeswindowx-number]]
+=== `modes.window.x: number`
+
+原生窗口的左位置（`x`）。
+
+[[modeswindowy-number]]
+=== `modes.window.y: number`
+
+原生窗口的右位置（`y`）。
+
+[[modeswindowcenter-boolean]]
+=== `modes.window.center: boolean`
+
+最初将原生应用程序窗口居中。
+
+[[modeswindowtransparent-boolean]]
+=== `modes.window.transparent: boolean`
+
+为应用程序实例启用透明原生窗口模式。如果激活了透明模式，用户可以看到透明背景颜色的网页背景。可以使用 `rgba()` CSS 颜色函数激活部分透明。你可以使用此功能创建半透明窗口、具有自定义阴影的窗口和自定义形状的窗口框架。
+
+此选项的默认值为 `false`。
+
+NOTE: 与其他平台不同，Windows 原生窗口在激活透明模式时会变成无边框（窗口控件将被隐藏）。
+
+[[modeswindowfullscreen-boolean]]
+=== `modes.window.fullScreen: boolean`
+
+激活全屏模式。
+
+[[modeswindowicon-string]]
+=== `modes.window.icon: string`
+
+应用程序图标文件名。你可以直接指向资源目录中的图像文件。我们建议你选择一个透明的 PNG 文件。
+
+[[modeswindowalwaysontop-boolean]]
+=== `modes.window.alwaysOnTop: boolean`
+
+激活置顶模式。
+
+[[modeswindowenableinspector-boolean]]
+=== `modes.window.enableInspector: boolean`
+
+自动打开开发者工具窗口。
+
+[[modeswindowborderless-boolean]]
+=== `modes.window.borderless: boolean`
+
+激活无边框模式。
+
+[[modeswindowmaximize-boolean]]
+=== `modes.window.maximize: boolean`
+
+启动时最大化应用程序。
+
+[[modeswindowresizable-boolean]]
+=== `modes.window.resizable: boolean`
+
+使窗口可调整大小或不可调整大小。默认值为 `true`。
+
+[[modeswindowhidden-boolean]]
+=== `modes.window.hidden: boolean`
+
+使窗口不可见。此设置可用于开发后台服务。
+
+[[modeswindowexitprocessonclose-boolean]]
+=== `modes.window.exitProcessOnClose: boolean`
+
+如果此设置为 `true`，当用户点击关闭按钮时，应用程序进程将退出。否则，框架将触发 `windowClose` 事件。
+
+[[modeswindowusesavedstate-boolean]]
+=== `modes.window.useSavedState: boolean`
+
+自动保存和加载主窗口状态（宽度、高度、x、y、值和最大化状态）。默认值为 `true`。
+
+[[modeswindowextenduseragentwith-string]]
+=== `modes.window.extendUserAgentWith: string`
+
+使用自定义后缀扩展默认的 WebView 特定用户代理字符串。如果未设置此值，WebView 将从平台特定的渲染引擎（例如，在 GNU/Linux 上为 WebKit）设置默认用户代理。
+
+[[modeswindowinjectglobals-boolean]]
+=== `modes.window.injectGlobals: boolean`
+
+直接将全局变量注入到 WebView 实例中。如果你使用此功能，你无需包含 `__neutralino_globals.js` 或 `neutralino.js` 文件即可在你的 Web 应用中接收 Neutralinojs 全局变量。
+
+[[modeswindowinjectclientlibrary-boolean]]
+=== `modes.window.injectClientLibrary: boolean`
+
+直接将全局变量和客户端库实现注入到 WebView 实例中。如果你使用此功能，你无需手动通过 `neutralino.js` 文件或从 `@neutralinojs/lib` NPM 模块包含客户端库。
+
+[[modeswindowinjectscript-string]]
+=== `modes.window.injectScript: string`
+
+从应用程序包中注入一个预加载的 JavaScript 文件到 WebView 实例中。此脚本文件将在 Web 应用资源之前和 `window.injectGlobals` 以及 `window.injectClientLibrary` 脚本之后执行，因此你可以在该源文件中编写使用 Neutralinojs API 的初始化脚本。
+
+[[chrome-mode]]
+== Chrome 模式
+
+当应用程序以 Chrome 模式启动时，使用以下配置值。
+
+[[modeschromewidth-number]]
+=== `modes.chrome.width: number`
+
+Chrome 窗口的宽度。
+
+[[modeschromeheight-number]]
+=== `modes.chrome.height: number`
+
+Chrome 窗口的高度。
+
+[[modeschromeargs-string]]
+=== `modes.chrome.args: string`
+
+Chrome 进程的额外命令行参数。更多关于 Chrome 模式的信息请参阅 xref:configuration/modes.adoc#chrome[这里]。
+
+[[cli]]
+== CLI
+
+以下配置值用于 neu CLI。
+
+[[clibinaryname-string]]
+=== `cli.binaryName: string`
+
+应用程序的二进制文件名。如果为 `myapp`，所有二进制文件将使用 `myapp-<platform>_<arch>` 格式。
+
+[[cliresourcespath-string]]
+=== `cli.resourcesPath: string`
+
+应用程序资源的路径。
+
+[[cliresourcesexclude-string]]
+=== `cli.resourcesExclude: string`
+
+从最终应用程序包中排除文件的正则表达式模式。例如，以下配置将从最终构建中排除所有 TypeScript 源文件：
+
+[source,javascript]
+----
+{
+    "resourcesExclude" : ".*\\.ts$|.*\\.tsx$"
+}
+----
+
+[[cliextensionspath-string]]
+cli.extensionsPath: string 应用程序扩展的路径。
+[[cliextensionsexclude-string]]
+cli.extensionsExclude: string 从最终应用程序包的扩展目录中排除文件的正则表达式模式。例如，以下配置将排除 `.log` 和 `.info` 文件：
+
+[source,javascript]
+----
+{
+    "extensionsExclude" : ".*\\.log$|.*\\.info$"
+}
+----
+
+[[cliclientlibrary-string]]
+=== `cli.clientLibrary: string`
+
+Neutralinojs JavaScript 库的文件名。
+
+[[clibinaryversion-string]]
+=== `cli.binaryVersion: string`
+
+Neutralinojs 服务器版本。使用 `nightly` 标签获取夜间构建版本。
+
+[[cliclientversion-string]]
+=== `cli.clientVersion: string`
+
+Neutralinojs 客户端版本。使用 `nightly` 标签获取夜间构建版本。
+
+[[cliautoreloadexclude-string]]
+=== `cli.autoReloadExclude: string`
+
+从自动重载文件监视器中排除文件的 JavaScript 正则表达式。例如，以下配置将禁用 SASS 样式表（`.scss`）的自动重载：
+
+[source,javascript]
+----
+{
+    "autoReloadExclude": ".*\\.scss$"
+}
+----
+
+可以使用 `|` 字符设置多个正则表达式，如下所示：
+
+[source,javascript]
+----
+{
+    "autoReloadExclude": ".*\\.scss$|.*\\.less$"
+}
+----
+
 [[clifrontendlibrary-object]]
+=== `cli.frontendLibrary: object`
+
+为 `neu run` 命令启用前端开发工具（HMR 等）。更多关于前端框架集成的信息请参阅 xref:getting-started/using-frontend-libraries.adoc[这里]。
+
+[[clihostprojectprojectpath-string]]
+=== `cli.hostProject.projectPath: string`
+
+设置宿主项目的项目路径。此路径将在执行与宿主项目相关的命令时用作当前目录。
+
+[[clihostprojectinitcommand-string]]
+=== `cli.hostProject.initCommand: string`
+
+在使用 `neu create` 命令下载宿主应用模板后执行的命令。
+
+[[clihostprojectdevcommand-string]]
+=== `cli.hostProject.devCommand: string`
+
+与 `neu run` 命令一起运行以启动宿主项目的命令。
+
+[[clihostprojectbuildcommand-string]]
+=== `cli.hostProject.buildCommand: string`
+
+`neu build` 命令将在生成应用程序包之前执行此命令，因此你可以生成宿主项目代码的打包版本。
+
+[[clihostprojectbuildpath-string]]
+=== `cli.hostProject.buildPath: string`
+
+`buildCommand` 执行后，最终的可分发宿主项目文件将存储的位置。这些文件将在 `neu build` 命令执行后复制到应用程序包路径中。
+
+[[clidistributionpath-string]]
+=== `cli.distributionPath: string`
+
+设置 neu CLI 的构建路径。例如，如果你需要将构建的二进制文件放在 `build` 文件夹而不是 `dist` 文件夹中，可以如下设置 `distributionPath`：
+
+[source,javascript]
+----
+{
+    "distributionPath": "/build",
+}
+----
+
+`distributionPath` 的默认值为 `/dist`。
+
+[[windows-specific-options]]
+== Windows 特定选项
+
+以下额外的配置选项用于定义 Windows 平台上可执行文件的元数据和外观。这些字段必须放在 `neutralino.config.json` 的根目录中。每个字段都是可选的。
+
+[[applicationname-string]]
+=== `applicationName: string`
+
+人类可读的应用程序名称。填充可执行文件的 `ProductName` 字段。
+
+[[applicationicon-string]]
+=== `applicationIcon: string`
+
+相对于 `neutralino.config.json` 的可执行文件图标的位置。图标必须是 PNG 格式。如果未设置，将从 `modes.window.icon` 中选择图标。如果 `modes.window.icon` 也不指向 PNG 文件，则使用默认的 Neutralino.js 图标。
+
+[[author-string]]
+=== `author: string`
+
+应用程序的开发者。填充可执行文件的 `CompanyName` 字段。
+
+[[description-string]]
+=== `description: string`
+
+可执行文件的描述。这通常描述了你的应用程序的用途。填充可执行文件的 `FileDescription` 字段。
+
+[[copyright-string]]
+=== `copyright: string`
+
+版权声明。填充可执行文件的 `LegalCopyright` 字段。
+
+示例配置：
+
+[source,javascript]
+----
+{
+    "applicationId": "cook.pancake.bakery",
+    "version": "1.2.0",
+    "applicationName": "Pancake Bakery",
+    "author": "Sweet Pancakes LLC",
+    "description": "Digital recipe book for pancakes from all over the world",
+    "copyright": "Copyright © Sweet Pancakes LLC 2042. All rights reserved.",
+    "applicationIcon": "buildAssets/appIcon.png",
+    "cli": {
+        "binaryName": "pancakebakery"
+    }
+}
+----
