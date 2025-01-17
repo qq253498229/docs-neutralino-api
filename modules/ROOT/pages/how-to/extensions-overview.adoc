@@ -1,2 +1,204 @@
-[[enable-the-extensions-feature]]
+= 扩展概述
+
+Neutralino框架提供了一个原生API，允许用户执行各种操作系统级别的操作，如访问文件系统、执行命令和显示对话框。尽管用户在构建应用程序时可能需要额外的原生API，例如数据库连接器，但如果将所有这些都添加到核心中，会使框架变得臃肿。因此，框架提供了一个基于WebSocket的扩展系统，允许用户在无需从源代码构建框架的情况下扩展Neutralinojs API。
+
+扩展API提供了使用任何编程语言编写应用程序自定义后端代码的灵活性。此外，扩展API允许你将Neutralinojs进程包含在任何源文件中。
+
 [[defining-the-extensions]]
+== 定义扩展
+
+首先，你需要在 `neutralinojs.config.json` 中定义你使用的扩展，结构如下。
+
+[source,javascript]
+----
+"extensions": [
+    {
+        "id": "js.neutralino.sampleextension",
+        "commandLinux": "${NL_PATH}/extensions/binary/linux/ext_bin",
+        "commandDarwin": "${NL_PATH}/extensions/binary/mac/ext_bin",
+        "commandWindows": "${NL_PATH}/extensions/binary/win/ext_bin.exe"
+    },
+    {
+        "id": "js.neutralino.binaryextension",
+        "command": "node ${NL_PATH}/extensions/binary/main.js",
+    }
+]
+----
+
+* `id` 字符串：用于标识每个扩展的唯一键。此id不能包含除字母、数字和句点之外的任何字符。
+* `command` 字符串（可选）：启动扩展的跨平台命令。例如：``node $\{NL_PATH}/extensions/binary/main.js``将在每个平台上工作。
+* `commandLinux` 字符串（可选）：Linux上的扩展启动命令。
+* `commandDarwin` 字符串（可选）：macOS上的扩展启动命令。
+* `commandWindows` 字符串（可选）：Windows上的扩展启动命令。
+
+[[enable-the-extensions-feature]]
+== 启用扩展功能
+
+扩展API默认是禁用的。通过在应用配置中添加以下设置来启用扩展。
+
+[source,javascript]
+----
+"enableExtensions": true
+----
+
+[[connecting-an-extension-with-neutralinojs]]
+== 将扩展与Neutralinojs连接
+
+正如你已经注意到的，扩展只是一个单独的进程。Neutralinojs在框架启动过程中开始生成扩展实例，并通过标准输入流发送以下JSON对象来初始化每个扩展进程：
+
+[source,javascript]
+----
+{
+  "nlPort": "",
+  "nlToken": "",
+  "nlConnectToken": "",
+  "nlExtensionId": ""
+}
+----
+
+上述JSON属性包含的连接信息如下：
+
+* `nlPort`：Neutralinojs服务器的端口。
+* `nlToken`：使用原生API的访问令牌。
+* `nlConnectToken`：扩展在WebSocket连接初始化期间应发送的令牌。
+* `nlExtensionId`：扩展标识符。
+
+现在，你可以使用上述详细信息与Neutralinojs服务器建立连接。使用以下WebSocket URL来初始化一个新的WebSocket连接。
+
+[source,javascript]
+----
+ws://localhost:{port}?extensionId={extensionId}&connectToken={connectToken}
+----
+
+[[sending-a-message-from-app-to-an-extension]]
+== 从应用向扩展发送消息
+
+扩展API使用基于事件的消息传递协议。每条消息使用以下JSON结构。
+
+[source,javascript]
+----
+{
+  "event": "<event_name>",
+  "data": {}
+}
+----
+
+使用内置的扩展API向任何扩展发送消息，如下所示。
+
+[source,javascript]
+----
+let extension = 'js.neutralino.sampleextension';
+let event = 'helloExtension';
+let data = {
+  testValue: 10,
+};
+
+await Neutralino.extensions.dispatch(extension, event, data);
+----
+
+上述代码片段向``js.neutralino.sampleextension``扩展实例发送消息。你可以随时使用``dispatch``函数向扩展发送消息。如果你在扩展与主进程连接之前发送消息，Neutralinojs客户端库会将消息排队，并在目标扩展的连接建立时发送。换句话说，当你向扩展发送消息时，你无需担心扩展的状态。
+
+[[sending-a-message-from-the-extension-to-app]]
+== 从扩展向应用发送消息
+
+当你将扩展与Neutralinojs主进程连接时，你可以通过直接向Neutralinojs进程发送WebSocket消息来调用原生API。Neutralinojs服务器根据以下格式处理消息。
+
+[source,javascript]
+----
+{
+  "id": "<id>",
+  "method": "<method>",
+  "accessToken": "<token>",
+  "data": {}
+}
+----
+
+* `id` 字符串：link:https://en.wikipedia.org/wiki/Universally_unique_identifier[UUID] v4字符串。
+* `method` 字符串：原生方法名。例如：`window.setTitle`。
+* `accessToken` 字符串：由Neutralinojs服务器生成的访问令牌。
+* `data` 对象（可选）：原生方法的参数。
+
+你可以调用``app.broadcast``原生方法向所有应用实例发送消息。在应用代码中使用``events.on``注册回调来接收扩展进程发送的消息。
+
+[[terminating-an-extension-instance]]
+== 终止扩展实例
+
+当Neutralino退出时，它不会向所有扩展实例发送终止信号。因此，当基于WebSocket的IPC（进程间通信）关闭时，有必要停止扩展进程。以下Node.js扩展代码展示了如何做到这一点：
+
+[source,javascript]
+----
+const fs = require('fs');
+const process = require('process');
+const WS = require('websocket').w3cwebsocket;
+const { v4: uuidv4 } = require('uuid');
+const chalk = require('chalk');
+
+// Obtain required params to start a WS connection from stdIn.
+const processInput = JSON.parse(fs.readFileSync(process.stdin.fd, 'utf-8'));
+const NL_PORT = processInput.nlPort;
+const NL_TOKEN = processInput.nlToken;
+const NL_CTOKEN = processInput.nlConnectToken;
+const NL_EXTID = processInput.nlExtensionId;
+
+const client = new WS(
+  `ws://localhost:${NL_PORT}?extensionId=${NL_EXTID}&connectToken=${NL_CTOKEN}`
+);
+
+client.onerror = () => log("Connection error!", "ERROR");
+client.onopen = () => log("Connected");
+client.onclose = () => process.exit();
+
+client.onmessage = (e) => {
+  const { event, data } = JSON.parse(e.data);
+
+  if (event === "eventToExtension") {
+    log(data);
+
+    client.send(
+      JSON.stringify({
+        id: uuidv4(),
+        method: "app.broadcast",
+        accessToken: NL_TOKEN,
+        data: { event: "eventFromExtension", data: "Hello app!" },
+      })
+    );
+  }
+};
+
+function log(message, type = "INFO") {
+  const logLine = `[${NL_EXTID}]: ${chalk[
+    type === "INFO" ? "green" : "red"
+  ](type)} ${message}`;
+  console[type === "INFO" ? "log" : "error"](logLine);
+}
+----
+
+这段代码实现了一个简单的Neutralinojs Node.js扩展，它与Neutralinojs服务器建立WebSocket连接，并处理来自服务器的传入消息。当它从服务器接收到特定事件时，它还会使用client.send方法向服务器发送消息。
+
+有关如何终止扩展实例的更多信息，你可以参考示例扩展源码。
+https://github.com/neutralinojs/neutralinojs/tree/main/bin/extensions/sampleextension
+
+[[using-neutralinojs-from-your-source-files]]
+== 在你的源文件中使用Neutralinojs
+
+上述方法可以帮助你使用自定义后端代码扩展Neutralinojs API。Neutralinojs进程可以生成多个扩展作为子进程，并使用内部消息传递协议进行通信。另一方面，你也可以从自己的进程中生成Neutralinojs进程，并使用相同的消息传递协议进行通信。使用这种方法，你可以用任何后端语言编写Neutralinojs应用。
+
+通过将配置设置如下，你可以获取Neutralinojs进程的认证详细信息。
+
+[source,javascript]
+----
+"exportAuthInfo": true
+----
+
+上述设置将认证详细信息导出到 `$\{NL_PATH}/.tmp/auth_info.json`，格式如下。
+
+[source,javascript]
+----
+{
+  "nlPort": "<port>",
+  "nlToken": "<token>",
+  "nlConnectToken": "<connect_token>"
+}
+----
+
+使用扩展API与Neutralinojs进程建立连接，就像通常使用你在应用配置文件中使用的扩展标识符一样。

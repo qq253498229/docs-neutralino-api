@@ -143,7 +143,7 @@ IMPORTANT: 如果你使用可以访问计算机内部的原生 API，如 `os`、
 [[exportauthinfo-boolean]]
 === `exportAuthInfo: boolean`
 
-将认证详情导出到 `${NL_PATH}/.tmp/auth_info.json` 文件，具有以下 JSON 结构。
+将认证详情导出到 `$\{NL_PATH}/.tmp/auth_info.json` 文件，具有以下 JSON 结构。
 
 [source,javascript]
 ----

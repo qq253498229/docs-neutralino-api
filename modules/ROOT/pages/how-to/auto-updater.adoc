@@ -1,0 +1,71 @@
+= 自动更新
+
+应用开发者经常发布应用的新版本。Neutralinojs为所有支持的操作系统提供了一个简单且可扩展的软件更新器。正如你所知，Neutralinojs将所有应用资源打包到``resources.neu``文件中。自动更新器基本上是通过网络将现有的``resources.neu``替换为最新的应用资源。
+
+[[creating-the-update-manifest]]
+== 创建更新清单
+
+当你要求Neutralinojs检查更新时，它会通过网络检查更新清单。更新清单指的是一个JSON文档，格式如下。
+
+[source,javascript]
+----
+{
+    "applicationId": "js.neutralino.sample",
+    "version": "0.0.2",
+    "resourcesURL": "http://example.com/updater_test/update_res.neu",
+    "data": {
+    }
+}
+----
+
+* `applicationId` 字符串：应用标识符。你需要使用在``neutralinojs.config.json``中使用的相同名称，否则更新检查操作将不会继续。
+* `version` 字符串：应用版本。
+* `resourcesURL` 字符串：下载``resources.neu``的链接。你可以使用任何文件名，但请确保以``Content-Type: application/octet-stream``头提供数据。
+* `data` 对象（可选）：关于更新的额外数据。接受任何JSON值。
+
+[[hosting-the-update-manifest-and-resources]]
+== 托管更新清单和资源
+
+根据你的访问需求，将应用清单和资源文件托管在互联网或私有网络上。你可以通过设置静态服务器或把更新清单和资源文件放入应用的资源目录中来本地测试自动更新器。
+
+此外，如果你需要，可以设置DevOps流水线来自动化应用更新。如果你通过升级Neutralinojs服务器发布新应用版本，用户需要重新下载/安装应用，因为自动更新器仅更新应用资源（包括Neutralinojs客户端）。
+
+[[writing-code-to-update-your-app]]
+== 编写更新应用的代码
+
+在需要检查更新时调用以下函数。
+
+[source,javascript]
+----
+
+try {
+    let url = "http://example.com/updater_test/update_manifest.json";
+    let manifest = await Neutralino.updater.checkForUpdates(url);
+}
+catch(err) {
+    // Handle errors
+}
+
+----
+
+接下来，你可以使用``manifest``对象来比较版本。
+
+[source,javascript]
+----
+
+try {
+    let url = "http://example.com/updater_test/update_manifest.json";
+    let manifest = await Neutralino.updater.checkForUpdates(url);
+
+    if(manifest.version != NL_APPVERSION) {
+        await Neutralino.updater.install();
+        await Neutralino.app.restartProcess();
+    }
+}
+catch(err) {
+    // Handle errors
+}
+
+----
+
+如上面的代码片段所示，你可以调用``Neutralino.updater.install``根据下载的清单执行更新。然后，使用``app.restartProcess``函数重启应用。

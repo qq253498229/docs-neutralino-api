@@ -1,1 +1,62 @@
+= 模式
+
+Neutralinojs 应用程序可以在 Linux、Windows、macOS 和浏览器上以四种模式执行：窗口模式、浏览器模式、云端模式和 Chrome 模式。默认模式是窗口模式。换句话说，你的应用程序默认将在原生窗口中运行。然而，你可以根据需求选择以下模式。
+
+[[window]]
+== 窗口模式
+
+Neutralinojs 应用将在原生窗口中运行。该窗口将使用用户操作系统的主题。这种模式是跨平台应用开发的良好选择。
+
+[[browser]]
+== 浏览器模式
+
+Neutralinojs 应用将使用用户的默认浏览器加载应用。因此，你可以构建具有原生操作的 Web 应用。通常，你无法通过 Web 浏览器访问操作系统级别的功能。但是，Neutralinojs 浏览器模式可以帮助你创建能够访问操作系统层的 Web 应用，并且具备必要的安全控制。
+
+[[cloud]]
+== 云端模式
+
+此模式将 Neutralinojs 进程作为后台服务器运行。你可以将你的应用暴露到公共网络或互联网上。
+
+TIP: 示例场景：你可以创建一个 Web 应用来通过手机控制你的电脑。
+
+此外，你可以在裸金属服务器、虚拟机和应用容器上运行 Neutralinojs 服务器，作为轻量级消息代理。你可能会发现这种框架模式有无数的用例。
+
+WARNING: 确保你通过 `nativeBlockList` 和 `nativeAllowList` 分别阻止或允许关键的原生操作。此外，如果你以管理员权限启动应用，你的 Web 应用将具有相同的权限级别。
+
 [[chrome]]
+== Chrome 模式
+
+Neutralinojs 应用将作为 Chrome 应用运行。框架使用以下 Chrome 命令行参数，使 Web 应用看起来更像是原生应用。
+
+[source,javascript]
+----
+--disable-background-networking
+--disable-background-timer-throttling
+--disable-backgrounding-occluded-windows
+--disable-breakpad
+--disable-client-side-phishing-detection
+--disable-default-apps
+--disable-dev-shm-usage
+--disable-infobars
+--disable-extensions
+--disable-features=site-per-process
+--disable-hang-monitor
+--disable-ipc-flooding-protection
+--disable-popup-blocking
+--disable-prompt-on-repost
+--disable-renderer-backgrounding
+--disable-sync
+--disable-translate
+--disable-windows10-custom-titlebar
+--metrics-recording-only
+--no-first-run
+--no-default-browser-check
+--safebrowsing-disable-auto-update
+--password-store=basic
+--use-mock-keychain
+--user-data-dir=${NL_PATH}/.tmp/chromedata
+----
+
+Neutralinojs Chrome 模式适用于已安装 Google Chrome、Chromium 或 Microsoft Edge 浏览器的计算机。如果未检测到安装，Neutralinojs 将显示错误消息，提示用户安装基于 Chromium 的浏览器。
+
+你可以通过 args 配置属性向 Chrome 进程提供额外的 xref:configuration/neutralino.config.json.adoc#modeschromeargs-string[参数]（例如：`--disable-web-security`）。点击 link:https://peter.sh/experiments/chromium-command-line-switches/[此处] 查看所有支持的 Chromium 命令行参数

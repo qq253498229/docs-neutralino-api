@@ -26,3 +26,7 @@
 * Configuration
 ** xref:configuration/neutralino.config.json.adoc[]
 ** xref:configuration/project-structure.adoc[]
+** xref:configuration/modes.adoc[]
+* How To
+** xref:how-to/extensions-overview.adoc[]
+** xref:how-to/auto-updater.adoc[]
