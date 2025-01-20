@@ -1,0 +1,39 @@
+= 关于Neutralinojs
+:url1: https://betterprogramming.pub/how-to-turn-your-open-source-project-into-a-stable-income-stream-4c46b15ed960?sk=0cbeb6c01e36621fe01b99198a174b62
+
+每个开源项目都有其独特的历史。一些开源项目选择向开发者社区公开其开发历程和内部流程，以建立完全透明的项目 - 开发者关系。
+
+Neutralinojs 从不隐瞒任何信息 —— 它向你解释了整个源代码、框架内部、安全视角、DevOps 实践、项目历史，甚至财务状况。我们保持一切透明，旨在激励你构建自己的开源项目。
+
+[[history]]
+== 历史
+
+2018 年，乌瓦·韦利萨大学的三名学生 link:https://github.com/shalithasuranga[Shalitha Suranga]、link:https://github.com/deepz123[Deepal Samarakoon] 和 link:https://github.com/Chathumaduri456[Chathumadhuri Hettiarachchi] 发表了一篇关于利用内置平台特定浏览器库构建跨平台应用程序的理论方法的研究论文。他们最初计划将研究项目命名为 “Neutrino”，但这个名字已被占用。因此，他们决定使用 “Neutralinojs” 作为项目名称（link:https://en.wikipedia.org/wiki/Neutralino[Neutralino] 指的是一种假设的轻量级粒子）。
+
+为了研究论文，Shalitha Suranga 编写了一个针对 GNU/Linux 和 Windows 的小型概念验证项目，以展示理论想法，并将其作为实验性开源项目发布到 GitHub 上。2019 年，研究论文的作者们开始进入软件开发行业。然而，Shalitha Suranga 决定独自维护这个概念验证项目，作为一个爱好项目，因为从开发者社区那里收到了积极的反馈。后来，link:https://github.com/kasvith[Kasun Vithanage] 将概念验证项目移植到了 macOS 平台。
+
+在 2020 - 2021 年期间，Shalitha Suranga 使用基于 WebSockets 的新架构重写了 Neutralinojs 概念验证项目。他的目标是使项目具备稳定的 API、组织良好的代码库、DevOps 改进以及开发者友好的文档，从而达到生产就绪状态。由于这次重写与原始研究项目的想法有很大不同，他计划将 “Neutralinojs” 重新命名为 “Neu.js”。然而，由于互联网上已经存在与 Neutralinojs 相关的内容，他决定继续使用同一个名称。
+
+2022 年，Neutralinojs 达到了显著的开发里程碑，成为了一个流行的开源框架，用于使用 JavaScript 构建轻量级跨平台桌面应用程序。在这个过程中，开发者社区通过提供想法和代码贡献支持了 Neutralinojs。
+
+[[current-development]]
+== 当前开发
+
+2022 年，Shalitha Suranga 将 Neutralinojs 项目纳入 CodeZri 非营利组织，以便与他的其他个人 link:https://codezri.org/projects[开源项目] 一起维护该项目。
+
+如今，他每两个月发布一个新框架版本，得到了非常支持他的贡献者的帮助。
+
+该项目采用社区驱动的开发方法。开发者社区成员和维护者通过编写代码、报告错误、改进文档和讨论功能进行协作。
+
+[[financial-perspective]]
+== 财务视角
+
+Shalitha Suranga 经常通过编写代码、审查拉取请求以及规划 Neutralinojs 的未来，将自己的时间奉献给 Neutralinojs。他将 link:https://www.ethicalads.io/[EthicalAds] 和 link:https://www.google.com/adsense/start[Google Adsense] 集成到 Neutralinojs 网站中，以为其工作产生收入。此外，他通过个人 link:https://www.patreon.com/shalithasuranga[Patreon] 和 link:https://github.com/sponsors/shalithasuranga[GitHub Sponsors] 账户接受开发者社区的捐赠。
+
+此外，你还可以通过 link:https://opencollective.com/neutralinojs[OpenCollective] 向 Neutralinojs 捐款。
+
+Neutralinojs 没有计划通过付费许可 / 订阅、付费支持或课程对框架进行货币化。此外，Neutralinojs 不接受付款以提供新的自定义功能或解决应用程序中的错误。我们的目标是在基于捐赠的财务模式下，将 Neutralinojs 作为纯粹的 FOSS 项目持续改进。
+
+TIP: 阅读 link:{url1}[这篇文章] 了解如何围绕你的开源项目构建社区友好的收入流。
+
+我们鼓励每个人围绕开源项目构建社区友好的收入流！

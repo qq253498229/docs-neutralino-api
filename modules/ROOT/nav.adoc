@@ -40,3 +40,4 @@
 ** xref:contributing/developer-support.adoc[]
 ** xref:contributing/committers.adoc[]
 ** xref:contributing/frequently-asked-questions.adoc[]
+** xref:contributing/about-neutralinojs.adoc[]
