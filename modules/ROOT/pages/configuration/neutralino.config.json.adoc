@@ -76,7 +76,7 @@
 
 激活单页应用（SPA）服务。当启用此选项时，静态服务器模块仅在特定子目录中不存在另一个 `index.html` 文件时，才为子目录请求提供主要的 `index.html` 文件。此选项的默认值为 `false`。
 
-[[]]
+[[tokensecurity-string]]
 === `tokenSecurity: string`
 
 Neutralinojs 使用本地 WebSocket 的客户端-服务器通信模式来处理原生调用。这个本地服务器使用自动生成的令牌进行保护。此选项定义了令牌的安全实现。
@@ -422,9 +422,14 @@ Chrome 进程的额外命令行参数。更多关于 Chrome 模式的信息请�
 ----
 
 [[cliextensionspath-string]]
-cli.extensionsPath: string 应用程序扩展的路径。
+=== `cli.extensionsPath: string`
+
+应用程序扩展的路径。
+
 [[cliextensionsexclude-string]]
-cli.extensionsExclude: string 从最终应用程序包的扩展目录中排除文件的正则表达式模式。例如，以下配置将排除 `.log` 和 `.info` 文件：
+=== `cli.extensionsExclude: string`
+
+从最终应用程序包的扩展目录中排除文件的正则表达式模式。例如，以下配置将排除 `.log` 和 `.info` 文件：
 
 [source,javascript]
 ----
