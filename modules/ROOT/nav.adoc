@@ -41,3 +41,7 @@
 ** xref:contributing/committers.adoc[]
 ** xref:contributing/frequently-asked-questions.adoc[]
 ** xref:contributing/about-neutralinojs.adoc[]
+* 更新日志
+** link:https://neutralino.js.org/docs/release-notes/framework[Framework]
+** link:https://neutralino.js.org/docs/release-notes/cli[CLI]
+** link:https://neutralino.js.org/docs/release-notes/client-library[Client Library]
