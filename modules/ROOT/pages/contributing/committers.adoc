@@ -1,0 +1,40 @@
+= 提交者
+
+* link:https://github.com/shalithasuranga[Shalitha Suranga] - PMC
+* link:https://github.com/deepz123[Deepal Samarakoon] - PMC
+* link:https://github.com/Chathumaduri456[Chathumaduri Hettiarachchi] - PMC
+* link:https://github.com/kasvith[Kasun Vithanage] - PMC
+* link:https://github.com/pathange-s[Sainath Rao P] - PMC
+* link:https://github.com/momozor[Momozor]
+* link:https://github.com/uAliFurkanY[Ali Furkan YILDIZ]
+* link:https://github.com/hypherionmc[Adriaan]
+* link:https://github.com/corbane[Jean-marie Vrecq]
+* link:https://github.com/Lahirutech[Lanka Rathanyaka]
+* link:https://github.com/orent[Orent]
+* link:https://github.com/fabjan[Fabian Bergström]
+* link:https://github.com/danidre14[Carlonn Rivers]
+* link:https://github.com/Ayman161803[Ayman]
+* link:https://github.com/kodaloid[Kodaloid]
+* link:https://github.com/FelisDiligens[FelisDiligens]
+* link:https://github.com/ernest-rudnicki[Ernest Rudnicki]
+* link:https://github.com/nicorac[Claudio Nicora]
+* link:https://github.com/ratatoeskr666[Erik Hegen]
+* link:https://github.com/simomat[Matthias Simon]
+* link:https://github.com/hschneider[Harald Schneider]
+* link:https://github.com/Sadaf-A[Sadaf Ahmed]
+* link:https://github.com/monsterkodi[monsterkodi]
+* link:https://github.com/viralgupta[Viral Gupta]
+* link:https://github.com/CosmoMyzrailGorynych[Cosmo Myzrail Gorynych]
+* link:https://github.com/rushil-118[Rushil Choudhary]
+
+在 link:https://github.com/neutralinojs/neutralinojs/graphs/contributors[这里] 查看所有贡献者
+
+[[become-a-committer]]
+== 成为提交者
+
+你可以积极提交补丁、错误报告和想法，成为 Neutralinojs 的提交者！
+
+[[become-a-pmc-member]]
+== 成为 PMC 成员
+
+PMC（项目管理委员会）成员通常会就项目未来做出决策。现有的 PMC 成员会根据活跃提交者的贡献情况，定期将他们加入 PMC 名单。 如果需要更详细的翻译，请告诉我！

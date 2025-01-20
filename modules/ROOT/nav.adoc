@@ -38,3 +38,4 @@
 ** xref:contributing/security.adoc[]
 ** xref:contributing/code-style-guide.adoc[]
 ** xref:contributing/developer-support.adoc[]
+** xref:contributing/committers.adoc[]
