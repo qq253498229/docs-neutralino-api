@@ -1,0 +1,29 @@
+= 开发者支持
+:slack-url: https://join.slack.com/t/neutralinojs/shared_invite/zt-b7mbivj5-pKpO6U5drmeT68vKD_pc6w
+:discord-url: https://discord.gg/cybpp4guTJ
+:gh-url: https://github.com/neutralinojs/neutralinojs/discussions
+:gh-url1: https://github.com/neutralinojs/neutralinojs/issues/new
+:gh-url2: https://github.com/neutralinojs/neutralino.js/issues/new
+:gh-url3: https://github.com/neutralinojs/neutralinojs-cli/issues/new
+:gh-url4: https://github.com/neutralinojs/neutralinojs-minimal/issues/new
+:gh-url5: https://github.com/neutralinojs/neutralinojs.github.io/issues/new
+
+如果你有关于 Neutralinojs 的问题，可以通过以下方式找到答案：
+
+* 在 StackOverflow 上发布问题，并附上 link:https://stackoverflow.com/questions/tagged/neutralinojs[neutralinojs] 标签。
+* 使用 link:{slack-url}[Slack] 和 link:{discord-url}[Discord] 频道。
+* 发送邮件至 `neutralinojs[AT]gmail.com`。
+* 在 link:{gh-url}[GitHub Discussions] 上创建讨论主题。
+
+[[bug-reports-and-feature-requests]]
+== Bug 报告和功能请求
+
+没有完美的软件，但我们可以通过努力打造优秀的软件。通过报告错误和提交功能请求，帮助我们改进 Neutralinojs。
+
+请在相应的 GitHub 仓库中创建问题，用于功能请求和错误报告：
+
+* Neutralinojs 原生 API：link:{gh-url1}[创建问题]
+* Neutralinojs JavaScript API：link:{gh-url2}[创建问题]
+* neu CLI：link:{gh-url3}[创建问题]
+* 启动模板：link:{gh-url4}[创建问题]
+* 文档：link:{gh-url5}[创建问题]
