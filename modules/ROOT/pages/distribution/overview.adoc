@@ -7,16 +7,17 @@ Neutralinojs 应用有几种分发方式：创建便携式 zip 文件、独立�
 
 `neu build` 命令会在任何支持的操作系统中将以下文件生成到 `dist` 目录中。
 
+[%autowidth]
 |===
 |文件名|操作系统|CPU 架构|类型
-|`myapp-linux_x64`|Linux|x86_64|应用二进制文件
-|myapp-linux_armhf|Linux|armhf|应用二进制文件
-|myapp-linux_arm64|Linux|arm64|应用二进制文件
-|myapp-mac_x64|macOS|x86_64|应用二进制文件（Intel）
-|myapp-mac_universal|macOS|x86_64 和 arm64|应用二进制文件
-|myapp-mac_arm64|macOS|arm64|应用二进制文件（M1/M2/M3）
-|myapp-win_x64|Windows|x86_64应|用二进制文件
-|resources.neu|所有系统|N/A|应用资源文件
+|`myapp-linux_x64`|Linux|`x86_64`|应用二进制文件
+|`myapp-linux_armhf`|Linux|`armhf`|应用二进制文件
+|`myapp-linux_arm64`|Linux|`arm64`|应用二进制文件
+|`myapp-mac_x64`|macOS|`x86_64`|应用二进制文件（Intel）
+|`myapp-mac_universal`|macOS|`x86_64` 和 `arm64`|应用二进制文件
+|`myapp-mac_arm64`|macOS|`arm64`|应用二进制文件（M1/M2/M3）
+|`myapp-win_x64`|Windows|`x86_64应`|用二进制文件
+|`resources.neu`|所有系统|`N/A`|应用资源文件
 |===
 
 Neutralinojs 官方仅提供预构建的 `x64` 和 `armhf/arm64` Linux 专用二进制文件。如果你需要其他 CPU 架构的二进制文件，请考虑按照此 xref:contributing/framework-developer-guide.adoc[指南] 从源代码构建二进制文件。我们正努力尽快正式支持所有 CPU 架构！
@@ -93,6 +94,7 @@ sudo apt-get install jq
 
 配置文件中的 `buildScript/mac` JSON 部分包含以下字段：
 
+[cols="1,4"]
 |===
 |键|描述
 |architecture|这是你想要构建的架构数组。在我们的示例中，我们构建所有 3 种架构。
@@ -121,6 +123,7 @@ sudo apt-get install jq
 
 配置文件中的 `buildScript/win` JSON 部分包含以下字段：
 
+[cols="1,4"]
 |===
 |键|描述
 |architecture|这是你想要构建的架构数组。由于 Neutralino 目前仅支持 'x64'，你应该保持不变。
@@ -144,8 +147,9 @@ sudo apt-get install jq
 
 > 从构建文件夹中调用 `sudo ./install.sh` 会自动将应用安装到你定义的位置。
 
-配置文件中的 `buildScript/linux JSON` 部分包含以下字段：
+配置文件中的 `buildScript/linux` JSON部分包含以下字段：
 
+[cols="1,4"]
 |===
 |键|描述
 |architecture|这是你想要构建的架构数组。在我们的示例中，我们构建所有 3 种架构。
