@@ -35,3 +35,4 @@
 * 贡献
 ** xref:contributing/framework-developer-guide.adoc[]
 ** xref:contributing/architecture.adoc[]
+** xref:contributing/security.adoc[]
