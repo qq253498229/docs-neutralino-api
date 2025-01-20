@@ -1,0 +1,41 @@
+= 常见问题解答
+
+在向 Discord 服务器提问之前，请先查看以下问题。如果您的问题已经解决，并且您认为其他人可能也会遇到相同的问题，请通过拉取请求将问题和解决方案添加到这里，以帮助他们。
+
+[[framework]]
+== 框架
+
+[[error-code-127-libayatana-appindicator3so1-cannot-open-shared-object-file-no-such-file-or-directory]]
+=== 错误代码 127：`libayatana-appindicator3.so.1 cannot open shared object file: No such file or directory`
+
+我们在 link:https://github.com/neutralinojs/neutralinojs/releases/tag/v4.5.0[v4.5.0] 版本中修复了此问题，因此请升级您的框架版本。如果您需要使用较低版本的框架，则需要安装缺失的软件包，以便正确启动应用程序。请使用以下命令：
+
+[source,shell]
+----
+apt update
+apt install -y libayatana-appindicator3-1
+----
+
+请确保使用 `sudo` 权限运行上述命令。您可以查看 link:https://ubuntu.pkgs.org/18.04/ubuntu-universe-amd64/libayatana-appindicator3-1_0.5.3-3_amd64.deb.html[软件包信息] 以获取更多信息。
+
+[[cli]]
+== 命令行工具
+
+[[what-should-i-do-when-i-get-missing-permission-to-execute-the-native-method-namespacefunc-error-]]
+=== 当我遇到 `Missing permission to execute the native method: <namespace.func>` 错误时该怎么办？
+
+当未授予执行特定原生方法的权限时，会出现此错误。要运行该函数，请将 `namespace.func` 添加到 `nativeAllowList` 中。如果您希望允许特定命名空间的所有函数，可以使用 `namespace.*`。您可以点击 xref:configuration/neutralino.config.json.adoc#nativeallowlist-string[这里] 了解有关允许列表的更多信息。
+
+[[yarn-global-add-neutralinojsneu-doesnt-complete-the-installation-process]]
+=== 使用 `yarn global add @neutralinojs/neu` 安装时无法完成安装过程。
+
+当使用 `yarn` 安装 `neu` 时，输出显示 `success Installed "@neutralinojs/neu"`，但安装完成后，neu 命令无法使用，which neu 也无任何输出。您可以点击 link:https://github.com/neutralinojs/neutralinojs-cli/issues/64[这里] 获取有关此问题的更多信息。
+
+这是一个与 yarn 相关的问题。要解决此问题，开发人员需要将 `yarn global bin` 命令的输出添加到 `$PATH` 中。例如，可以将以下命令添加到 `.bashrc` 文件（或其他 Shell 解释器初始化脚本）中：
+
+[source,bash]
+----
+export PATH="$(yarn global bin):$PATH"
+----
+
+更多详细信息，请查看 link:https://classic.yarnpkg.com/en/docs/cli/global[yarn 官方文档]。

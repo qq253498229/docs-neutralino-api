@@ -39,3 +39,4 @@
 ** xref:contributing/code-style-guide.adoc[]
 ** xref:contributing/developer-support.adoc[]
 ** xref:contributing/committers.adoc[]
+** xref:contributing/frequently-asked-questions.adoc[]
