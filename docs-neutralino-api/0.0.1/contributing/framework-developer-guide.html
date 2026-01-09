@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>框架开发者指南 :: 我的文档</title>
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">我的文档</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="docs-neutralino-api" data-version="0.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">NeutralinoJS 文档</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">开始</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html">介绍</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/your-first-neutralinojs-app.html">你的第一个应用</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/using-frontend-libraries.html">使用前端库</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">原生API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/overview.html">API概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/app.html">应用程序</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/clipboard.html">剪贴板</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/computer.html">硬件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/custom.html">自定义</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/debug.html">调试</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/events.html">事件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/extensions.html">拓展</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/filesystem.html">文件系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/init.html">初始化</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/os.html">操作系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/storage.html">存储</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/updater.html">更新</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/window.html">窗口</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/resources.html">资源</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/error-codes.html">错误代码</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/global-variables.html">全局变量</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">命令行</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cli/neu-cli.html">neu CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cli/internal-cli-arguments.html">内部 CLI 参数</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">配置</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/neutralino.config.json.html">neutralino.config.json</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/project-structure.html">项目结构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/modes.html">模式</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">如何</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/extensions-overview.html">扩展概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/auto-updater.html">自动更新</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">发布</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../distribution/overview.html">发布概述</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">贡献</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="framework-developer-guide.html">框架开发者指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="architecture.html">架构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="security.html">安全</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="code-style-guide.html">编码风格指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="developer-support.html">开发者支持</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="committers.html">提交者</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="frequently-asked-questions.html">常见问题解答</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="about-neutralinojs.html">关于Neutralinojs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">更新日志</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/framework">Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/cli">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/client-library">Client Library</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">NeutralinoJS 文档</span>
+    <span class="version">0.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">NeutralinoJS 文档</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.0.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">NeutralinoJS 文档</a></li>
+    <li>贡献</li>
+    <li><a href="framework-developer-guide.html">框架开发者指南</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/qq253498229/docs-neutralino-api/edit/master/modules/ROOT/pages/contributing/framework-developer-guide.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="目录" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">框架开发者指南</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>伟大的开源软件是热情开发者合作的结果。任何人都可以通过贡献代码和报告错误来帮助Neutralino。本文档解释了如何开始为Neutralinojs做出贡献。</p>
+</div>
+<div class="paragraph">
+<p>请注意，本指南是为框架开发者编写的。如果你刚开始接触Neutralinojs应用开发，你可以从 <a href="../getting-started/your-first-neutralinojs-app.html" class="xref page">这里</a>开始。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setup-and-build-the-framework"><a class="anchor" href="#setup-and-build-the-framework"></a>设置和构建框架</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="cloning-the-repository"><a class="anchor" href="#cloning-the-repository"></a>克隆仓库</h3>
+<div class="paragraph">
+<p>首先，克隆主仓库。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">git clone https://github.com/neutralinojs/neutralinojs.git
+cd neutralinojs</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="installing-compilation-tools-and-dependencies"><a class="anchor" href="#installing-compilation-tools-and-dependencies"></a>安装编译工具和依赖项</h3>
+<div class="sect3">
+<h4 id="linux"><a class="anchor" href="#linux"></a>Linux</h4>
+<div class="paragraph">
+<p>无需单独安装编译器，因为Linux发行版通常已经安装了GNU C/C++编译器。</p>
+</div>
+<div class="paragraph">
+<p>使用以下命令安装GTK、WebKit和其他库。</p>
+</div>
+<div class="sect4">
+<h5 id="debian"><a class="anchor" href="#debian"></a>Debian</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">sudo apt install libgtk-3-dev</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">sudo apt install libwebkit2gtk-4.0-37 libwebkit2gtk-4.0-dev
+# --- or ---
+sudo apt install libwebkit2gtk-4.1-0 libwebkit2gtk-4.1-dev</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="fedora"><a class="anchor" href="#fedora"></a>Fedora</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">sudo dnf install \
+    @development-tools \
+    gtk3 \
+    webkit2gtk3.x86_64 \
+    webkit2gtk3-devel.x86_64 \
+    libgtk-3-dev \
+    libwebkit2gtk-4.0-37 \
+    libwebkit2gtk-4.0-dev \
+    libglib2.0-dev \
+    libxrandr-dev</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="arch"><a class="anchor" href="#arch"></a>Arch</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">sudo pacman -S \
+    gtk3 \
+    webkit2gtk</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="windows"><a class="anchor" href="#windows"></a>Windows</h4>
+<div class="paragraph">
+<p>安装最新版本的Visual Studio IDE和Windows SDK。Neutralinojs的编译过程将使用MSVC C++编译器（即<code>cl.exe</code>）。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+如何激活Windows 10 SDK：在Visual Studio安装程序中安装时，转到“工作负载”选项卡，“桌面和移动”部分，选择“使用C的桌面开发”。在右侧的“安装详细信息”&gt;“使用C的桌面开发”&gt;“可选”中，确保选中了“Windows 10 SDK”。
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="macos"><a class="anchor" href="#macos"></a>macOS</h4>
+<div class="paragraph">
+<p>安装Xcode命令行工具。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="compile-the-neutralinojs-framework"><a class="anchor" href="#compile-the-neutralinojs-framework"></a>编译Neutralinojs框架</h3>
+<div class="paragraph">
+<p>运行以下脚本来构建框架二进制文件。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">python scripts/bz.py</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+你需要安装 <a href="https://www.python.org/downloads/">Python</a> 解释器（3.x版本）来运行此脚本。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Neutralinojs使用BuildZri C++构建自动化工具在本地开发计算机和CI/CD服务器上生成二进制文件。阅读 <a href="https://codezri.org/docs/buildzri/intro">BuildZri文档</a>，了解有关CLI选项和配置的更多信息。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setup-and-build-the-client"><a class="anchor" href="#setup-and-build-the-client"></a>设置和构建客户端</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Neutralinojs应用通过WebSocket连接与Neutralinojs进程通信。此WebSocket连接由Neutralinojs客户端发起。</p>
+</div>
+<div class="paragraph">
+<p>将客户端仓库克隆到你下载主仓库的同一目录下。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">git clone https://github.com/neutralinojs/neutralino.js.git
+cd neutralino.js</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>安装开发依赖项。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">npm install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="executing-the-test-app"><a class="anchor" href="#executing-the-test-app"></a>运行测试应用</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>主仓库中有一个简单的测试应用，你可以在开发相关活动中使用它。你可以从主仓库运行以下命令来构建和更新测试应用的客户端。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">bash ./scripts/update_client.sh</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>现在使用以下命令运行新编译的测试应用。</p>
+</div>
+<div class="listingblock">
+<div class="title">Linux</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">./bin/neutralino-linux_x64 --load-dir-res</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">macOS</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript"># For Intel processors (x64)
+./bin/neutralino-mac_x64 --load-dir-res
+
+# For new Apple processors (arm64)
+./bin/neutralino-mac_arm64 --load-dir-res</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Windows</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">./bin/neutralino-win_x64.exe --load-dir-res</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="testing"><a class="anchor" href="#testing"></a>测试</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>测试是每个开发活动中至关重要的一部分。主代码库中的每个拉取请求都会触发以下自动化测试。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>在x64机器上的Linux、macOS和Windows上构建。</p>
+</li>
+<li>
+<p>集成测试套件。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>然而，你也可以从本地计算机运行我们的集成测试套件，只需从主代码库目录运行以下命令。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">cd spec
+npm install
+npm run test</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>最好运行你已更新的模块的测试套件，使用以下命令。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">npm run test &lt;module&gt; # Eg: npm run test filesystem</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+如果你需要运行<code>extensions</code>模块的测试，请确保先从<code>./bin/extensions/sampleextension</code>目录运行<code>npm install</code>。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>上述命令将仅运行给定模块的测试。</p>
+</div>
+<div class="sect2">
+<h3 id="adding-a-new-test-case"><a class="anchor" href="#adding-a-new-test-case"></a>添加新的测试用例</h3>
+<div class="paragraph">
+<p>要添加测试用例，只需将其添加到<code>spec/&lt;module&gt;.spec.js</code>文件中。例如，如果你需要向<code>debug</code>模块添加新的测试用例，请将测试用例添加到<code>spec/debug.spec.js</code>文件中。</p>
+</div>
+<div class="paragraph">
+<p>接下来，运行该特定模块的测试套件，如下所示的命令片段：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">cd spec
+npm i
+npm run test debug</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-directory-structure"><a class="anchor" href="#project-directory-structure"></a>项目目录结构</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="framework"><a class="anchor" href="#framework"></a>框架</h3>
+<div class="paragraph">
+<p>源码：<a href="https://github.com/neutralinojs/neutralinojs">github.com/neutralinojs/neutralinojs</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>api</code>：原生API实现和控制器。采用REST API风格编写。</p>
+</li>
+<li>
+<p><code>auth</code>：与认证和权限相关的逻辑。</p>
+</li>
+<li>
+<p><code>bin</code>：测试应用源代码。</p>
+</li>
+<li>
+<p><code>lib</code>：第三方库源文件。</p>
+</li>
+<li>
+<p><code>server</code>：WebSocket/HTTP通信端点。</p>
+</li>
+<li>
+<p><code>spec</code>：集成/API测试套件。</p>
+</li>
+<li>
+<p><code>scripts</code>：包含构建框架、生成发行说明、更新客户端库和为测试应用构建<code>resources.neu</code>的自动化脚本。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="client-library"><a class="anchor" href="#client-library"></a>客户端库</h3>
+<div class="paragraph">
+<p>源码：<a href="https://github.com/neutralinojs/neutralino.js">github.com/neutralinojs/neutralino.js</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>src/api</code>：JavaScript API前端和实现。</p>
+</li>
+<li>
+<p><code>src/browser</code>：与浏览器相关的API实现。</p>
+</li>
+<li>
+<p><code>src/ws</code>：WebSocket客户端实现。</p>
+</li>
+<li>
+<p><code>scripts</code>：包含生成发行说明的自动化脚本。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contribution-guidelines"><a class="anchor" href="#contribution-guidelines"></a>贡献指南</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>在向代码库贡献代码之前，请检查以下事项。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>通过GitHub讨论与Neutralinojs团队讨论功能/改进/错误修复。</p>
+</li>
+<li>
+<p>熟悉代码风格。根据 <a href="code-style-guide.html" class="xref page">Neutralinojs代码风格指南</a> 编写代码。</p>
+</li>
+<li>
+<p>熟悉代码库中的所有模块。</p>
+</li>
+<li>
+<p>避免只为一个平台添加新功能。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>感谢你帮助我们让Neutralinojs变得更好！</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

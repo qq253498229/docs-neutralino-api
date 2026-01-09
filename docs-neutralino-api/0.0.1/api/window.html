@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>窗口 :: 我的文档</title>
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">我的文档</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="docs-neutralino-api" data-version="0.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">NeutralinoJS 文档</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">开始</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html">介绍</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/your-first-neutralinojs-app.html">你的第一个应用</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/using-frontend-libraries.html">使用前端库</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">原生API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="overview.html">API概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="app.html">应用程序</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="clipboard.html">剪贴板</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="computer.html">硬件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom.html">自定义</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="debug.html">调试</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="events.html">事件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions.html">拓展</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="filesystem.html">文件系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="init.html">初始化</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="os.html">操作系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage.html">存储</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="updater.html">更新</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="window.html">窗口</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="resources.html">资源</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="error-codes.html">错误代码</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="global-variables.html">全局变量</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">命令行</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cli/neu-cli.html">neu CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cli/internal-cli-arguments.html">内部 CLI 参数</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">配置</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/neutralino.config.json.html">neutralino.config.json</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/project-structure.html">项目结构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/modes.html">模式</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">如何</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/extensions-overview.html">扩展概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/auto-updater.html">自动更新</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">发布</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../distribution/overview.html">发布概述</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">贡献</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/framework-developer-guide.html">框架开发者指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/architecture.html">架构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/security.html">安全</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/code-style-guide.html">编码风格指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/developer-support.html">开发者支持</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/committers.html">提交者</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/frequently-asked-questions.html">常见问题解答</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/about-neutralinojs.html">关于Neutralinojs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">更新日志</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/framework">Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/cli">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/client-library">Client Library</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">NeutralinoJS 文档</span>
+    <span class="version">0.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">NeutralinoJS 文档</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.0.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">NeutralinoJS 文档</a></li>
+    <li>原生API</li>
+    <li><a href="window.html">窗口</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/qq253498229/docs-neutralino-api/edit/master/modules/ROOT/pages/api/window.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="目录" data-levels="1">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">窗口</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>Neutralino.window</code> 命名空间包含与当前原生窗口实例相关的方法。此命名空间的方法仅适用于 <a href="../configuration/modes.html#window" class="xref page">窗口</a> 模式。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowsettitletitle"><a class="anchor" href="#windowsettitletitle"></a>设置标题</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.setTitle(title)</code></p>
+</div>
+<div class="paragraph">
+<p>设置原生窗口的标题。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters"><a class="anchor" href="#parameters"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>title</code> String（可选）：窗口的标题。如果未提供此参数，则清除标题。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.setTitle('New title');</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowgettitle"><a class="anchor" href="#windowgettitle"></a>获取标题</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.getTitle()</code></p>
+</div>
+<div class="paragraph">
+<p>返回原生窗口的标题。</p>
+</div>
+<div class="sect2">
+<h3 id="return-string-awaited"><a class="anchor" href="#return-string-awaited"></a>返回 String（异步等待）：</h3>
+<div class="paragraph">
+<p>原生窗口实例的当前标题。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let title = await Neutralino.window.getTitle();
+console.log(`title = ${title}`);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowminimize"><a class="anchor" href="#windowminimize"></a>最小化窗口</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.minimize()</code></p>
+</div>
+<div class="paragraph">
+<p>最小化原生窗口。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.minimize();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowunminimize"><a class="anchor" href="#windowunminimize"></a>取消最小化</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.unminimize()</code></p>
+</div>
+<div class="paragraph">
+<p>从最小化状态恢复原生窗口。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.unminimize();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowisminimized"><a class="anchor" href="#windowisminimized"></a>判断是否最小化</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.isMinimized()</code></p>
+</div>
+<div class="paragraph">
+<p>如果原生窗口已最小化，则返回 <code>true</code>。</p>
+</div>
+<div class="sect2">
+<h3 id="return-boolean-awaited"><a class="anchor" href="#return-boolean-awaited"></a>返回 Boolean（异步等待）：</h3>
+<div class="paragraph">
+<p>基于当前最小化状态的 <code>true</code> 或 <code>false</code>。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let status = await Neutralino.window.isMinimized();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowmaximize"><a class="anchor" href="#windowmaximize"></a>最大化窗口</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.maximize()</code></p>
+</div>
+<div class="paragraph">
+<p>最大化原生窗口。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.maximize();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowunmaximize"><a class="anchor" href="#windowunmaximize"></a>取消最大化</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.unmaximize()</code></p>
+</div>
+<div class="paragraph">
+<p>恢复原生窗口。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.unmaximize();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowismaximized"><a class="anchor" href="#windowismaximized"></a>判断是否最大化</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.isMaximized()</code></p>
+</div>
+<div class="paragraph">
+<p>如果原生窗口已最大化，则返回 <code>true</code>。</p>
+</div>
+<div class="sect2">
+<h3 id="return-boolean-awaited-1"><a class="anchor" href="#return-boolean-awaited-1"></a>返回 Boolean（异步等待）：</h3>
+<div class="paragraph">
+<p>基于当前最大化状态的 <code>true</code> 或 <code>false</code>。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let status = await Neutralino.window.isMaximized();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowsetfullscreen"><a class="anchor" href="#windowsetfullscreen"></a>设置全屏窗口</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.setFullScreen()</code></p>
+</div>
+<div class="paragraph">
+<p>启用全屏模式。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.setFullScreen();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowexitfullscreen"><a class="anchor" href="#windowexitfullscreen"></a>退出全屏窗口</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.exitFullScreen()</code></p>
+</div>
+<div class="paragraph">
+<p>退出全屏模式。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.exitFullScreen();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowisfullscreen"><a class="anchor" href="#windowisfullscreen"></a>判断是否全屏</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.isFullScreen()</code></p>
+</div>
+<div class="paragraph">
+<p>如果原生窗口处于全屏模式，则返回 <code>true</code>。</p>
+</div>
+<div class="sect2">
+<h3 id="return-boolean-awaited-2"><a class="anchor" href="#return-boolean-awaited-2"></a>返回 Boolean（异步等待）：</h3>
+<div class="paragraph">
+<p>基于当前全屏状态的 <code>true</code> 或 <code>false</code>。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let status = await Neutralino.window.isFullScreen();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowshow"><a class="anchor" href="#windowshow"></a>显示窗口</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.show()</code></p>
+</div>
+<div class="paragraph">
+<p>显示原生窗口。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.show();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowhide"><a class="anchor" href="#windowhide"></a>隐藏窗口</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.hide()</code></p>
+</div>
+<div class="paragraph">
+<p>隐藏原生窗口。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.hide();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowisvisible"><a class="anchor" href="#windowisvisible"></a>判断窗口是否可见</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.isVisible()</code></p>
+</div>
+<div class="paragraph">
+<p>如果原生窗口可见，则返回 <code>true</code>。</p>
+</div>
+<div class="sect2">
+<h3 id="return-boolean-awaited-3"><a class="anchor" href="#return-boolean-awaited-3"></a>返回 Boolean（异步等待）：</h3>
+<div class="paragraph">
+<p>基于当前可见性状态的 <code>true</code> 或 <code>false</code>。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let status = await Neutralino.window.isVisible();</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowfocus"><a class="anchor" href="#windowfocus"></a>聚焦窗口</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.focus()</code></p>
+</div>
+<div class="paragraph">
+<p>聚焦原生窗口。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.focus();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowsetalwaysontopontop"><a class="anchor" href="#windowsetalwaysontopontop"></a>设置置顶模式</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.setAlwaysOnTop(onTop)</code></p>
+</div>
+<div class="paragraph">
+<p>激活或停用始终置顶模式。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-1"><a class="anchor" href="#parameters-1"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>onTop</code> Boolean（可选）：指示是否应激活置顶模式。默认值为 <code>true</code>。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.setAlwaysOnTop(true); // or setAlwaysOnTop();
+await Neutralino.window.setAlwaysOnTop(false);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowmovex-y"><a class="anchor" href="#windowmovex-y"></a>移动窗口</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.move(x, y)</code></p>
+</div>
+<div class="paragraph">
+<p>将原生窗口移动到给定坐标。Neutralinojs 的跨平台坐标系统从屏幕的左上角开始。换句话说，<code>x=0,y=0</code> 点指的是设备主屏幕的左上角。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-2"><a class="anchor" href="#parameters-2"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>x</code> Number：水平位置的整数值。</p>
+</li>
+<li>
+<p><code>y</code> Number：垂直位置的整数值。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.move(200, 400);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowcenter"><a class="anchor" href="#windowcenter"></a>居中窗口</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.center()</code></p>
+</div>
+<div class="paragraph">
+<p>将原生应用窗口居中于当前显示区域。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.center();</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowseticonicon"><a class="anchor" href="#windowseticonicon"></a>设置图标</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.setIcon(icon)</code></p>
+</div>
+<div class="paragraph">
+<p>为原生窗口或 Dock 设置图标。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-3"><a class="anchor" href="#parameters-3"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>icon</code> String：图标的路径。在所有支持的操作系统上，<code>200x200</code> 大小的 PNG 图像文件都能很好地工作。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">const icon = '/resources/icons/appIcon.png';
+await Neutralino.window.setIcon(icon);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowsetdraggableregiondomid-options"><a class="anchor" href="#windowsetdraggableregiondomid-options"></a>设置可拖动区域</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.setDraggableRegion(domId, options)</code></p>
+</div>
+<div class="paragraph">
+<p>将给定的 DOM 元素转换为可拖动区域。用户可以通过拖动给定的 DOM 元素来拖动原生窗口。此功能适用于与 <a href="../configuration/neutralino.config.json.html#modeswindowborderless-boolean" class="xref page">无边框模式</a>一起创建自定义窗口栏。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-4"><a class="anchor" href="#parameters-4"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>domId</code> String | HTMLElement：DOM 元素标识符。</p>
+</li>
+<li>
+<p><code>options</code> DraggableRegionOptions（可选）：自定义可拖动区域的行为。</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="draggableregionoptions"><a class="anchor" href="#draggableregionoptions"></a>DraggableRegionOptions</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>alwaysCapture</code> Boolean（可选）：如果设置为 <code>true</code>，则该区域将始终捕获指针，确保在快速移动指针时拖动不会中断。注意，这会阻止子元素接收任何指针事件。默认值为 <code>false</code>。</p>
+</li>
+<li>
+<p><code>dragMinDistance</code> Number（可选）：在开始拖动后，光标起始位置与当前位置之间的最小距离。这有助于防止在与子元素交互时意外拖动。默认值为 <code>10</code>，以 CSS 像素为单位测量。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.setDraggableRegion('myCustomTitleBar');
+
+await Neutralino.window.setDraggableRegion('myCustomTitleBar', {
+    alwaysCapture: true,
+    dragMinDistance: 15
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowunsetdraggableregiondomid"><a class="anchor" href="#windowunsetdraggableregiondomid"></a>取消可拖动区域</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.unsetDraggableRegion(domId)</code></p>
+</div>
+<div class="paragraph">
+<p>通过移除拖动事件处理器，将可拖动区域转换回普通 DOM 元素。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-5"><a class="anchor" href="#parameters-5"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>domId</code> String | HTMLElement：DOM 元素标识符。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.unsetDraggableRegion('myCustomTitleBar');</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowsetsizeoptions"><a class="anchor" href="#windowsetsizeoptions"></a>设置窗口大小</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.setSize(Options)</code></p>
+</div>
+<div class="paragraph">
+<p>此方法设置窗口的大小。</p>
+</div>
+<div class="sect2">
+<h3 id="options"><a class="anchor" href="#options"></a>选项</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>width</code> Number（可选）：窗口宽度，以像素为单位。</p>
+</li>
+<li>
+<p><code>height</code> Number（可选）：窗口高度，以像素为单位。</p>
+</li>
+<li>
+<p><code>minWidth</code> Number（可选）：窗口的最小宽度，以像素为单位。</p>
+</li>
+<li>
+<p><code>minHeight</code> Number（可选）：窗口的最小高度，以像素为单位。</p>
+</li>
+<li>
+<p><code>maxWidth</code> Number（可选）：窗口的最大宽度，以像素为单位。</p>
+</li>
+<li>
+<p><code>maxHeight</code> Number（可选）：窗口的最大高度，以像素为单位。</p>
+</li>
+<li>
+<p><code>resizable</code> Boolean（可选）：一个布尔值，用于使窗口可调整大小或固定。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>此方法始终期望宽度和高度成对出现。例如，如果你设置了 <code>minWidth</code>，则也应该设置 <code>minHeight</code>。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.setSize({
+    width: 500,
+    height: 200,
+    maxWidth: 600,
+    maxHeight: 400
+});
+
+await Neutralino.window.setSize({
+    resizable: false
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowgetsize"><a class="anchor" href="#windowgetsize"></a>获取窗口大小</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.getSize()</code></p>
+</div>
+<div class="paragraph">
+<p>返回窗口大小信息。</p>
+</div>
+<div class="sect2">
+<h3 id="return-boolean-awaited-4"><a class="anchor" href="#return-boolean-awaited-4"></a>返回 Object（异步等待）：</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>width</code> Number：窗口宽度，以像素为单位。</p>
+</li>
+<li>
+<p><code>height</code> Number：窗口高度，以像素为单位。</p>
+</li>
+<li>
+<p><code>minWidth</code> Number：窗口的最小宽度，以像素为单位。</p>
+</li>
+<li>
+<p><code>minHeight</code> Number：窗口的最小高度，以像素为单位。</p>
+</li>
+<li>
+<p><code>maxWidth</code> Number：窗口的最大宽度，以像素为单位。</p>
+</li>
+<li>
+<p><code>maxHeight</code> Number：窗口的最大高度，以像素为单位。</p>
+</li>
+<li>
+<p><code>resizable</code> Boolean：指示窗口是否可调整大小或固定。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let sizeInfo = await Neutralino.window.getSize();
+
+console.log(sizeInfo);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowgetposition"><a class="anchor" href="#windowgetposition"></a>获取窗口位置</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.getPosition()</code></p>
+</div>
+<div class="paragraph">
+<p>返回窗口位置坐标。</p>
+</div>
+<div class="sect2">
+<h3 id="return-boolean-awaited-5"><a class="anchor" href="#return-boolean-awaited-5"></a>返回 Object（异步等待）：</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>x</code> Number：窗口左侧边缘的水平坐标。</p>
+</li>
+<li>
+<p><code>y</code> Number：窗口顶部边缘的垂直坐标。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let position = await Neutralino.window.getPosition();
+
+console.log(position);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windowcreateurl-windowoptions"><a class="anchor" href="#windowcreateurl-windowoptions"></a>创建窗口</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>window.create(url, WindowOptions)</code></p>
+</div>
+<div class="paragraph">
+<p>创建一个原生窗口。你可以使用此方法为你的多窗口 Neutralinojs 应用创建新窗口。Neutralinojs 为每个原生窗口启动一个新进程。因此，一旦窗口创建，新窗口就像一个独立的应用程序一样工作。</p>
+</div>
+<div class="paragraph">
+<p>然而，你可以使用 <a href="storage.html" class="xref page">storage</a> API 在窗口之间建立通信流。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-6"><a class="anchor" href="#parameters-6"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>url</code> String：要加载的 URL。例如：<code>/resources/aboutWindow.html</code>。支持加载本地和远程应用资源。本地资源路径需要以 <code>/</code> 开头。</p>
+</li>
+<li>
+<p><code>options</code>（可选）：<code>WindowOptions</code> 类型的一个实例。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="windowoptions"><a class="anchor" href="#windowoptions"></a>WindowOptions</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>title</code> String：窗口标题。</p>
+</li>
+<li>
+<p><code>icon</code> String：窗口图标路径。</p>
+</li>
+<li>
+<p><code>fullScreen</code> Boolean：设置全屏模式。</p>
+</li>
+<li>
+<p><code>alwaysOnTop</code> Boolean：激活最顶端模式。</p>
+</li>
+<li>
+<p><code>enableInspector</code> Boolean：激活开发者工具并打开网络检查器窗口。</p>
+</li>
+<li>
+<p><code>borderless</code> Boolean：使窗口无边框。</p>
+</li>
+<li>
+<p><code>maximize</code> Boolean：以最大化状态启动窗口。</p>
+</li>
+<li>
+<p><code>hidden</code> Boolean：隐藏窗口。</p>
+</li>
+<li>
+<p><code>maximizable</code> Boolean：使窗口可最大化或不可最大化。</p>
+</li>
+<li>
+<p><code>exitProcessOnClose</code> Boolean：当用户点击窗口的关闭按钮时，退出应用程序进程。</p>
+</li>
+<li>
+<p><code>width</code> Number：窗口宽度。</p>
+</li>
+<li>
+<p><code>height</code> Number：窗口高度。</p>
+</li>
+<li>
+<p><code>x</code> Number：窗口 <code>x</code> 位置。</p>
+</li>
+<li>
+<p><code>y</code> Number：窗口 <code>y</code> 位置。</p>
+</li>
+<li>
+<p><code>minWidth</code> Number：窗口的最小宽度。</p>
+</li>
+<li>
+<p><code>minHeight</code> Number：窗口的最小高度。</p>
+</li>
+<li>
+<p><code>maxWidth</code> Number：窗口的最大宽度。</p>
+</li>
+<li>
+<p><code>maxHeight</code> Number：窗口的最大高度。</p>
+</li>
+<li>
+<p><code>extendUserAgentWith</code> String：扩展网络视图实例的用户代理字符串。</p>
+</li>
+<li>
+<p><code>injectGlobals</code> Boolean：直接将全局变量注入到网络视图实例中。</p>
+</li>
+<li>
+<p><code>injectClientLibrary</code> Boolean：直接将客户端库源注入到网络视图实例中。</p>
+</li>
+<li>
+<p><code>injectScript</code> Boolean：一个预加载的 JavaScript 源文件，在网络应用资源之前执行。</p>
+</li>
+<li>
+<p><code>processArgs</code> String：新窗口进程的额外命令行参数。从 <a href="../cli/internal-cli-arguments.html" class="xref page">这里</a> 查看所有支持的内部命令行参数。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="return-object-awaited"><a class="anchor" href="#return-object-awaited"></a>返回 Object（异步等待）：</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pid</code> Number：进程标识符。</p>
+</li>
+<li>
+<p><code>stdOut</code> String：标准输出。由于新窗口进程异步启动，此值始终为空。</p>
+</li>
+<li>
+<p><code>stdErr</code> String：标准错误。由于新窗口进程异步启动，此值始终为空。</p>
+</li>
+<li>
+<p><code>exitCode</code> Number：进程的退出代码。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.window.create('/resources/aboutWindow.html', {
+    icon: '/resources/icons/aboutIcon.png',
+    enableInspector: false,
+    width: 500,
+    height: 300,
+    maximizable: false,
+    exitProcessOnClose: true,
+    processArgs: '--window-id=W_ABOUT'
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

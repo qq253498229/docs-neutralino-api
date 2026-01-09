@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>API概述 :: 我的文档</title>
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">我的文档</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="docs-neutralino-api" data-version="0.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">NeutralinoJS 文档</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">开始</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html">介绍</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/your-first-neutralinojs-app.html">你的第一个应用</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/using-frontend-libraries.html">使用前端库</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">原生API</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="overview.html">API概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="app.html">应用程序</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="clipboard.html">剪贴板</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="computer.html">硬件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom.html">自定义</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="debug.html">调试</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="events.html">事件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions.html">拓展</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="filesystem.html">文件系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="init.html">初始化</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="os.html">操作系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage.html">存储</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="updater.html">更新</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="window.html">窗口</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="resources.html">资源</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="error-codes.html">错误代码</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="global-variables.html">全局变量</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">命令行</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cli/neu-cli.html">neu CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cli/internal-cli-arguments.html">内部 CLI 参数</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">配置</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/neutralino.config.json.html">neutralino.config.json</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/project-structure.html">项目结构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/modes.html">模式</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">如何</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/extensions-overview.html">扩展概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/auto-updater.html">自动更新</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">发布</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../distribution/overview.html">发布概述</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">贡献</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/framework-developer-guide.html">框架开发者指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/architecture.html">架构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/security.html">安全</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/code-style-guide.html">编码风格指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/developer-support.html">开发者支持</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/committers.html">提交者</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/frequently-asked-questions.html">常见问题解答</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/about-neutralinojs.html">关于Neutralinojs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">更新日志</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/framework">Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/cli">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/client-library">Client Library</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">NeutralinoJS 文档</span>
+    <span class="version">0.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">NeutralinoJS 文档</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.0.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">NeutralinoJS 文档</a></li>
+    <li>原生API</li>
+    <li><a href="overview.html">API概述</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/qq253498229/docs-neutralino-api/edit/master/modules/ROOT/pages/api/overview.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="目录" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">API概述</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Neutralinojs为开发者提供了一个JavaScript客户端库（也称为Neutralino.js），用于通过Neutralinojs服务器与原生操作进行交互。JavaScript客户端的实现在neutralino.js JavaScript文件中。因此，你的Neutralinojs项目中需要有客户端库。</p>
+</div>
+<div class="paragraph">
+<p>客户端库将其JavaScript API暴露给浏览器的窗口作用域，你可以通过 <code>Neutralino</code> 或 <code>window.Neutralino</code> 从纯JavaScript中访问它们。如果你使用前端库来构建你的应用前端，你可以从 <code><a href="https://www.npmjs.com/package/@neutralinojs/lib">@neutralinojs/lib</a></code> NPM模块导入Neutralinojs命名空间：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">import { app } from '@neutralinojs/lib';
+
+const conf = await app.getConfig();  // Vanilla Js: await Neutralino.app.getConfig()</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>让我们学习一下原生API调用的内部工作原理。假设你需要从操作系统获取一个环境变量的值。 你可以调用 <a href="os.html#osgetenvkey" class="xref page">Neutralino.os.getEnv</a> JavaScript方法。 当你调用 <code>getEnv</code> 方法时，客户端库会通过WebSocket消息调用Neutralinojs服务器。之后，Neutralinojs服务器将执行原生操作以获取给定的环境变量。一旦Neutralinojs服务器完成任务，它会发送一个带有环境变量值的WebSocket消息。最后，客户端库用从服务器收到的结果解析一个承诺。</p>
+</div>
+<div class="paragraph">
+<p>客户端库维护一个任务池，通过UUID字符串将服务器消息映射到匹配的请求。</p>
+</div>
+<div class="paragraph">
+<p>Neutralinojs通过这种通信机制为你提供许多原生操作，适用于所有 <a href="../configuration/modes.html" class="xref page">模式</a>。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_原生api命名空间"><a class="anchor" href="#_原生api命名空间"></a>原生API命名空间</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="app.html" class="xref page">Neutralino.app</a></p>
+</li>
+<li>
+<p><a href="clipboard.html" class="xref page">Neutralino.clipboard</a></p>
+</li>
+<li>
+<p><a href="computer.html" class="xref page">Neutralino.computer</a></p>
+</li>
+<li>
+<p><a href="custom.html" class="xref page">Neutralino.custom</a></p>
+</li>
+<li>
+<p><a href="debug.html" class="xref page">Neutralino.debug</a></p>
+</li>
+<li>
+<p><a href="events.html" class="xref page">Neutralino.events</a></p>
+</li>
+<li>
+<p><a href="extensions.html" class="xref page">Neutralino.extensions</a></p>
+</li>
+<li>
+<p><a href="filesystem.html" class="xref page">Neutralino.filesystem</a></p>
+</li>
+<li>
+<p><a href="init.html" class="xref page">Neutralino.init</a></p>
+</li>
+<li>
+<p><a href="os.html" class="xref page">Neutralino.os</a></p>
+</li>
+<li>
+<p><a href="storage.html" class="xref page">Neutralino.storage</a></p>
+</li>
+<li>
+<p><a href="updater.html" class="xref page">Neutralino.updater</a></p>
+</li>
+<li>
+<p><a href="window.html" class="xref page">Neutralino.window</a></p>
+</li>
+<li>
+<p><a href="resources.html" class="xref page">Neutralino.resources</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用前端库 :: 我的文档</title>
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">我的文档</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="docs-neutralino-api" data-version="0.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">NeutralinoJS 文档</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">开始</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html">介绍</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="your-first-neutralinojs-app.html">你的第一个应用</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="using-frontend-libraries.html">使用前端库</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">原生API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/overview.html">API概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/app.html">应用程序</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/clipboard.html">剪贴板</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/computer.html">硬件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/custom.html">自定义</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/debug.html">调试</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/events.html">事件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/extensions.html">拓展</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/filesystem.html">文件系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/init.html">初始化</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/os.html">操作系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/storage.html">存储</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/updater.html">更新</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/window.html">窗口</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/resources.html">资源</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/error-codes.html">错误代码</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/global-variables.html">全局变量</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">命令行</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cli/neu-cli.html">neu CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cli/internal-cli-arguments.html">内部 CLI 参数</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">配置</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/neutralino.config.json.html">neutralino.config.json</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/project-structure.html">项目结构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/modes.html">模式</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">如何</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/extensions-overview.html">扩展概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/auto-updater.html">自动更新</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">发布</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../distribution/overview.html">发布概述</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">贡献</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/framework-developer-guide.html">框架开发者指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/architecture.html">架构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/security.html">安全</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/code-style-guide.html">编码风格指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/developer-support.html">开发者支持</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/committers.html">提交者</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/frequently-asked-questions.html">常见问题解答</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/about-neutralinojs.html">关于Neutralinojs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">更新日志</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/framework">Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/cli">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/client-library">Client Library</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">NeutralinoJS 文档</span>
+    <span class="version">0.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">NeutralinoJS 文档</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.0.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">NeutralinoJS 文档</a></li>
+    <li>开始</li>
+    <li><a href="using-frontend-libraries.html">使用前端库</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/qq253498229/docs-neutralino-api/edit/master/modules/ROOT/pages/getting-started/using-frontend-libraries.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="目录" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">使用前端库</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>你可以使用纯 JavaScript 或任何现代前端库来构建 Neutralinojs 应用程序。 如果你想要使用前端库构建 Neutralinojs 应用程序，首先尝试通过 neu CLI 使用现有的应用程序模板：</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="react"><a class="anchor" href="#react"></a>React</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">neu create myapp --template codezri/neutralinojs-react
+cd myapp
+
+# 使用 Neutralinojs 启动 React 开发服务器
+neu run
+
+# 构建 React 和 Neutralinojs 应用程序
+neu build</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>仓库：<a href="https://github.com/codezri/neutralinojs-react">codezri/neutralinojs-react</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="using-any-frontend-library"><a class="anchor" href="#using-any-frontend-library"></a>使用任何前端库</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>以下教程将指导你通过解释我们如何构建 Neutralinojs React 模板来设置任何前端库与 Neutralinojs 一起使用：</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="initializing-projects"><a class="anchor" href="#initializing-projects"></a>初始化项目</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>首先，你需要创建一个新的空的 Neutralinojs 项目。使用 <a href="https://github.com/neutralinojs/neutralinojs-zero">neutralinojs/neutralinojs-zero</a> 模板来创建一个空项目，如下所示。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">neu create myapp --template neutralinojs/neutralinojs-zero</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>现在，使用你最喜欢的前端框架的命令行工具创建一个新项目。在本教程中，我们将使用 React，但你可以根据需要使用任何前端库。你需要在这个 <code>myapp</code> 目录内创建这个项目。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">cd myapp
+npx create-react-app react-src</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuring-neutralinojs-project"><a class="anchor" href="#configuring-neutralinojs-project"></a>配置 Neutralinojs 项目</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>neutralinojs-zero</code> 模板预先包含了一个 HTML 文件和图标，因此删除 <code>www</code> 目录，因为我们现在不需要这些文件。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">rm -rf www</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>你需要配置 Neutralinojs 项目以支持前端框架。首先，你可以将文档根目录设置为前端框架的构建目录。React 通常将构建输出生成到 <code>build</code> 目录，因此我们可以如下更新 <code>documentRoot</code>。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">"documentRoot": "/react-src/build/"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>现在，我们的 Neutralinojs 应用程序知道了应用程序资源的位置，但缺少图标，因此为应用程序设置一个图标。你可以从前端框架的默认资源目录加载图标。为了演示，让我们使用 <code>public</code> 目录中的 React 图标。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">  "modes": {
+    "window": {
+      // --- other options
+      "icon": "/react-src/public/logo192.png"
+    }
+  }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuring-neu-cli"><a class="anchor" href="#configuring-neu-cli"></a>配置 neu CLI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>默认情况下，零模板配置要求 Neutralinojs CLI 从 GitHub 发布中下载 Neutralinojs 客户端（即 <code>neutralino.js</code>）。 然后，CLI 通过复制 <code>neutralino.js</code> 文件来创建你的应用程序包。 然而，你可以从 NPM 注册表下载客户端库并将其与你的应用程序前端捆绑。 从 Neutralinojs 配置中删除 <code>clientLibrary</code> 属性，以避免从 GitHub 发布中获取客户端：</p>
+</div>
+<div class="paragraph">
+<p>我们可以使用以下选项为 React 配置 CLI。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">  "cli": {
+    // --- other options
+    "resourcesPath": "/react-src/build/",
+    // ---
+    "clientLibrary": "/www/neutralino.js", // &lt;--- Remove this option
+    // ---
+  }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>现在，你可以将 React 应用程序构建并运行为 Neutralinojs 应用程序 — 可以通过以下步骤实现。</p>
+</div>
+<div class="paragraph">
+<p>首先，使用以下命令构建 React 应用程序。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">cd react-src
+npm run build</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>最后，运行 Neutralinojs 应用程序。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">cd ..
+neu run</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="initializing-native-api-with-neutralinojslib"><a class="anchor" href="#initializing-native-api-with-neutralinojslib"></a>使用 <code>@neutralinojs/lib</code> 初始化原生 API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>你可以使用 <code>neu run</code> 命令运行应用程序，但还不能使用原生 API，因为它尚未初始化。为此，你需要使用以下命令安装 Neutralinojs 客户端：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">cd react-src
+npm install @neutralinojs/lib</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>下一步是从你选择的框架的根 HTML 文件中包含 JavaScript 脚本来加载 Neutralinojs <a href="../api/global-variables.html" class="xref page">全局变量</a>。</p>
+</div>
+<div class="paragraph">
+<p>React 通常将主 HTML 文件内容保存在 <code>./public/index.html</code> 文件中，因此我们可以在那里放置以下 HTML 片段来加载客户端库。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">&lt;script src="%PUBLIC_URL%/__neutralino_globals.js"&gt;&lt;/script&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>现在确保从你的前端应用程序入口点文件初始化客户端库。React 的应用程序入口点通常是 <code>./src/index.js</code>。 因此，我们可以通过从 <code>@neutralinojs/lib</code> 包调用 <code>init</code> 函数来执行初始化过程。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+
+// Import init function from "@neutralinojs/lib"
+import { init } from "@neutralinojs/lib"
+
+ReactDOM.render(
+  &lt;React.StrictMode&gt;
+    &lt;App /&gt;
+  &lt;/React.StrictMode&gt;,
+  document.getElementById('root')
+);
+
+init(); // Add this function call</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>让我们验证客户端库是否正确加载。为此，让我们使用 <code>filesystem</code> API 来读取 Neutralinojs 应用程序的当前目录。</p>
+</div>
+<div class="paragraph">
+<p>首先，你需要更新 <code>neutralino.config.json</code> 以允许你的应用程序调用哪些 API。你可以启用整个命名空间 <code>filesystem.*</code> 或仅启用给定命名空间中的单个函数，如下所示。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">  "nativeAllowList": [
+    "app.*",
+    "filesystem.readDirectory"
+  ],</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>现在让我们在 <code>./src/App.js</code> 文件中添加以下片段，该片段将在 <code>App</code> 组件挂载时记录当前目录或错误消息。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">import { useEffect } from 'react'
+import './App.css';
+
+// Import filesystem namespace
+import { filesystem } from "@neutralinojs/lib"
+
+function App() {
+
+  // Log current directory or error after component is mounted
+  useEffect(() =&gt; {
+    filesystem.readDirectory('./').then((data) =&gt; {
+      console.log(data)
+    }).catch((err) =&gt; {
+      console.log(err)
+    })
+  }, [])
+
+  return (
+    &lt;div className="App"&gt;
+      My Neutralinojs App
+    &lt;/div&gt;
+  );
+}
+
+export default App;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>最后一步是使用 <code>--window-enable-inspector</code> 参数运行你的 Neutralinojs 应用程序，这将允许你打开开发者工具。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">cd react-src
+npm run build
+
+cd ..
+neu run -- --window-enable-inspector</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>当前目录应该记录到控制台。要打开开发者工具，右键单击 Neutralinojs 应用程序中的任何位置，然后按 <code>inspect element</code>。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="enabling-hot-reload-and-configuration"><a class="anchor" href="#enabling-hot-reload-and-configuration"></a>启用热重载和配置</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>构建每个代码更改并测试你的应用程序无疑是耗时的。因此，你可以使用前端框架的 HMR（热模块替换）功能来加速你的开发活动。但是，我们这里有一个小问题。现在有两个 HTTP 服务器：Neutralinojs 资源服务器和前端框架的开发服务器。我们如何从前端框架的开发服务器加载 Neutralinojs 客户端库？</p>
+</div>
+<div class="paragraph">
+<p>不用担心 — neu CLI 提供了一个内置功能，通过修补主 HTML 文件来启用 HMR。 你可以在配置文件中添加以下部分来激活热重载。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">  "cli": {
+    // --- other options
+    "frontendLibrary": {
+        "patchFile": "/react-src/public/index.html",
+        "devUrl": "http://localhost:3000"
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>上述选项告诉 neu CLI 主 HTML 文件和开发服务器 URL。</p>
+</div>
+<div class="paragraph">
+<p>接下来，通过添加特定于前端库的开发命令来配置你的项目，如下所示：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">  "cli": {
+    // --- other options
+    "frontendLibrary": {
+        "patchFile": "/react-src/public/index.html",
+        "devUrl": "http://localhost:3000",
+        "projectPath": "/react-src/",
+        "initCommand": "npm install",
+        "devCommand": "BROWSER=none npm start",
+        "buildCommand": "npm run build"
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>最后，使用以下命令运行 Neutralinojs 应用程序。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">neu run</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>上述命令执行 <code>devCommand</code>，启动 React 开发服务器，并以开发模式运行 Neutralinojs 应用程序。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://neutralino.js.org/assets/images/hmr-preview-cdce2bdfc292933f7c15696bff07cf89.gif" alt="hmr preview cdce2bdfc292933f7c15696bff07cf89">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="packaging"><a class="anchor" href="#packaging"></a>打包</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>要生成应用程序二进制文件，你可以像往常一样使用以下命令：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">neu build --release</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>上述命令首先执行 <code>buildCommand</code>，因此应用程序包将使用正确的 React 项目源。</p>
+</div>
+<div class="paragraph">
+<p>查看本教程的完整源代码，请点击 <a href="https://github.com/codezri/neutralinojs-react">这里</a>。</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>剪贴板 :: 我的文档</title>
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">我的文档</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="docs-neutralino-api" data-version="0.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">NeutralinoJS 文档</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">开始</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html">介绍</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/your-first-neutralinojs-app.html">你的第一个应用</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/using-frontend-libraries.html">使用前端库</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">原生API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="overview.html">API概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="app.html">应用程序</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="clipboard.html">剪贴板</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="computer.html">硬件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom.html">自定义</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="debug.html">调试</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="events.html">事件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions.html">拓展</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="filesystem.html">文件系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="init.html">初始化</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="os.html">操作系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage.html">存储</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="updater.html">更新</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="window.html">窗口</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="resources.html">资源</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="error-codes.html">错误代码</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="global-variables.html">全局变量</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">命令行</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cli/neu-cli.html">neu CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cli/internal-cli-arguments.html">内部 CLI 参数</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">配置</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/neutralino.config.json.html">neutralino.config.json</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/project-structure.html">项目结构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/modes.html">模式</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">如何</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/extensions-overview.html">扩展概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/auto-updater.html">自动更新</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">发布</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../distribution/overview.html">发布概述</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">贡献</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/framework-developer-guide.html">框架开发者指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/architecture.html">架构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/security.html">安全</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/code-style-guide.html">编码风格指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/developer-support.html">开发者支持</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/committers.html">提交者</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/frequently-asked-questions.html">常见问题解答</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/about-neutralinojs.html">关于Neutralinojs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">更新日志</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/framework">Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/cli">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/client-library">Client Library</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">NeutralinoJS 文档</span>
+    <span class="version">0.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">NeutralinoJS 文档</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.0.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">NeutralinoJS 文档</a></li>
+    <li>原生API</li>
+    <li><a href="clipboard.html">剪贴板</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/qq253498229/docs-neutralino-api/edit/master/modules/ROOT/pages/api/clipboard.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="目录" data-levels="1">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">剪贴板</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>Neutralino.clipboard</code> 命名空间提供了访问系统剪贴板的函数。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="clipboardgetformat"><a class="anchor" href="#clipboardgetformat"></a>获取格式</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>clipboard.getFormat()</code></p>
+</div>
+<div class="paragraph">
+<p>返回系统剪贴板当前的数据格式。</p>
+</div>
+<div class="sect2">
+<h3 id="return-string-awaited"><a class="anchor" href="#return-string-awaited"></a>返回字符串（异步）：</h3>
+<div class="paragraph">
+<p>剪贴板格式：<code>text</code>、<code>image</code>或<code>unknown</code>。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let format = await Neutralino.clipboard.getFormat();
+console.log(`Format: ${format}`);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="clipboardwritetexttext"><a class="anchor" href="#clipboardwritetexttext"></a>写入文本</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>clipboard.writeText(text)</code></p>
+</div>
+<div class="paragraph">
+<p>将文本写入系统剪贴板。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters"><a class="anchor" href="#parameters"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>text</code> 字符串：要存储到系统剪贴板的文本。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.clipboard.writeText('测试值');</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="clipboardwriteimageimage"><a class="anchor" href="#clipboardwriteimageimage"></a>写入图片</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>clipboard.writeImage(image)</code></p>
+</div>
+<div class="paragraph">
+<p>将图像写入系统剪贴板。</p>
+</div>
+<div class="sect2">
+<h3 id="input-object-clipboardimage"><a class="anchor" href="#input-object-clipboardimage"></a>输入对象：<code>ClipboardImage</code></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>width</code>：数字：图像宽度。</p>
+</li>
+<li>
+<p><code>height</code>：数字：图像高度。</p>
+</li>
+<li>
+<p><code>bpp</code>：数字：每像素位数（BPP）。</p>
+</li>
+<li>
+<p><code>bpr</code>：数字：每行字节数（BPR）。</p>
+</li>
+<li>
+<p><code>redMask</code>：数字：红色掩码。</p>
+</li>
+<li>
+<p><code>greenMask</code>：数字：绿色掩码。</p>
+</li>
+<li>
+<p><code>blueMask</code>：数字：蓝色掩码。</p>
+</li>
+<li>
+<p><code>redShift</code>：数字：红色位移。</p>
+</li>
+<li>
+<p><code>greenShift</code>：数字：绿色位移。</p>
+</li>
+<li>
+<p><code>blueShift</code>：数字：蓝色位移。</p>
+</li>
+<li>
+<p><code>data</code>：ArrayBuffer：图像的原始RGBA二进制数据，存储在数组缓冲区中。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let image = prepareClipboardImage();
+await Neutralino.clipboard.writeImage(image);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="clipboardreadtext"><a class="anchor" href="#clipboardreadtext"></a>读取文本</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>clipboard.readText()</code></p>
+</div>
+<div class="paragraph">
+<p>从系统剪贴板读取并返回文本。</p>
+</div>
+<div class="sect2">
+<h3 id="return-string-awaited-1"><a class="anchor" href="#return-string-awaited-1"></a>返回字符串（异步）：</h3>
+<div class="paragraph">
+<p>从系统剪贴板中存储的文本。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let clipboardText = await Neutralino.clipboard.readText();
+console.log(`Text: ${clipboardText}`);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="clipboardreadimage"><a class="anchor" href="#clipboardreadimage"></a>读取图片</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>clipboard.readImage()</code></p>
+</div>
+<div class="paragraph">
+<p>从系统剪贴板读取并返回图像。</p>
+</div>
+<div class="sect2">
+<h3 id="return-object-awaited"><a class="anchor" href="#return-object-awaited"></a>返回对象（异步）：</h3>
+<div class="paragraph">
+<p>返回一个 <code><a href="#input-object-clipboardimage">ClipboardImage</a></code> 对象，该对象具有与 <code><a href="#clipboardwriteimageimage">writeImage()</a></code> 函数中相同的属性。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let clipboardImage = await Neutralino.clipboard.readImage();
+console.log(`Image: ${clipboardImage}`);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

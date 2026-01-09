@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>操作系统 :: 我的文档</title>
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">我的文档</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="docs-neutralino-api" data-version="0.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">NeutralinoJS 文档</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">开始</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html">介绍</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/your-first-neutralinojs-app.html">你的第一个应用</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/using-frontend-libraries.html">使用前端库</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">原生API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="overview.html">API概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="app.html">应用程序</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="clipboard.html">剪贴板</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="computer.html">硬件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom.html">自定义</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="debug.html">调试</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="events.html">事件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="extensions.html">拓展</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="filesystem.html">文件系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="init.html">初始化</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="os.html">操作系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="storage.html">存储</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="updater.html">更新</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="window.html">窗口</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="resources.html">资源</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="error-codes.html">错误代码</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="global-variables.html">全局变量</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">命令行</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cli/neu-cli.html">neu CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../cli/internal-cli-arguments.html">内部 CLI 参数</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">配置</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/neutralino.config.json.html">neutralino.config.json</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/project-structure.html">项目结构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/modes.html">模式</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">如何</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/extensions-overview.html">扩展概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/auto-updater.html">自动更新</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">发布</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../distribution/overview.html">发布概述</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">贡献</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/framework-developer-guide.html">框架开发者指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/architecture.html">架构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/security.html">安全</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/code-style-guide.html">编码风格指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/developer-support.html">开发者支持</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/committers.html">提交者</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/frequently-asked-questions.html">常见问题解答</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/about-neutralinojs.html">关于Neutralinojs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">更新日志</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/framework">Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/cli">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/client-library">Client Library</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">NeutralinoJS 文档</span>
+    <span class="version">0.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">NeutralinoJS 文档</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.0.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">NeutralinoJS 文档</a></li>
+    <li>原生API</li>
+    <li><a href="os.html">操作系统</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/qq253498229/docs-neutralino-api/edit/master/modules/ROOT/pages/api/os.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="目录" data-levels="1">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">操作系统</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>Neutralino.os</code> 命名空间包含与用户操作系统相关的方法。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osexeccommandcommand-options"><a class="anchor" href="#osexeccommandcommand-options"></a>执行命令</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.execCommand(command, options)</code></p>
+</div>
+<div class="paragraph">
+<p>执行一个命令并返回输出结果。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters"><a class="anchor" href="#parameters"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>command</code> String：要执行的命令。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="options"><a class="anchor" href="#options"></a>选项</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>background</code> Boolean：如果设置为 <code>true</code>，则在后台执行命令，并立即解析 Promise。此选项会使进程与 API 函数调用分离，因此如果你需要稍后与新创建的进程连接，请考虑使用 <code>os.spawnProcess</code>。</p>
+</li>
+<li>
+<p><code>stdIn</code> String：标准输入，以字符串形式。</p>
+</li>
+<li>
+<p><code>cwd</code> String：当前工作目录。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="return-object-awaited"><a class="anchor" href="#return-object-awaited"></a>返回 Object（异步等待）：</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pid</code> Number：进程标识符。</p>
+</li>
+<li>
+<p><code>stdOut</code> String：标准输出。</p>
+</li>
+<li>
+<p><code>stdErr</code> String：标准错误。</p>
+</li>
+<li>
+<p><code>exitCode</code> Number：进程的退出代码。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let info = await Neutralino.os.execCommand('python --version');
+console.log(`Your Python version: ${info.stdOut}`);
+
+await Neutralino.os.execCommand('npm start', { background: true });</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osspawnprocesscommand-cwd"><a class="anchor" href="#osspawnprocesscommand-cwd"></a>启动后台进程</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.spawnProcess(command, cwd)</code></p>
+</div>
+<div class="paragraph">
+<p>根据命令在后台启动一个进程，并让开发者能够控制它。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-1"><a class="anchor" href="#parameters-1"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>command</code> String：要在新进程中执行的命令。</p>
+</li>
+<li>
+<p><code>cwd</code> String（可选）：当前工作目录。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="return-object-awaited-1"><a class="anchor" href="#return-object-awaited-1"></a>返回 Object（异步等待）：</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>id</code> Number：Neutralino 范围内的进程标识符。此值用于通过原生 API 控制进程。</p>
+</li>
+<li>
+<p><code>pid</code> Number：操作系统提供的进程标识符。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let pingProc = await Neutralino.os.spawnProcess('ping neutralino.js.org');
+
+Neutralino.events.on('spawnedProcess', (evt) =&gt; {
+    if(pingProc.id == evt.detail.id) {
+        switch(evt.detail.action) {
+            case 'stdOut':
+                console.log(evt.detail.data);
+                break;
+            case 'stdErr':
+                console.error(evt.detail.data);
+                break;
+            case 'exit':
+                console.log(`Ping process terminated with exit code: ${evt.detail.data}`);
+                break;
+        }
+    }
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osupdatespawnedprocessid-action-data"><a class="anchor" href="#osupdatespawnedprocessid-action-data"></a>更新后台进程</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.updateSpawnedProcess(id, action, data)</code></p>
+</div>
+<div class="paragraph">
+<p>根据提供的操作和数据更新一个已启动的进程。如果无法更新进程，则抛出 <code>NE_OS_UNLTOUP</code> 异常。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-2"><a class="anchor" href="#parameters-2"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>id</code> Number：Neutralino 范围内的进程标识符。</p>
+</li>
+<li>
+<p><code>action</code> String：要执行的操作。仅接受以下值：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stdIn</code>：通过标准输入流将数据发送到进程。</p>
+</li>
+<li>
+<p><code>stdInEnd</code>：关闭标准输入流文件描述符。</p>
+</li>
+<li>
+<p><code>exit</code>：终止进程。</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>data</code> Object（可选）：<code>action</code>的额外数据。如果<code>action</code>是 <code>stdIn</code>，则发送标准输入字符串。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let nodeProc = await Neutralino.os.spawnProcess('node');
+
+Neutralino.events.on('spawnedProcess', (evt) =&gt; {
+    if(nodeProc.id == evt.detail.id) {
+        switch(evt.detail.action) {
+            case 'stdOut':
+                console.log(evt.detail.data); // 10
+                break;
+            case 'stdErr':
+                console.error(evt.detail.data);
+                break;
+            case 'exit':
+                console.log(`Node.js process terminated with exit code: ${evt.detail.data}`);
+                break;
+        }
+    }
+});
+
+await Neutralino.os.updateSpawnedProcess(nodeProc.id, 'stdIn', 'console.log(5 + 5);');
+await Neutralino.os.updateSpawnedProcess(nodeProc.id, 'stdInEnd');</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osgetspawnedprocesses"><a class="anchor" href="#osgetspawnedprocesses"></a>获取后台进程</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.getSpawnedProcesses()</code></p>
+</div>
+<div class="paragraph">
+<p>返回所有已启动的进程。</p>
+</div>
+<div class="sect2">
+<h3 id="return-object-awaited-2"><a class="anchor" href="#return-object-awaited-2"></a>返回 Object（异步等待）：</h3>
+<div class="paragraph">
+<p>一个 <code>SpawnedProcess</code> 对象数组。</p>
+</div>
+<div class="sect3">
+<h4 id="spawnedprocess"><a class="anchor" href="#spawnedprocess"></a>SpawnedProcess</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>id</code> Number：Neutralino 范围内的进程标识符。</p>
+</li>
+<li>
+<p><code>pid</code> Number：操作系统提供的进程标识符。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.os.spawnProcess('ping neutralino.js.org');
+await Neutralino.os.spawnProcess('ping codezri.org');
+
+let processes = await Neutralino.os.getSpawnedProcesses();
+console.log(processes);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osgetenvkey"><a class="anchor" href="#osgetenvkey"></a>获取指定环境变量</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.getEnv(key)</code></p>
+</div>
+<div class="paragraph">
+<p>提供给定环境变量的值。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-3"><a class="anchor" href="#parameters-3"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>key</code> String：环境变量的名称。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="return-string-awaited"><a class="anchor" href="#return-string-awaited"></a>返回 String（异步等待）：</h3>
+<div class="paragraph">
+<p>给定环境变量的值。如果环境变量未定义，则返回空字符串。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let value = await Neutralino.os.getEnv('USER');
+console.log(`USER = ${value}`);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osgetenvs"><a class="anchor" href="#osgetenvs"></a>获取全部环境变量</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.getEnvs()</code></p>
+</div>
+<div class="paragraph">
+<p>返回所有环境变量及其值。</p>
+</div>
+<div class="sect2">
+<h3 id="return-object-awaited-3"><a class="anchor" href="#return-object-awaited-3"></a>返回 Object（异步等待）：</h3>
+<div class="paragraph">
+<p>环境变量的详细信息，以键值对形式表示。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let envs = await Neutralino.os.getEnvs();
+console.log(envs);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osshowopendialogtitle-options"><a class="anchor" href="#osshowopendialogtitle-options"></a>弹出打开文件对话框</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.showOpenDialog(title, options)</code></p>
+</div>
+<div class="paragraph">
+<p>显示文件打开对话框。你可以使用此函数获取现有文件的路径。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-4"><a class="anchor" href="#parameters-4"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>title</code> String（可选）：对话框的标题。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="options-1"><a class="anchor" href="#options-1"></a>选项</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filters</code> Filter[]（可选）：一个 Filter 对象数组，用于过滤文件列表。</p>
+</li>
+<li>
+<p><code>multiSelections</code>（可选）：启用多选。</p>
+</li>
+<li>
+<p><code>defaultPath</code> String（可选）：对话框显示的初始路径/文件名。</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="filter"><a class="anchor" href="#filter"></a>Filter</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name</code> String：过滤器名称。</p>
+</li>
+<li>
+<p><code>extensions</code> String：文件扩展名数组。例如：<code>['jpg', 'png']</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="return-object-awaited-4"><a class="anchor" href="#return-object-awaited-4"></a>返回 Object（异步等待）：</h3>
+<div class="paragraph">
+<p>一个选定条目的数组。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let entries = await Neutralino.os.showOpenDialog('Open a diagram', {
+  defaultPath: '/home/my/directory/',
+  filters: [
+    {name: 'Images', extensions: ['jpg', 'png']},
+    {name: 'All files', extensions: ['*']}
+  ]
+});
+console.log('You have selected:', entries);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osshowsavedialogtitle-options"><a class="anchor" href="#osshowsavedialogtitle-options"></a>弹出保存文件对话框</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.showSaveDialog(title, options)</code></p>
+</div>
+<div class="paragraph">
+<p>显示文件保存对话框。你可以使用此函数获取创建新文件的路径。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-5"><a class="anchor" href="#parameters-5"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>title</code> String（可选）：对话框的标题。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="options-2"><a class="anchor" href="#options-2"></a>选项</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filters</code> Filter[]（可选）：一个 Filter 对象数组，用于过滤文件列表。</p>
+</li>
+<li>
+<p><code>forceOverwrite</code> Boolean（可选）：跳过文件覆盖警告消息。</p>
+</li>
+<li>
+<p><code>defaultPath</code> String（可选）：对话框显示的初始路径/文件名。</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="filter-1"><a class="anchor" href="#filter-1"></a>Filter</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name</code> String：过滤器名称。</p>
+</li>
+<li>
+<p><code>extensions</code> String[]：文件扩展名数组。例如：<code>['jpg', 'png']</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="return-string-awaited-1"><a class="anchor" href="#return-string-awaited-1"></a>返回 String（异步等待）：</h3>
+<div class="paragraph">
+<p>选定的文件名。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let entry = await Neutralino.os.showSaveDialog('Save to file', {
+  defaultPath: 'untitled.jpg',
+  filters: [
+    {name: 'Images', extensions: ['jpg', 'png']},
+    {name: 'All files', extensions: ['*']}
+  ]
+});
+console.log('You have selected:', entry);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osshowfolderdialogtitle"><a class="anchor" href="#osshowfolderdialogtitle"></a>弹出打开目录对话框</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.showFolderDialog(title)</code></p>
+</div>
+<div class="paragraph">
+<p>显示文件夹打开对话框。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-6"><a class="anchor" href="#parameters-6"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>title</code> String（可选）：对话框的标题。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="options-3"><a class="anchor" href="#options-3"></a>选项</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>defaultPath</code> String（可选）：对话框显示的初始路径。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="return-string-awaited-2"><a class="anchor" href="#return-string-awaited-2"></a>返回 String（异步等待）：</h3>
+<div class="paragraph">
+<p>选定的文件夹。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let entry = await Neutralino.os.showFolderDialog('Select installation directory', {
+  defaultPath: '/home/my/directory/'
+});
+console.log('You have selected:', entry);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osshownotificationtitle-content-icon"><a class="anchor" href="#osshownotificationtitle-content-icon"></a>弹出通知消息</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.showNotification(title, content, icon)</code></p>
+</div>
+<div class="paragraph">
+<p>显示通知消息。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-7"><a class="anchor" href="#parameters-7"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>title</code> String：通知标题。</p>
+</li>
+<li>
+<p><code>content</code> String：通知内容。</p>
+</li>
+<li>
+<p><code>icon</code> String（可选）：图标名称。接受的值有：<code>INFO</code>、<code>WARNING</code>、<code>ERROR</code> 和 <code>QUESTION</code>。默认值为 <code>INFO</code>。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.os.showNotification('Hello world', 'It works! Have a nice day');
+
+await Neutralino.os.showNotification('Oops :/', 'Something went wrong', 'ERROR');</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osshowmessageboxtitle-content-choice-icon"><a class="anchor" href="#osshowmessageboxtitle-content-choice-icon"></a>弹出消息框</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.showMessageBox(title, content, choice, icon)</code></p>
+</div>
+<div class="paragraph">
+<p>显示消息框。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-8"><a class="anchor" href="#parameters-8"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>title</code> String：消息框的标题。</p>
+</li>
+<li>
+<p><code>content</code> String：消息框的内容。</p>
+</li>
+<li>
+<p><code>choice</code> String（可选）：消息框按钮。接受的值有：<code>OK</code>、<code>OK_CANCEL</code>、<code>YES_NO</code>、<code>YES_NO_CANCEL</code>、<code>RETRY_CANCEL</code> 和 <code>ABORT_RETRY_IGNORE</code>。默认值为 <code>OK</code>。</p>
+</li>
+<li>
+<p><code>icon</code> String（可选）：图标名称。接受的值有：<code>INFO</code>、<code>WARNING</code>、<code>ERROR</code> 和 <code>QUESTION</code>。默认值为 <code>INFO</code>。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="return-string-awaited-3"><a class="anchor" href="#return-string-awaited-3"></a>返回 String（异步等待）：</h3>
+<div class="paragraph">
+<p>用户的 <code>choice</code>。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">await Neutralino.os.showMessageBox('Hello', 'Welcome');
+
+let button = await Neutralino.os
+            .showMessageBox('Confirm',
+                            'Are you sure you want to quit?',
+                            'YES_NO', 'QUESTION');
+if(button == 'YES') {
+    Neutralino.app.exit();
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ossettrayoptions"><a class="anchor" href="#ossettrayoptions"></a>设置系统托盘</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.setTray(options)</code></p>
+</div>
+<div class="paragraph">
+<p>创建/更新托盘图标和菜单。</p>
+</div>
+<div class="sect2">
+<h3 id="options-4"><a class="anchor" href="#options-4"></a>选项</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>icon</code> String：托盘图标路径。例如：<code>/resources/icons/trayIcon.png</code>。一个 <code>20x20</code> 大小的 PNG 图像文件在所有支持的操作系统上都能很好地工作。</p>
+</li>
+<li>
+<p><code>menuItems</code> TrayMenuItem[]：一个 <code>TrayMenuItem</code> 对象数组。</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="traymenuitem"><a class="anchor" href="#traymenuitem"></a>TrayMenuItem</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>id</code> String（可选）：每个菜单项的唯一标识符。</p>
+</li>
+<li>
+<p><code>text</code> String：菜单项的标签。这是一个必填字段。使用 <code>-</code>（连字符）字符作为菜单分隔符。</p>
+</li>
+<li>
+<p><code>isDisabled</code> Boolean（可选）：一个布尔标志，用于启用/禁用特定菜单项。</p>
+</li>
+<li>
+<p><code>isChecked</code> Boolean（可选）：一个布尔标志，用于标记特定菜单项为已选中。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let tray = {
+  icon: '/resources/icons/trayIcon.png',
+  menuItems: [
+    {id: "about", text: "About"},
+    {text: "-"},
+    {id: "quit", text: "Quit"}
+  ]
+};
+
+await Neutralino.os.setTray(tray);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osgetpathname"><a class="anchor" href="#osgetpathname"></a>根据类别获取特殊路径</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.getPath(name)</code></p>
+</div>
+<div class="paragraph">
+<p>返回已知的特定于平台的文件夹，如下载、音乐、视频等。</p>
+</div>
+<div class="sect2">
+<h3 id="parameters-9"><a class="anchor" href="#parameters-9"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>title</code> String：文件夹名称。接受的值有：<code>config</code>、<code>data</code>、<code>cache</code>、<code>documents</code>、<code>pictures</code>、<code>music</code>、<code>video</code>、<code>downloads</code>、<code>saveGames1</code>、<code>saveGames2</code> 和 <code>temp</code>。对于无效的文件夹名称，会抛出 <code>NE_OS_INVKNPT</code> 异常。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="return-string-awaited-4"><a class="anchor" href="#return-string-awaited-4"></a>返回 String（异步等待）：</h3>
+<div class="paragraph">
+<p>路径。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">let downloadsPath = await Neutralino.os.getPath('downloads');
+console.log(`Downloads folder: ${downloadsPath}`);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="osopenurl"><a class="anchor" href="#osopenurl"></a>打开链接</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><code>os.open(url)</code></p>
+</div>
+<div class="paragraph">
+<p>使用默认的网络浏览器打开一个 URL。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+如果您的应用程序在默认的网络浏览器中运行，此方法将打开一个新标签页。
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="parameters-10"><a class="anchor" href="#parameters-10"></a>参数</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>url</code> String：要打开的 URL。</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-javascript hljs" data-lang="javascript">Neutralino.os.open('https://neutralino.js.org');</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

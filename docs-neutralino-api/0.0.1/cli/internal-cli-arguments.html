@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>内部 CLI 参数 :: 我的文档</title>
+    <meta name="generator" content="Antora 3.1.10">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../../..">我的文档</a>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="docs-neutralino-api" data-version="0.0.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../index.html">NeutralinoJS 文档</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">开始</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../index.html">介绍</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/your-first-neutralinojs-app.html">你的第一个应用</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../getting-started/using-frontend-libraries.html">使用前端库</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">原生API</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/overview.html">API概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/app.html">应用程序</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/clipboard.html">剪贴板</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/computer.html">硬件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/custom.html">自定义</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/debug.html">调试</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/events.html">事件</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/extensions.html">拓展</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/filesystem.html">文件系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/init.html">初始化</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/os.html">操作系统</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/storage.html">存储</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/updater.html">更新</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/window.html">窗口</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/resources.html">资源</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/error-codes.html">错误代码</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../api/global-variables.html">全局变量</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">命令行</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="neu-cli.html">neu CLI</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="internal-cli-arguments.html">内部 CLI 参数</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">配置</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/neutralino.config.json.html">neutralino.config.json</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/project-structure.html">项目结构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../configuration/modes.html">模式</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">如何</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/extensions-overview.html">扩展概述</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../how-to/auto-updater.html">自动更新</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">发布</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../distribution/overview.html">发布概述</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">贡献</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/framework-developer-guide.html">框架开发者指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/architecture.html">架构</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/security.html">安全</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/code-style-guide.html">编码风格指南</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/developer-support.html">开发者支持</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/committers.html">提交者</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/frequently-asked-questions.html">常见问题解答</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../contributing/about-neutralinojs.html">关于Neutralinojs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">更新日志</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/framework">Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/cli">CLI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="https://neutralino.js.org/docs/release-notes/client-library">Client Library</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">NeutralinoJS 文档</span>
+    <span class="version">0.0.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../index.html">NeutralinoJS 文档</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">0.0.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">NeutralinoJS 文档</a></li>
+    <li>命令行</li>
+    <li><a href="internal-cli-arguments.html">内部 CLI 参数</a></li>
+  </ul>
+</nav>
+<div class="edit-this-page"><a href="https://github.com/qq253498229/docs-neutralino-api/edit/master/modules/ROOT/pages/cli/internal-cli-arguments.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="目录" data-levels="3">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">内部 CLI 参数</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>neu CLI 包装了 Neutralinojs 的内部 CLI 参数，为开发者提供了一个简单的接口。
+例如，<code>neu run</code> 命令在 Linux 内部调用 <code>./bin/neutralino-linux_x64 --load-dir-res --path=. --neu-dev-extension --neu-dev-auto-reload</code>。
+你可以通过构建 neu CLI、Node.js 和 npm 来构建 Neutralinojs 应用程序。但是，neu CLI 为应用程序开发者提供了一个简单、快速且易于使用的工具，用于创建、管理和打包 Neutralinojs 应用程序。</p>
+</div>
+<div class="paragraph">
+<p>Neutralinojs 支持以下 CLI 参数。许多内部 CLI 参数帮助开发者覆盖 <code><a href="../configuration/neutralino.config.json.html" class="xref page">neutralino.config.json</a></code> 文件中定义的默认配置。如果你通过子进程 API 将 Neutralinojs 作为源文件的一部分，你可以使用以下参数来配置应用程序实例。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="general"><a class="anchor" href="#general"></a>通用</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="load-dir-res"><a class="anchor" href="#load-dir-res"></a><code>--load-dir-res</code></h3>
+<div class="paragraph">
+<p>通知 Neutralinojs 服务器从资源目录获取文件。如果未提供此标志，Neutralinojs 服务器将从 <code>resources.neu</code> 文件加载资源。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+如果 Neutralinojs 无法加载资源 <code>resources.neu</code>，此标志将自动在内部启用，以在应用程序目录中查找资源。因此，在开发应用程序时，你可以双击二进制文件，而无需使用 <code>neu run</code>。
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="config-filefilename"><a class="anchor" href="#config-filefilename"></a><code>--config-file=&lt;filename&gt;</code></h3>
+<div class="paragraph">
+<p>使用自定义配置文件代替默认的 <code>neutralino.config.json</code> 文件来加载应用程序配置 JSON。此 CLI 选项有助于设置仅用于开发的配置文件（例如，<code>--config-file=neutralino-dev.config.json</code>）。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>neu build</code> 命令通常不会将自定义配置文件包含在最终应用程序包中 — 它只嵌入默认的 <code>neutralino.config.json</code> 文件，允许你存储生产应用程序配置。
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pathpath"><a class="anchor" href="#pathpath"></a><code>--path=&lt;path&gt;</code></h3>
+<div class="paragraph">
+<p>使用相对路径或绝对路径覆盖资源路径。这将更改 <code>NL_PATH</code> 全局变量。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="modemode"><a class="anchor" href="#modemode"></a><code>--mode=&lt;mode&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖默认模式。接受的值有：<code>window</code>、<code>browser</code> 和 <code>cloud</code>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="neu-dev-auto-reload"><a class="anchor" href="#neu-dev-auto-reload"></a><code>--neu-dev-auto-reload</code></h3>
+<div class="paragraph">
+<p>监听 <code>neuDev_reloadApp</code> 事件。当提供此 CLI 参数时，对资源所做的每次修改都将自动重新加载应用程序。<code>neu run</code> 命令默认使用此标志执行 Neutralinojs。</p>
+</div>
+<div class="paragraph">
+<p><code>--neu-dev-</code> 是 Neutralinojs 进程的保留 CLI 参数前缀。因此，避免添加带有 <code>--neu-dev-</code> 前缀的自定义参数。你可以自由使用 <code>--dev-</code> 前缀用于与开发相关的 CLI 标志。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="neu-dev-extension"><a class="anchor" href="#neu-dev-extension"></a><code>--neu-dev-extension</code></h3>
+<div class="paragraph">
+<p>内部加载 <code>js.neutralino.devtools</code> 扩展用于开发目的。neu CLI 使用此 CLI 参数与应用程序进程建立 IPC。如果应用程序资源是从目录加载的，此选项才有效（对于最终用户不起作用）。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="urlurl"><a class="anchor" href="#urlurl"></a><code>--url=&lt;url&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖应用程序的 URL。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="document-rooturl"><a class="anchor" href="#document-rooturl"></a><code>--document-root=&lt;url&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖静态服务器的文档根目录。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="portport"><a class="anchor" href="#portport"></a><code>--port=&lt;port&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖应用程序端口并将更改 <code>NL_PORT</code> 全局变量。如果给定 <code>0</code>，Neutralino 将使用一个随机可用端口。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging-enabledtruefalse"><a class="anchor" href="#logging-enabledtruefalse"></a><code>--logging-enabled=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖日志功能状态。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging-write-to-log-filetruefalse"><a class="anchor" href="#logging-write-to-log-filetruefalse"></a><code>--logging-write-to-log-file=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖日志文件功能状态。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-auth-infotruefalse"><a class="anchor" href="#export-auth-infotruefalse"></a><code>--export-auth-info=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖身份验证详细信息导出设置。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enable-extensionstruefalse"><a class="anchor" href="#enable-extensionstruefalse"></a><code>--enable-extensions=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖扩展功能的可用性。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enable-servertruefalse"><a class="anchor" href="#enable-servertruefalse"></a><code>--enable-server=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>启用或禁用后台服务器（禁用静态文件服务器功能和原生 API 消息传递）。如果你将远程 URL 加载到 webview，可以将此选项设置为 <code>true</code>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enable-native-apitruefalse"><a class="anchor" href="#enable-native-apitruefalse"></a><code>--enable-native-api=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖主要原生 API 执行权限。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="single-page-servetruefalse"><a class="anchor" href="#single-page-servetruefalse"></a><code>--single-page-serve=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖单页服务选项。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="window-mode"><a class="anchor" href="#window-mode"></a>窗口模式</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>当应用程序以窗口模式运行时，使用以下 CLI 参数。</p>
+</div>
+<div class="sect2">
+<h3 id="window-titletitle"><a class="anchor" href="#window-titletitle"></a><code>--window-title=&lt;title&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口标题。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-iconicon_path"><a class="anchor" href="#window-iconicon_path"></a><code>--window-icon=&lt;icon_path&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口图标。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-full-screentruefalse"><a class="anchor" href="#window-full-screentruefalse"></a><code>--window-full-screen=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口的初始全屏状态。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-always-on-toptruefalse"><a class="anchor" href="#window-always-on-toptruefalse"></a><code>--window-always-on-top=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口的初始置顶模式。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-borderlesstruefalse"><a class="anchor" href="#window-borderlesstruefalse"></a><code>--window-borderless=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口的无边框模式。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-maximizetruefalse"><a class="anchor" href="#window-maximizetruefalse"></a><code>--window-maximize=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口的初始最大化状态。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-hiddentruefalse"><a class="anchor" href="#window-hiddentruefalse"></a><code>--window-hidden=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口的初始可见性状态。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-maximizabletruefalse"><a class="anchor" href="#window-maximizabletruefalse"></a><code>--window-maximizable=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口的初始可最大化状态。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-widthnumber"><a class="anchor" href="#window-widthnumber"></a><code>--window-width=&lt;number&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口宽度。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-heightnumber"><a class="anchor" href="#window-heightnumber"></a><code>--window-height=&lt;number&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口高度。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-min-widthnumber"><a class="anchor" href="#window-min-widthnumber"></a><code>--window-min-width=&lt;number&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口的最小宽度。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-min-heightnumber"><a class="anchor" href="#window-min-heightnumber"></a><code>--window-min-height=&lt;number&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口的最小高度。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-max-widthnumber"><a class="anchor" href="#window-max-widthnumber"></a><code>--window-max-width=&lt;number&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口的最大宽度。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-max-heightnumber"><a class="anchor" href="#window-max-heightnumber"></a><code>--window-max-height=&lt;number&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口的最大高度。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-xnumber"><a class="anchor" href="#window-xnumber"></a><code>--window-x=&lt;number&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口左（<code>x</code>）位置。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-ynumber"><a class="anchor" href="#window-ynumber"></a><code>--window-y=&lt;number&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口顶（<code>y</code>）位置。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-centertruefalse"><a class="anchor" href="#window-centertruefalse"></a><code>--window-center=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口的初始居中定位设置。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-transparenttruefalse"><a class="anchor" href="#window-transparenttruefalse"></a><code>--window-transparent=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口透明度模式。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-resizabletruefalse"><a class="anchor" href="#window-resizabletruefalse"></a><code>--window-resizable=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖窗口的初始可调整大小状态。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-exit-process-on-closetruefalse"><a class="anchor" href="#window-exit-process-on-closetruefalse"></a><code>--window-exit-process-on-close=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖关闭按钮的行为。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-enable-inspectortruefalse"><a class="anchor" href="#window-enable-inspectortruefalse"></a><code>--window-enable-inspector=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>自动打开开发者工具窗口。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-use-saved-statetruefalse"><a class="anchor" href="#window-use-saved-statetruefalse"></a><code>--window-use-saved-state=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖保存的窗口状态功能设置。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-extend-user-agent-withsuffix"><a class="anchor" href="#window-extend-user-agent-withsuffix"></a><code>--window-extend-user-agent-with=&lt;suffix&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖自定义用户代理设置。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-inject-globalstruefalse"><a class="anchor" href="#window-inject-globalstruefalse"></a><code>--window-inject-globals=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖全局变量注入设置。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-inject-client-librarytruefalse"><a class="anchor" href="#window-inject-client-librarytruefalse"></a><code>--window-inject-client-library=&lt;true|false&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖客户端库源注入设置。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="window-inject-scriptscript_path"><a class="anchor" href="#window-inject-scriptscript_path"></a><code>--window-inject-script=&lt;script_path&gt;</code></h3>
+<div class="paragraph">
+<p>覆盖预加载脚本注入设置。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="chrome-mode"><a class="anchor" href="#chrome-mode"></a>Chrome 模式</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>当应用程序以 Chrome 模式运行时，使用以下 CLI 参数。</p>
+</div>
+<div class="sect2">
+<h3 id="chrome-widthnumber"><a class="anchor" href="#chrome-widthnumber"></a>--chrome-width=&lt;number&gt;</h3>
+<div class="paragraph">
+<p>Chrome 窗口的宽度。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="chrome-heightnumber"><a class="anchor" href="#chrome-heightnumber"></a>--chrome-height=&lt;number&gt;</h3>
+<div class="paragraph">
+<p>Chrome 窗口的高度。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="chrome-argsarg_list"><a class="anchor" href="#chrome-argsarg_list"></a>--chrome-args=&lt;arg_list&gt;</h3>
+<div class="paragraph">
+<p>Chrome 进程的附加参数。更多关于 Chrome 模式的信息可以在 <a href="../configuration/modes.html#chrome" class="xref page">这里</a> 找到。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+对于布尔类型的 CLI 参数，右手边的值是可选的。因此，你可以使用 <code>--window-full-screen</code> 而不是 <code>--window-full-screen=true</code>。然而，如果你将 <code>window.fullScreen</code> 定义为 <code>true</code> 并且需要将其覆盖为 <code>false</code>，你必须使用 <code>--window-full-screen=false</code>。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
